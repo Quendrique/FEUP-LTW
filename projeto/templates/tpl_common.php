@@ -11,6 +11,7 @@
     <body>
 
       <header>
+        <img src="../img/logo.png" alt="Page Logo" width="50" height="50">
         <h1><a href="newpage.php"><i class="fas fa-plus-circle"></i> New Page</a></h1>
         <h1><a href="channels.php"><i class="fas fa-hashtag"></i> Channels</a></h1>
         <h1><a href="upload.php"><i class="fas fa-upload"></i> Upload</a></h1>
