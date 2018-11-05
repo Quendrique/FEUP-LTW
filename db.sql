@@ -34,5 +34,11 @@ CREATE TABLE vote (
   comment_id INTEGER REFERENCES comments
 );
 
+CREATE TABLE subscribed (
+  id INTEGER PRIMARY KEY,
+  author VARCHAR REFERENCES user,
+  channel_id INTEGER REFERENCES channels
+);
+
 INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin"); -- password in SHA-1 format
 INSERT INTO channels VALUES (NULL, "general", "admin");
