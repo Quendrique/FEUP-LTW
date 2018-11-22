@@ -8,6 +8,7 @@
       <input type="text" name="username" placeholder="username" required>
       <input type="password" name="password" placeholder="password" required>
       <input type="submit" value="Login">
+      <div><a href="../pages/signup.php/?message=">Signup</a></div>
     </form>
 
   </section>
