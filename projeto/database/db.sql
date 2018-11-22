@@ -8,7 +8,7 @@ CREATE TABLE channels (
   id INTEGER PRIMARY KEY,
   name VARCHAR,
   author VARCHAR REFERENCES users
-)
+);
 
 CREATE TABLE stories (
   id INTEGER PRIMARY KEY,

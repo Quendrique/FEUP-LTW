@@ -1,18 +1,29 @@
 <?php function draw_sidebar_login() { 
-/**
- * Draws the login section.
- */ ?>
-  <section id="sidebar_login">
-    
-    <form method="post" action="../actions/action_login.php">
-      <input type="text" name="username" placeholder="username" required>
-      <input type="password" name="password" placeholder="password" required>
-      <input type="submit" value="Login">
-      <div><a href="../pages/signup.php/?message=">Signup</a></div>
-    </form>
 
-  </section>
-<?php } ?>
+  if (isset($_SESSION['username']))
+  { 
+    $username = $_SESSION['username'];?>
+    <section id="sidebar_login">
+        
+        <a href="../pages/signup.php/?user=<?= $username ?>"><?= $username ?></a>
+        <div><a href="../actions/action_logout.php">Logout</a></div>
+
+    </section>
+  <?php }
+  else
+  { ?>
+    <section id="sidebar_login">
+        
+        <form method="post" action="../actions/action_login.php">
+        <input type="text" name="username" placeholder="username" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="submit" value="Login">
+        <div><a href="../actions/action_logout.php">Signup</a></div>
+        </form>
+
+    </section>
+    <?php }
+ } ?>
 
 <?php function draw_login($message) { 
 /**

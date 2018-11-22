@@ -1,12 +1,11 @@
 <?php
-  include_once('../database/db_user.php');
-
-  session_start();
+  include_once('../database/db_account.php');
+  include_once('../includes/incl_session.php');
 
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  if (checkUserPassword($username, $password)) 
+  if (login($username, $password)) 
   {
     $_SESSION['username'] = $username;
     header('Location: ../pages/mainpage.php');
