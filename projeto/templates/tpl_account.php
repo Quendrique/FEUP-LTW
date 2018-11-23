@@ -5,7 +5,7 @@
     $username = $_SESSION['username'];?>
     <section id="sidebar_login">
         
-        <a href="../pages/signup.php/?user=<?= $username ?>"><?= $username ?></a>
+        <a href="../pages/profile.php?user=<?= $username ?>"><?= $username ?></a>
         <div><a href="../actions/action_logout.php">Logout</a></div>
 
     </section>
@@ -18,7 +18,7 @@
         <input type="text" name="username" placeholder="username" required>
         <input type="password" name="password" placeholder="password" required>
         <input type="submit" value="Login">
-        <div><a href="../actions/action_logout.php">Signup</a></div>
+        <div><a href="../pages/signup.php?message=">Signup</a></div>
         </form>
 
     </section>
@@ -30,8 +30,9 @@
  * Draws the login section.
  */ ?>
   <section id="login">
-    
-    <header><h2>$message</h2></header>
+
+      <h1>Log In</h1>
+      <h2><?= $message ?></h2>
 
     <form method="post" action="../actions/action_login.php">
       <input type="text" name="username" placeholder="username" required>
@@ -52,11 +53,15 @@
  */ ?>
   <section id="signup">
 
-    <header><h2>$message</h2></header>
+      <h1>Create an account today!</h1>
+      <?php if($message !== "") {?>
+      <h2><?= $message ?></h2>
+      <?php }?>
 
     <form method="post" action="../actions/action_signup.php">
-      <input type="text" name="username" placeholder="username" required>
-      <input type="password" name="password" placeholder="password" required>
+      <input type="text" name="username" placeholder="username" autocomplete="new-username" required>
+      <input type="password" name="password" placeholder="password" autocomplete="new-password" required>
+      <input type="password" name="repeat_password" placeholder="repeat password" autocomplete="new-repeat_password" required>
       <input type="submit" value="Signup">
     </form>
 

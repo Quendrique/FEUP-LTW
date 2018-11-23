@@ -12,7 +12,7 @@
   } 
   else 
   {
-    header('Location: ../pages/login.php/?message=Username+or+password+invalid');
+    header('Location: ../pages/login.php?message=Username+or+password+invalid');
   }
 
 ?>
