@@ -18,6 +18,9 @@
               <li><a href="../pages/channels.php"><i class="fas fa-hashtag"></i> Channels</a></li>
               <li><a href="../pages/newpage.php"><i class="fas fa-plus-circle"></i> New Page</a></li>
             </ul>
+            <form method="get" action="../pages/search.php">
+              <label><i class="fas fa-search"></i><input type="text" name="search" placeholder="Search..." required></label>
+            </form>
           </nav>
       </div> 
  

@@ -46,6 +46,21 @@ img{
   padding-left: 20px;
 }
 
+.tabs form
+{
+  float: right;
+  margin-right: 1em;
+}
+
+.tabs form input
+{
+  margin-left: 0.5em; 
+}
+
+.tabs form label
+{
+  color: var(--font-color);
+}
 
 .tabs ul {
 	list-style: none;
