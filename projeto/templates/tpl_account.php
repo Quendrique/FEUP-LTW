@@ -31,7 +31,7 @@
  */ ?>
   <section id="login">
 
-      <h1>Log In</h1>
+      <h1>Insert your account credentials.</h1>
       <h2><?= $message ?></h2>
 
     <form method="post" action="../actions/action_login.php">

@@ -14,10 +14,9 @@
         <img src= "../img/logo.png" height="40" width="40"/>
           <nav class="tabs">
             <ul>
-              <li><a href="profile.php"><i class="fas fa-bars"></i></a></li>
-              <li><a href="upload.php"><i class="fas fa-upload"></i> Upload</a></li>
-              <li><a href="channels.php"><i class="fas fa-hashtag"></i> Channels</a></li>
-              <li><a href="newpage.php"><i class="fas fa-plus-circle"></i> New Page</a></li>
+              <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
+              <li><a href="../pages/channels.php"><i class="fas fa-hashtag"></i> Channels</a></li>
+              <li><a href="../pages/newpage.php"><i class="fas fa-plus-circle"></i> New Page</a></li>
             </ul>
           </nav>
       </div> 
