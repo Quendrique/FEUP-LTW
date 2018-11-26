@@ -5,7 +5,7 @@
     $username = $_SESSION['username'];?>
     <section id="sidebar_login">
         
-        <a href="../pages/profile.php?user=<?= $username ?>"><?= $username ?></a>
+        <a href="../pages/edit_profile.php?user=<?= $username ?>"><?= $username ?></a>
         <div><a href="../actions/action_logout.php">Logout</a></div>
 
     </section>
@@ -41,7 +41,7 @@
     </form>
 
     <footer>
-      <p>Don't have an account? <a href="signup.php">Signup!</a></p>
+      <p>Don't have an account? <a href="signup.php?message=">Signup!</a></p>
     </footer>
 
   </section>
@@ -66,7 +66,7 @@
     </form>
 
     <footer>
-      <p>Already have an account? <a href="login.php">Login!</a></p>
+      <p>Already have an account? <a href="login.php?message=">Login!</a></p>
     </footer>
 
   </section>

@@ -1,7 +1,11 @@
 CREATE TABLE users (
   username VARCHAR PRIMARY KEY,
   password VARCHAR,
-  name VARCHAR
+  name VARCHAR,
+  birth_day INTEGER,
+  gender VARCHAR,
+  email VARCHAR,
+  nationality VARCHAR
 );
 
 CREATE TABLE channels (
@@ -40,5 +44,5 @@ CREATE TABLE subscribed (
   channel_id INTEGER REFERENCES channels
 );
 
-INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin"); -- password in SHA-1 format
+INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", ""); -- password in SHA-1 format
 INSERT INTO channels VALUES (NULL, "general", "admin");

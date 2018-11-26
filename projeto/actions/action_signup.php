@@ -14,7 +14,7 @@
     {
       signup($username, $password);
       $_SESSION['username'] = $username;
-      header('Location: ../pages/mainpage.php');
+      header("Location: ../pages/edit_profile.php/?user=$username");
     } catch (PDOException $e) 
     {
       header('Location: ../pages/signup.php?message=Username+already+taken');
