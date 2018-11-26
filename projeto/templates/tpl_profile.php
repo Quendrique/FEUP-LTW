@@ -16,7 +16,7 @@
     <h1><?=$userdata['username']?></h1>
 
     <?php if($userdata['name'] !== ""){?>
-    <p><b>Username: </b><?=$userdata['name']?></p>  
+    <p><b>Name: </b><?=$userdata['name']?></p>  
     <?php } ?>
 
     <?php if($userdata['birth_day'] !== ""){?>
