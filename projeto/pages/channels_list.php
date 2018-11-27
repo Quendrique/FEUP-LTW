@@ -3,12 +3,12 @@
     include_once('../database/db_channels.php');
     include_once('../templates/tpl_common.php');
     include_once('../templates/tpl_account.php');
-    include_once('../templates/tpl_channel_list.php');
+    include_once('../templates/tpl_channel.php');
 
     $channels = getChannels();
   
     draw_header();
     draw_sidebar_login();
-    draw_channels($channels);
+    draw_channels_list($channels);
     draw_footer();
 ?>

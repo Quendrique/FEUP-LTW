@@ -15,7 +15,7 @@
           <nav class="tabs">
             <ul>
               <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
-              <li><a href="../pages/channels.php"><i class="fas fa-hashtag"></i> Channels</a></li>
+              <li><a href="../pages/channels_list.php"><i class="fas fa-hashtag"></i> Channels</a></li>
               <li><a href="../pages/newpage.php"><i class="fas fa-plus-circle"></i> New Page</a></li>
             </ul>
             <form method="get" action="../pages/search.php">
