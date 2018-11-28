@@ -21,8 +21,8 @@
   function signup($username, $password) 
   {
     global $db;
-    $stmt = $db->prepare('INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
-    $stmt->execute(array($username, sha1($password), null, null ,null ,null, null, null, null));
+    $stmt = $db->prepare('INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($username, sha1($password), null ,null, null, null, null));
   }
 
   function updateProfile($username, $name, $birthdate, $email, $gender, $nationality)
