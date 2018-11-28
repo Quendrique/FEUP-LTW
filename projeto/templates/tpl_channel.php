@@ -5,6 +5,12 @@
  * each list.
  */ ?>
   <section id="channels">
+    <h1>Channels</h1>
+    <header>
+      <h2>Channel Name</h2>
+      <h2>Author</h2>
+    </header>
+    </article>
   <?php 
     foreach($channels as $channel)
       draw_channel_list($channel);
@@ -18,8 +24,8 @@
  * page.
  */ ?>
   <article class="channel_list_item">
-    <header><h2><a href="../pages/channel_page.php?channel_name=<?= $channel['name'] ?>"><?= $channel['name']?></a></h2></header>
-    <p><?= $channel['author']?></p>
+    <a href="../pages/channel_page.php?channel_name=<?= $channel['name'] ?>"><?= $channel['name']?></a>
+    <a href="../pages/profile.php?user=<?= $channel['author'] ?>"><?= $channel['author']?></a>
   </article>
 <?php } ?>
 
