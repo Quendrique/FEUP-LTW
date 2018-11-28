@@ -18,8 +18,8 @@
  * page.
  */ ?>
   <article class="channel_list_item">
-    <header><a href="../pages/channel_page.php?channel=<?= $channel['id'] ?>"><?= $channel['name']?></a></header>
-    <h2><?= $channel['author']?></h2>
+    <header><h2><a href="../pages/channel_page.php?channel_name=<?= $channel['name'] ?>"><?= $channel['name']?></a></h2></header>
+    <p><?= $channel['author']?></p>
   </article>
 <?php } ?>
 
@@ -28,8 +28,28 @@
  * Draws a channel's page
  * page.
  */ ?>
-  <section class="channel_page">
+  <section id="channels">
     <header><h2><?= $channel['name']?></h2></a></header>
     <h2><?= $channel['id']?></h2>
+  </section>
+<?php } ?>
+
+<?php function add_new_channel($username) {
+/**
+ * Draws a channel's page
+ * page.
+ */ ?>
+
+  <section id="channels">
+
+    <h1>Create a new channel</h1>
+
+    <form method="post" action="../actions/action_add_channel.php">
+      <input type="text" name="username" value=<?=$username?> hidden>
+      <p>Channel name: </p>
+      <input type="text" name="channel_name" >
+      <input id="submit" type="submit" value="Create">
+    </form>
+
   </section>
 <?php } ?>

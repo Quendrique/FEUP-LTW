@@ -5,10 +5,14 @@
   include_once('../templates/tpl_account.php');
   include_once('../templates/tpl_channel.php');
 
-  $channel_id = $_GET['channel'];
-  $channel = getChannel($channel_id);
+  $channel_name = $_GET['channel_name'];
+  $channel = getChannel($channel_name);
 
-  draw_header();
+  if (!isset($_SESSION['username']))
+    draw_header(null);
+  else
+    draw_header($_SESSION['username']);
+
   draw_sidebar_login();
   draw_channel_page($channel);
   draw_footer();

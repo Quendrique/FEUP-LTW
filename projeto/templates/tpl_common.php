@@ -1,4 +1,4 @@
-<?php function draw_header() { ?>
+<?php function draw_header($username) { ?>
   <!DOCTYPE html>
   <html>
 
@@ -16,7 +16,9 @@
             <ul>
               <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
               <li><a href="../pages/channels_list.php"><i class="fas fa-hashtag"></i> Channels</a></li>
-              <li><a href="../pages/newpage.php"><i class="fas fa-plus-circle"></i> New Page</a></li>
+              <?php if ($username != NULL) { ?>
+                <li><a href="../pages/add_channel.php?username=<?= $username ?>"><i class="fas fa-plus-circle"></i> Add Channel</a></li>
+              <?php } ?> 
             </ul>
             <form method="get" action="../pages/search.php">
               <label><i class="fas fa-search"></i><input type="text" name="search" placeholder="Search..." required></label>

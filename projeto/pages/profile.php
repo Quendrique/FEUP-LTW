@@ -5,7 +5,6 @@
     include_once('../templates/tpl_profile.php');
     include_once('../database/db_account.php');
 
-    draw_header();
     draw_sidebar_login();
 
     $username = $_GET['user'];
@@ -14,10 +13,12 @@
 
     if(!empty($userdata)) //if user exists
     {
+        draw_header($username);
         printProfile($userdata[0]);
     }
     else //if user does not exist
     {
+        draw_header(null);
         printProfileError($username);
     }
 
