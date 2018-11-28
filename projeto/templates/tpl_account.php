@@ -15,8 +15,8 @@
     <section id="sidebar_login">
         
         <form method="post" action="../actions/action_login.php">
-        <input type="text" name="username" placeholder="username" required>
-        <input type="password" name="password" placeholder="password" required>
+        <input type="text" name="username" placeholder="username" class="inputField" required>
+        <input type="password" name="password" placeholder="password" class="inputField" required>
         <input type="submit" value="Login">
         <div><a href="../pages/signup.php?message=">Signup</a></div>
         </form>
@@ -35,8 +35,8 @@
       <h2><?= $message ?></h2>
 
     <form method="post" action="../actions/action_login.php">
-      <input type="text" name="username" placeholder="username" required>
-      <input type="password" name="password" placeholder="password" required>
+      <input type="text" name="username" placeholder="username" class="inputField" required>
+      <input type="password" name="password" placeholder="password" class="inputField" required>
       <input type="submit" value="Login">
     </form>
 
@@ -59,9 +59,9 @@
       <?php }?>
 
     <form method="post" action="../actions/action_signup.php">
-      <input type="text" name="username" placeholder="username" autocomplete="new-username" required>
-      <input type="password" name="password" placeholder="password" autocomplete="new-password" required>
-      <input type="password" name="repeat_password" placeholder="repeat password" autocomplete="new-repeat_password" required>
+      <input type="text" name="username" placeholder="username" autocomplete="new-username" class="inputField" required>
+      <input type="password" name="password" placeholder="password" autocomplete="new-password" class="inputField"  required>
+      <input type="password" name="repeat_password" placeholder="repeat password" autocomplete="new-repeat_password" class="inputField" required>
       <input type="submit" value="Signup">
     </form>
 

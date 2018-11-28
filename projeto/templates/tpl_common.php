@@ -4,7 +4,7 @@
 
     <head>
       <meta charset="utf-8">
-      <title>Site Name</title>
+      <title>Mel-o</title>
       <link rel="stylesheet" href="../css/style.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
     </head>
@@ -21,7 +21,7 @@
               <?php } ?> 
             </ul>
             <form method="get" action="../pages/search.php">
-              <label><i class="fas fa-search"></i><input type="text" name="search" placeholder="Search..." required></label>
+              <label><input type="text" name="search" class="inputField" placeholder="Search..." required></label>
             </form>
           </nav>
       </div> 
