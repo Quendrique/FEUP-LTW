@@ -4,8 +4,7 @@
     include_once('../templates/tpl_account.php');
     include_once('../templates/tpl_profile.php');
     include_once('../database/db_account.php');
-
-    draw_sidebar_login();
+    include_once('../database/db_channels.php');
 
     $username = $_GET['user'];
 
@@ -15,10 +14,13 @@
     {
         draw_header($username);
         printProfile($userdata[0]);
+        $subbed_channels = getSubbedChannels($username);
+        draw_sidebar($subbed_channels);
     }
     else //if user does not exist
     {
         draw_header(null);
+        draw_sidebar(null);
         printProfileError($username);
     }
 

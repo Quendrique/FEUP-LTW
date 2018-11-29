@@ -13,12 +13,14 @@
     if(!empty($userdata)) //if user exists
     {
         draw_header($username);
+        $subbed_channels = getSubbedChannels($username);
+        draw_sidebar($subbed_channels);
     }
     else //if user does not exist
     {
         draw_header(null);
+        draw_sidebar(null);
     }
-    draw_sidebar_login();
     draw_upload();
 
    draw_footer();

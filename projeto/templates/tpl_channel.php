@@ -24,7 +24,7 @@
  * page.
  */ ?>
   <article class="channel_list_item">
-    <a href="../pages/channel_page.php?channel_name=<?= $channel['name'] ?>"><?= $channel['name']?></a>
+    <a href="../pages/channel_page.php?channel=<?= $channel['name'] ?>"><?= $channel['name']?></a>
     <a href="../pages/profile.php?user=<?= $channel['author'] ?>"><?= $channel['author']?></a>
   </article>
 <?php } ?>
@@ -36,7 +36,6 @@
  */ ?>
   <section id="channels">
     <header><h2><?= $channel['name']?></h2></a></header>
-    <h2><?= $channel['id']?></h2>
   </section>
 <?php } ?>
 
@@ -53,7 +52,7 @@
     <form method="post" action="../actions/action_add_channel.php">
       <input type="text" name="username" value=<?=$username?> hidden>
       <p>Channel name: </p>
-      <input type="text" name="channel_name" >
+      <input type="text" name="channel" >
       <input id="submit" type="submit" value="Create">
     </form>
 

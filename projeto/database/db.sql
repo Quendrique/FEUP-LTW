@@ -9,8 +9,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE channels (
-  id INTEGER PRIMARY KEY,
-  name VARCHAR,
+  name VARCHAR PRIMARY KEY,
   author VARCHAR REFERENCES users
 );
 
@@ -42,9 +41,10 @@ CREATE TABLE vote (
 
 CREATE TABLE subscribed (
   id INTEGER PRIMARY KEY,
-  author VARCHAR REFERENCES user,
-  channel_id INTEGER REFERENCES channels
+  user VARCHAR REFERENCES users,
+  channel VARCHAR REFERENCES channels
 );
 
 INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", ""); -- password in SHA-1 format
-INSERT INTO channels VALUES (NULL, "general", "admin");
+INSERT INTO channels VALUES ("general", "admin");
+INSERT INTO subscribed VALUES (NULL, "admin", "general");

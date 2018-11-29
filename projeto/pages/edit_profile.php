@@ -4,6 +4,7 @@
     include_once('../templates/tpl_account.php');
     include_once('../templates/tpl_profile.php');
     include_once('../database/db_account.php');
+    include_once('../database/db_channels.php');
 
     $username = $_GET['user'];
 
@@ -11,7 +12,8 @@
       die(header('Location: ../pages/mainpage.php'));
 
     draw_header($username);
-    draw_sidebar_login();
+    $subbed_channels = getSubbedChannels($username);
+    draw_sidebar($subbed_channels);
 
     $userdata = getUserData($username);
 

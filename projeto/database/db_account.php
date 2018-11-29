@@ -1,5 +1,6 @@
 <?php
-  include('db_connection.php');
+
+  include('../database/db_connection.php');
 
   function login($username, $password) 
   {

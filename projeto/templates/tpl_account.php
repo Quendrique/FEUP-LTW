@@ -1,3 +1,13 @@
+<?php function draw_sidebar($subbed_channels) {
+?>
+  <section id="sidebar">
+    <?php
+      draw_sidebar_login();
+      draw_sidebar_subs($subbed_channels);
+    ?>
+  </section>
+<?php } ?>
+
 <?php function draw_sidebar_login() { 
 
   if (isset($_SESSION['username']))
@@ -23,7 +33,26 @@
 
     </section>
     <?php }
- } ?>
+} ?>
+
+<?php function draw_sidebar_subs($subbed_channels) { 
+  if (isset($_SESSION['username']) && !empty($subbed_channels)) {
+    ?>
+    <section id="sidebar_subs">
+
+      <ul>
+        <?php
+          foreach($subbed_channels as $subbed_channel) { ?>
+            <li>
+              <a href="../pages/channel_page.php?channel=<?= $subbed_channel['channel'] ?>"><?= $subbed_channel['channel'] ?></a>
+            </li>
+        <?php }
+        ?>
+      </ul>
+
+    </section>
+<?php } 
+}?>
 
 <?php function draw_login($message) { 
 /**

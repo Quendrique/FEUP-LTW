@@ -1,5 +1,5 @@
 <?php
-  include('db_connection.php');
+  include('../database/db_connection.php');
 
   function upload($username, $title, $description, $image,$track) 
   {

@@ -11,7 +11,8 @@
       die(header('Location: ../pages/mainpage.php'));
 
     draw_header($username);
-    draw_sidebar_login();  
+    $subbed_channels = getSubbedChannels($username);
+    draw_sidebar($subbed_channels);  
 
     add_new_channel($username);
 
