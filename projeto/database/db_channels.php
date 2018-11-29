@@ -41,4 +41,24 @@
     return $stmt->fetchAll(); 
   }
 
+  /**
+   * Checks if a user is subscribed to a channel
+   */
+  function isSubbedTo($username, $channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM subscribed WHERE user = ?
+                          AND channel = ?');
+    $stmt->execute(array($username, $channel));
+    return $stmt->fetchAll(); 
+  }
+
+  /**
+   * Checks if a user is subscribed to a channel
+   */
+  function subTo($username, $channel) {
+    global $db;
+    $stmt = $db->prepare('INSERT INTO subscribed VALUES (NULL, ?, ?)');
+    $stmt->execute(array($username, $channel)); 
+  }
+
 ?>

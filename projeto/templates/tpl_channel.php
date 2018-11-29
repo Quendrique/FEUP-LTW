@@ -35,7 +35,18 @@
  * page.
  */ ?>
   <section id="channels">
-    <header><h2><?= $channel['name']?></h2></a></header>
+    <header><h1><?= $channel['name']?></h1></a></header>
+
+    <?php
+      if (isset($_SESSION['username']) && !(isSubbedTo($_SESSION['username'], $channel['name']))) { ?>
+        <form method="post" action="../actions/action_sub_channel.php">
+          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+          <input type="text" name="channel" value=<?=$channel['name']?> hidden>
+          <input id="submit" type="submit" value="Subscribe">
+        </form>
+    <?php }
+    ?>
+
   </section>
 <?php } ?>
 
