@@ -100,14 +100,13 @@ hr {
 .tabs form input {
   height: 20px;
   width:120px;
-  margin-left: 0.5em;
-  padding: 0px 0px 0px 20px;
   background-image: url('../img/searchiscon.png');
   background-repeat: no-repeat;
   background-position: 8px 5px;
   background-size: 10px 10px;
   background-color: var(--search-background-color);
   border:none;
+  padding-left:20px !important;
 }
 
 .tabs form label 
@@ -426,18 +425,20 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
-
 
 #uploadInfo{
   display: flex;
   flex-direction: row;
   margin: 50px auto;
+  justify-content: center;
 }
 
+#uploadInfo .uploadButton{
+  margin-top:20px;
+}
 
-#infoBlock form input{
+#infoBlock input{
   width:100px;
   height:25px;
   width:200px;
@@ -445,7 +446,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   
 }
 
-#infoBlock form select{
+#infoBlock  select{
   width:100px;
   height:25px;
   width:215px;
@@ -456,16 +457,16 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin:0 100px 30px 0;
 }
 
-#uploadFile form, #uploadTrack {
+#uploadFile  {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top:5px;
 }
 
-input[type="file"]{
+/*input[type="file"]{
   display: none;
-}
+}*/
 
 
 .inputLabel{
@@ -484,6 +485,7 @@ input[type="file"]{
   padding: 6px 0px;
   text-align: center;
   margin-bottom:5px;
+  height:18px;
 }
 
 
@@ -503,7 +505,7 @@ textarea{
   margin-top:3em;
 }
 
-#upload input[value="save"]{
+#upload input[value="upload"]{
   border:none;
   font: var(--font);
   font-size: 18px;

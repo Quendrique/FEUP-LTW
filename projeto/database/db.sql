@@ -19,7 +19,9 @@ CREATE TABLE stories (
   title VARCHAR,
   text VARCHAR,
   author VARCHAR REFERENCES users,
-  date INTEGER
+  date INTEGER,
+  coverImage BLOB,
+  track BLOB
 );
 
 CREATE TABLE comments (
