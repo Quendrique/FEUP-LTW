@@ -148,7 +148,7 @@ hr {
 }
 
  /**
- * Sidebar Login
+ * Sidebar login
  */
 
  #sidebar_login {
@@ -214,6 +214,36 @@ hr {
  #sidebar_login > a
  {
   justify-self: center;
+  font-family: var(--font), sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: var(--link-color);
+  margin: auto;
+  padding: 0.1em;
+ }
+
+ /**
+ * Sidebar subs
+ */
+
+ #sidebar_subs {
+  margin-left: 1em;
+  margin-top: 2em;
+  padding: 0.5em;
+  grid-area: 2 / 1 / span 1 / span 1;
+  box-shadow:0px 0px 20px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+ }
+
+ #sidebar_subs ul {
+  list-style-type: none;
+  list-style: none;
+ }
+
+ #sidebar_subs > a {
+  justify-self: center;
+  text-decoration: none;
   font-family: var(--font), sans-serif;
   font-weight: bold;
   font-size: 1.2em;
