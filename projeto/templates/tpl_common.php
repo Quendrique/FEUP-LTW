@@ -11,7 +11,6 @@
 
     <body>
       <div class = "navBar">
-        <img src= "../img/logo.png" height="40" width="40"/>
           <nav class="tabs">
             <ul>
               <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
@@ -24,7 +23,8 @@
               <label><input type="text" name="search" class="inputField" placeholder="Search..." required></label>
             </form>
           </nav>
-      </div> 
+          <img src= "../img/logo.png" height="40" width="40"/>
+        </div> 
  
 <?php } ?>
 

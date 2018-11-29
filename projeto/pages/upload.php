@@ -10,17 +10,14 @@
     $username = $_GET['user'];
 
     $userdata = getUserData($username);
-    draw_header($username);
-    /*if(!empty($userdata)) //if user exists
+    if(!empty($userdata)) //if user exists
     {
         draw_header($username);
-        printProfile($userdata[0]);
     }
     else //if user does not exist
     {
         draw_header(null);
-        printProfileError($username);
-    }*/
+    }
     draw_sidebar_login();
     draw_upload();
 
@@ -34,7 +31,7 @@
       
       $expensions= array("jpeg","jpg","png");
       
-      if(in_array($file_ext,$expensions)=== false){
+      if(in_array($file_ext,$expensions) === false){
          $errors[]="extension not allowed, please choose a JPEG or PNG file.";
       }
       
@@ -44,9 +41,9 @@
       
       if(empty($errors)==true){
          //do something
-         echo "Success";
+         //echo "Success";
       }else{
-         print_r($errors);
+         //print_r($errors);
       }
    }
 
