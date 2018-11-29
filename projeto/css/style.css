@@ -31,7 +31,7 @@ body{
   border: 2px solid var(--box-shadow-color);
   border-radius:50px;
   font-size: 12px;
-  padding-left:12px;
+  padding-left:12px !important;
   background: none;
 }
 
@@ -169,13 +169,7 @@ hr {
     flex-direction: column;
  }
 
- #sidebar_login input:nth-of-type(1){
-  font-family: var(--font), sans-serif;
-  margin: 0.2em  auto auto auto;
-  padding: 0.2em;
-}
-
-#sidebar_login input:nth-of-type(2){
+ #sidebar_login input:nth-of-type(1),#sidebar_login input:nth-of-type(2){
   font-family: var(--font), sans-serif;
   margin: 0.2em  auto auto auto;
   padding: 0.2em;
@@ -196,8 +190,7 @@ hr {
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
  }
 
- #sidebar_login div
- {
+ #sidebar_login div{
     display: flex;
  }
 
@@ -258,7 +251,7 @@ hr {
     color: var(--error-color);
  }
 
- #signup input:nth-of-type(1){
+ #signup input:nth-of-type(1),#signup input:nth-of-type(2), #signup input:nth-of-type(3){
   width: 10em;
   height: 1.5em;
   font-size: 1.5em;
@@ -267,24 +260,6 @@ hr {
   padding: 0.2em;
 }
 
-#signup input:nth-of-type(2){
-  width: 10em;
-  height: 1.5em;
-  font-size: 1.5em;
-  font-family: var(--font), sans-serif;
-  margin: 0.2em  auto 0 0;
-  padding: 0.2em;
-}
-
-#signup input:nth-of-type(3){
-  width: 10em;
-  height: 1.5em;
-  font-size: 1.5em;
-  font-family: var(--font), sans-serif;
-  margin: 0.2em  auto 0 0;
-  padding: 0.2em;
-  border-color:  var(--box-shadow-color);
-}
 
  #signup input:nth-of-type(4){
     width: 3em;
@@ -338,18 +313,7 @@ hr {
     color: var(--error-color);
  }
 
- #login input:nth-of-type(1){
-  width: 10em;
-  height: 1.5em;
-  font-size: 1.5em;
-  font-family: var(--font), sans-serif;
-  margin: 0.2em  auto 0 0;
-  padding: 0.2em;
-  border-radius:50px;
-  border-color:  var(--box-shadow-color);
-}
-
-#login input:nth-of-type(2){
+ #login input:nth-of-type(1),#login input:nth-of-type(2){
   width: 10em;
   height: 1.5em;
   font-size: 1.5em;
@@ -369,7 +333,6 @@ hr {
     font-weight: bold;
     color: var(--font-color);
     border: none;
-    background-color: Transparent;
  }
 
  #login input:nth-of-type(3):hover{
