@@ -53,11 +53,21 @@
   }
 
   /**
-   * Checks if a user is subscribed to a channel
+   * Subscribe a user to a channel
    */
   function subTo($username, $channel) {
     global $db;
     $stmt = $db->prepare('INSERT INTO subscribed VALUES (NULL, ?, ?)');
+    $stmt->execute(array($username, $channel)); 
+  }
+
+  /**
+   * Unsubscribes a user from a channel
+   */
+  function unsubFrom($username, $channel) {
+    global $db;
+    $stmt = $db->prepare('DELETE FROM subscribed WHERE user = ?
+                          AND channel = ?');
     $stmt->execute(array($username, $channel)); 
   }
 

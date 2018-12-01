@@ -7,11 +7,12 @@
     $channel = $_POST['channel'];
 
     try {
-      subTo($user, $channel);
-      $_SESSION['messages'][] = array('type' => 'success', 'content' => "Subscribed to channel $channel");
+      unsubFrom($user, $channel);
+      $_SESSION['messages'][] = array('type' => 'success', 'content' => "Unsubcribed from channel $channel");
       header("Location: ../pages/channel_page.php?channel=$channel");
     } catch (PDOException $e) {
-      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to subscribe to channel $channel");
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to unsubscribe from channel $channel");
       die(header("Location: ../pages/channel_page.php?channel=$channel"));
     }
+
 ?>

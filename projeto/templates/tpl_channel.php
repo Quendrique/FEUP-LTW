@@ -38,14 +38,22 @@
     <header><h1><?= $channel['name']?></h1></a></header>
 
     <?php
-      if (isset($_SESSION['username']) && !(isSubbedTo($_SESSION['username'], $channel['name']))) { ?>
+      if (isset($_SESSION['username'])) { 
+        if (!(isSubbedTo($_SESSION['username'], $channel['name']))) {?>
         <form method="post" action="../actions/action_sub_channel.php">
           <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
           <input type="text" name="channel" value=<?=$channel['name']?> hidden>
           <input id="submit" type="submit" value="Subscribe">
         </form>
-    <?php }
-    ?>
+    <?php } else { ?>
+        <form method="post" action="../actions/action_unsub_channel.php">
+            <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+            <input type="text" name="channel" value=<?=$channel['name']?> hidden>
+            <input id="submit" type="submit" value="Unsubscribe">
+        </form>
+    <?php 
+      }
+    } ?>
 
   </section>
 <?php } ?>
@@ -59,7 +67,7 @@
   <section id="channels">
 
     <h1>Create a new channel</h1>
-
+   
     <form method="post" action="../actions/action_add_channel.php">
       <input type="text" name="username" value=<?=$username?> hidden>
       <p>Channel name: </p>
