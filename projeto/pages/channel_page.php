@@ -4,6 +4,7 @@
   include_once('../templates/tpl_common.php');
   include_once('../templates/tpl_account.php');
   include_once('../templates/tpl_channel.php');
+  include_once('../templates/tpl_stories.php');
 
   $channel_name = $_GET['channel'];
   try {
@@ -35,6 +36,7 @@
     draw_sidebar($subbed_channels);
   }
 
-  draw_channel_page($channel, $stories);
+  draw_channel_page($channel);
+  draw_stories($stories);
   draw_footer();
 ?>

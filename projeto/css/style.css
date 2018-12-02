@@ -482,6 +482,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 /**
 * Upload
 */
+
 #upload{
   margin: 2em 2em 2em 2em;
   padding: 2em;
@@ -589,7 +590,7 @@ textarea{
 * Channel list
 */
 
-#channels {
+#channel_list {
   margin: 2em 0 2em 2em;
   padding: 2em;
   grid-area: 2 / 2 / span 1 / span 1;
@@ -598,25 +599,25 @@ textarea{
   flex-direction: column;
 }
 
-#channels h1 {
+#channel_list h1 {
    color: var(--font-color);
    margin: 0;
 }
 
-#channels header{
+#channel_list header{
   display: flex;
   flex-direction: row; 
 }
 
-#channels header > * {
+#channel_list header > * {
   margin: 0 1em 0 0; 
 }
 
-#channels header:last-child {
+#channel_list header:last-child {
   margin: 0 0 0 0; 
 }
 
-#channels header h2{
+#channel_list header h2{
   font-family: var(--font), sans-serif;
   font-weight: bold;
   font-size: 1em;
@@ -624,24 +625,24 @@ textarea{
   width: 7em;
 }
 
-#channels .channel_list_item{
+#channel_list .channel_list_item{
   display: flex;
   flex-direction: row; 
 }
 
-#channels .channel_list_item a{
+#channel_list .channel_list_item a{
   padding: 0 1em 0 0;
   font-family: var(--font), sans-serif;
   color: var(--link-color);
   width: 7em;
 }
 
-#channels form * {
+#channel_list form * {
   color: var(--font-color);
   font-family: var(--font), sans-serif;
 }
 
-#channels #submit{
+#channel_list #submit{
   grid-area: 2 / 1 / span 1 / span 2;
   margin: 0.5em  auto auto auto;
   padding: 0.5em;
@@ -652,8 +653,38 @@ textarea{
   background-color: Transparent;
 }
 
-#channels #submit:hover{
+#channel_list #submit:hover{
   color:var(--font-hover-color);
   border-radius:16px;
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+}
+
+/**
+* Channel page
+*/
+
+#channel_info {
+  margin: 2em 0 2em 2em;
+  padding: 2em;
+  grid-area: 2 / 2 / span 1 / span 1;
+  box-shadow:0px 0px 20px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+}
+
+#story_list {
+  grid-area: 3 / 2 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#story {
+  margin: 2em 0 2em 2em;
+  padding: 2em;
+  box-shadow:0px 0px 20px var(--box-shadow-color);
+  display: grid;
+}
+
+#story > header {
+  grid-area: 1 / 1 / span 1 / span 2;
 }

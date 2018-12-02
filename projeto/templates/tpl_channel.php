@@ -4,7 +4,7 @@
  * as articles. Uses the draw_list function to draw
  * each list.
  */ ?>
-  <section id="channels">
+  <section id="channel_list">
     <h1>Channels</h1>
     <header>
       <h2>Channel Name</h2>
@@ -29,12 +29,12 @@
   </article>
 <?php } ?>
 
-<?php function draw_channel_page($channel, $stories) {
+<?php function draw_channel_page($channel) {
 /**
  * Draws a channel's page
  * page.
  */ ?>
-  <section id="channels">
+  <section id="channel_info">
     <header>
       <h1><?= $channel['name']?></h1>
       <?php
@@ -55,36 +55,7 @@
         }
       } ?>
     </header>
-
-    <?php
-      draw_stories($stories);
-    ?>
-
   </section>
-<?php } ?>
-
-<?php function draw_stories($stories) {
-/**
- * Draws a channel's stories
- * page.
- */ ?>
-
-  <section id="stories">
-    <?php foreach($stories as $story) { 
-      draw_story($story);
-    } ?>
-  </section>
-<?php } ?>
-
-<?php function draw_story($story) {
-/**
- * Draws a single story
- * page.
- */ ?>
-
-  <article id="story">
-    <h2><?= $story['id']?></h2>
-  </article>
 <?php } ?>
 
 <?php function add_new_channel($username) {
@@ -93,7 +64,7 @@
  * page.
  */ ?>
 
-  <section id="channels">
+  <section id="channel_list">
 
     <h1>Create a new channel</h1>
    

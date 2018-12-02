@@ -17,6 +17,7 @@
             <li><a href="../pages/channels_list.php"><i class="fas fa-hashtag"></i> Channels</a></li>
             <?php if ($username != NULL) { ?>
               <li><a href="../pages/add_channel.php?username=<?= $username ?>"><i class="fas fa-plus-circle"></i> Add Channel</a></li>
+              <li><a href="../pages/upload.php?user=<?= $username ?>"><i class="fas fa-file-upload"></i> New Story</a></li>
             <?php } ?> 
           </ul>
           <form method="get" action="../pages/search.php">
