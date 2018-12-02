@@ -71,4 +71,14 @@
     $stmt->execute(array($username, $channel)); 
   }
 
+  /**
+   * Returns all the stories from a channel
+   */
+  function getStoriesInChannel($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM storyInChannel WHERE channel = ?');
+    $stmt->execute(array($channel));
+    return $stmt->fetchAll(); 
+  }
+
 ?>

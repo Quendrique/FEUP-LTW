@@ -45,6 +45,14 @@ CREATE TABLE subscribed (
   channel VARCHAR REFERENCES channels
 );
 
+CREATE TABLE storyInChannel (
+  id INTEGER PRIMARY KEY,
+  story VARCHAR REFERENCES stories,
+  channel VARCHAR REFERENCES channels
+);
+
 INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", ""); -- password in SHA-1 format
 INSERT INTO channels VALUES ("general", "admin");
 INSERT INTO subscribed VALUES (NULL, "admin", "general");
+INSERT INTO stories VALUES (0, "test", NULL, NULL, NULL, NULL, NULL);
+INSERT INTO storyInChannel VALUES (NULL, 0, "general");

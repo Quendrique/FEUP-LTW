@@ -29,15 +29,15 @@
   </article>
 <?php } ?>
 
-<?php function draw_channel_page($channel) {
+<?php function draw_channel_page($channel, $stories) {
 /**
  * Draws a channel's page
  * page.
  */ ?>
   <section id="channels">
-    <header><h1><?= $channel['name']?></h1></a></header>
-
-    <?php
+    <header>
+      <h1><?= $channel['name']?></h1>
+      <?php
       if (isset($_SESSION['username'])) { 
         if (!(isSubbedTo($_SESSION['username'], $channel['name']))) {?>
         <form method="post" action="../actions/action_sub_channel.php">
@@ -45,17 +45,46 @@
           <input type="text" name="channel" value=<?=$channel['name']?> hidden>
           <input id="submit" type="submit" value="Subscribe">
         </form>
-    <?php } else { ?>
-        <form method="post" action="../actions/action_unsub_channel.php">
-            <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-            <input type="text" name="channel" value=<?=$channel['name']?> hidden>
-            <input id="submit" type="submit" value="Unsubscribe">
-        </form>
-    <?php 
-      }
-    } ?>
+      <?php } else { ?>
+          <form method="post" action="../actions/action_unsub_channel.php">
+              <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+              <input type="text" name="channel" value=<?=$channel['name']?> hidden>
+              <input id="submit" type="submit" value="Unsubscribe">
+          </form>
+      <?php 
+        }
+      } ?>
+    </header>
+
+    <?php
+      draw_stories($stories);
+    ?>
 
   </section>
+<?php } ?>
+
+<?php function draw_stories($stories) {
+/**
+ * Draws a channel's stories
+ * page.
+ */ ?>
+
+  <section id="stories">
+    <?php foreach($stories as $story) { 
+      draw_story($story);
+    } ?>
+  </section>
+<?php } ?>
+
+<?php function draw_story($story) {
+/**
+ * Draws a single story
+ * page.
+ */ ?>
+
+  <article id="story">
+    <h2><?= $story['id']?></h2>
+  </article>
 <?php } ?>
 
 <?php function add_new_channel($username) {

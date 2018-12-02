@@ -598,8 +598,7 @@ textarea{
   flex-direction: column;
 }
 
-#channels h1
-{
+#channels h1 {
    color: var(--font-color);
    margin: 0;
 }
@@ -609,14 +608,20 @@ textarea{
   flex-direction: row; 
 }
 
+#channels header > * {
+  margin: 0 1em 0 0; 
+}
+
+#channels header:last-child {
+  margin: 0 0 0 0; 
+}
+
 #channels header h2{
   font-family: var(--font), sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: var(--font-color);
-  padding: 1em 1em 1em 0;
   width: 7em;
-  margin: 1em 0 0 0;
 }
 
 #channels .channel_list_item{
@@ -631,16 +636,7 @@ textarea{
   width: 7em;
 }
 
-#channels form {
-  display: grid;
-  margin: 1em 0 0 0;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1fr 1fr;
-  max-width: 60%;
-}
-
 #channels form * {
-  margin: 1em;
   color: var(--font-color);
   font-family: var(--font), sans-serif;
 }
