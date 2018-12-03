@@ -42,8 +42,13 @@
     $subbed_channels = getSubbedChannels($_SESSION['username']);
     draw_sidebar($subbed_channels);
   }
-
+?>
+  <section id="channel_page">
+<?php
   draw_channel_page($channel, $subCount);
   draw_stories($stories);
+?>
+  <section id="channel_page">
+<?php
   draw_footer();
 ?>

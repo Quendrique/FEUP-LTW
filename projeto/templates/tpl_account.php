@@ -40,6 +40,7 @@
     ?>
     <section id="sidebar_subs">
 
+      <h1>Subscribed Channels</h1>
       <ul>
         <?php
           foreach($subbed_channels as $subbed_channel) { ?>

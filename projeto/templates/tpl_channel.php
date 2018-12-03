@@ -51,12 +51,11 @@
               <input type="text" name="channel" value=<?=$channel['name']?> hidden>
               <input id="submit" type="submit" value="Unsubscribe">
           </form>
-          <div><a href="../pages/upload.php?user=<?= $_SESSION['username'] ?>">New Story</a></div>
       <?php 
         }
       } ?>
-      <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
     </header>
+    <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
     <p><?= $channel['description']?></p> 
   </section>
 <?php } ?>
