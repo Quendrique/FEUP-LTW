@@ -1,3 +1,8 @@
+
+audiojs.events.ready(function() {
+    audiojs.createAll();
+});
+
 function onImageSelected(event) {
 
     event.preventDefault();
@@ -84,4 +89,18 @@ function setDefault(event) {
       output.src = "../img/templatetrackcover";
     };
     reader.readAsDataURL(input.files[0]);
+}
+
+function addElement(parentId, elementTag, elementId, html) {
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.innerHTML = html;
+    p.appendChild(newElement);
+}
+
+function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
 }

@@ -6,13 +6,6 @@
 
  <meta charset="utf-8">
     <script src="../audiojs/audio.min.js"></script>
-
-    <script>
-      audiojs.events.ready(function() {
-        audiojs.createAll();
-      });
-    </script>
-
   <section id="upload">
   
         <div id="h1upload"><h1>New Story</h1></div>
@@ -22,7 +15,7 @@
                 <div id = "uploadFile"> 
                     <img id="uploadedImage" src= "../img/templatetrackcover.png" height="200" width="200"/>
                         <!--<label class="fileUploadLabel uploadButton" for="image">Upload Image</label>-->
-                    <script type="text/javascript" src="../scripts/preview.js"></script>
+                    <script type="text/javascript" src="../scripts/fileScripts.js"></script>
                     <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
                 </div> 
 
@@ -53,7 +46,7 @@
             <div id = "uploadInfo2"> 
                 <!--<label class="fileUploadLabel uploadButton " for="image">Upload Track</label>-->
                 <div id="audiojs">
-                    <audio id="uploadedTrack" src="../sampleTrack.mp3" preload="auto"></audio>
+                    <audio id="uploadedTrack" preload="auto"></audio>
                 </div>
                 <input type="file" name="track" id="track" onchange="onTrackSelected(event)"/> 
                
