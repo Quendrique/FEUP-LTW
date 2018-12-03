@@ -53,6 +53,14 @@
           </form>
       <?php 
         }
+        if($_SESSION['username'] == $channel['author'])
+        { ?>
+             <form method="post" action="../pages/edit_channel.php">
+              <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+              <input type="text" name="channel" value=<?=$channel['name']?> hidden>
+              <input id="submit" type="submit" value="Edit">
+          </form>
+        <?php }
       } ?>
     </header>
     <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
@@ -77,6 +85,27 @@
       <p>Description: </p>
       <textarea  class="inputField" rows="8" cols="50" name="description" placeholder="Description" required></textarea>
       <input id="submit" type="submit" value="Create">          
+    </form>
+
+  </section>
+<?php } ?>
+
+<?php function draw_edit_channel($channel) {
+/**
+ * Draws a channel's page
+ * page.
+ */ ?>
+
+  <section id="add_channel">
+
+    <h1>Edit channel</h1>
+   
+    <form method="post" action="../actions/action_edit_channel.php">
+      <p>Channel name: </p>
+      <input class="inputField" type="text" name="channel" value=<?=$channel['name']?> readonly>
+      <p>Description: </p>
+      <textarea  class="inputField" rows="8" cols="50" name="description"  required><?=$channel['description']?></textarea>
+      <input id="submit" type="submit" value="Update">          
     </form>
 
   </section>
