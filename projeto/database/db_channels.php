@@ -13,6 +13,16 @@
   }
 
   /**
+   * Returns the list of channels
+   */
+  function getChannelsNames() {
+    global $db;
+    $stmt = $db->prepare('SELECT name FROM channels');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
+
+  /**
    * Returns a single specified channel
    */
   function getChannel($channel) {
