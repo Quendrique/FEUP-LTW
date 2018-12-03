@@ -8,6 +8,7 @@
 
     try {
       editChannel($channel, $description);
+      $_SESSION['messages'][] = array('type' => 'success', 'content' => "Channel $channel edited");
       header("Location: ../pages/channel_page.php?channel=$channel");
     } catch (PDOException $e) {
       $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to edit channel $channel");
