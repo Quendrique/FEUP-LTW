@@ -48,7 +48,7 @@
   draw_channel_page($channel, $subCount);
   draw_stories($stories);
 ?>
-  <section id="channel_page">
+  </section>
 <?php
   draw_footer();
 ?>
