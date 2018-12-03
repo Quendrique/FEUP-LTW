@@ -35,19 +35,21 @@
                         <?php 
                             $channels =getChannels();
                             foreach($channels as $channel){
-                                foreach($channel as $channel_name){
-                                    $option = $channel_name;
+                                foreach($channel as $channel_name){ ?>
+                                    <option value=<?php $channel_name ?>><?php echo $channel_name ?></option> 
+                                    <?php
                                     break;
                                 }    
                             }?>
-
-                                <option value=<?php $option ?>><?php echo $option ?></option> 
+                                
                         </select>
                     </label>    
                     <textarea class="inputField" rows="8" cols="50" name="description" placeholder="Description" required></textarea>
                 </div> 
             </div>
             
+            <hr>
+
             <div id = "uploadInfo2"> 
                 <!--<label class="fileUploadLabel uploadButton " for="image">Upload Track</label>-->
                 <div id="audiojs">
@@ -62,7 +64,5 @@
 
         </form>
    </section>
-   
-   
 <?php } ?>
 

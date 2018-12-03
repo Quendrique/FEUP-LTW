@@ -1,11 +1,11 @@
 <?php
   include('../database/db_connection.php');
 
-  function upload($username, $title, $description, $image,$track) 
+  function upload($username, $title, $description, $date, $image,$track) 
   {
     global $db;
     $stmt = $db->prepare('INSERT INTO stories VALUES(?, ?, ?, ?, ?, ?, ?)');
-    $stmt->execute(array(null, $title, $description ,$username, null, $image, $track));
+    $stmt->execute(array(null, $title, $description ,$username, $date, $image, $track));
   }
 
   function getUploads() {

@@ -74,3 +74,14 @@ function onTrackSelected(event) {
     reader.readAsDataURL(input.files[0]);
 
 }
+
+function setDefault(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('uploadedImage');
+      output.src = "../img/templatetrackcover";
+    };
+    reader.readAsDataURL(input.files[0]);
+}

@@ -19,7 +19,7 @@ CREATE TABLE stories (
   title VARCHAR,
   text VARCHAR,
   author VARCHAR REFERENCES users,
-  date INTEGER,
+  datetime INTEGER,
   coverImage BLOB,
   track BLOB
 );

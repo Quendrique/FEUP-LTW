@@ -7,22 +7,19 @@
     include_once('../database/db_account.php');
 
   
-    $username = $_GET['user'];
 
-    $userdata = getUserData($username);
-    if(!empty($userdata)) //if user exists
-    {
-        draw_header($username);
-        $subbed_channels = getSubbedChannels($username);
-        draw_sidebar($subbed_channels);
-    }
-    else //if user does not exist
-    {
+    if (!isset($_SESSION['username'])) {
         draw_header(null);
         draw_sidebar(null);
     }
+    else {
+        draw_header($_SESSION['username']);
+        $subbed_channels = getSubbedChannels($_SESSION['username']);
+        draw_sidebar($subbed_channels);
+    }
+
     draw_upload();
 
-   draw_footer();
+    draw_footer();
 ?>
 

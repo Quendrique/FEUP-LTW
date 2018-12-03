@@ -59,12 +59,13 @@ hr {
   width: 70%;               
   background-color:var(--box-shadow-color);
   height: 2px;
-  margin:2em auto 2em auto;
+  margin:3em auto 3em auto;
 }
 
 .audiojs {
   border-radius: 5px;
-  margin:1.5em 0 0 5em;
+  margin: auto;
+  justify-content: center;
 }
 
 select{
@@ -526,7 +527,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #uploadInfo{
   display: flex;
   flex-direction: row;
-  margin: 1.5em;
+  margin-top: 3em;
   justify-content: center;
 }
 
@@ -591,6 +592,10 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   color: var(--font-color);
   border: none;
   background-color: Transparent;
+  align-content: center;
+  background-color: var(--washed-out-blue);
+  border-radius:16px;
+
 }
 
 ::-webkit-file-upload-button:hover {
@@ -621,6 +626,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   text-align: center;
   margin-bottom:5px;
   height:18px;
+
 }
 
 
@@ -639,6 +645,8 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #upload input[value="upload"]{
+  margin-top:2em;
+  width:100px;
   font-size: 1.5em;
   font-family: var(--font), sans-serif;
   font-weight: bold;
@@ -647,8 +655,10 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   background-color: Transparent;
 }
 
+
+
 #upload #save input:hover{
-  
+  margin-top:2em;
   color:var(--font-hover-color);
   border-radius:16px;
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
@@ -667,10 +677,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   align-self: center;
 }
 
-.audiojs {
-  margin: auto;
-  justify-content: center;
-}
 
 /**
 * Channel list
