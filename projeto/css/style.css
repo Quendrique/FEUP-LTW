@@ -664,13 +664,71 @@ textarea{
 */
 
 #channel_info {
-  margin: 2em 0 2em 2em;
+  margin-top: 2em;
+  margin-left: 2em;
   padding: 2em;
   grid-area: 2 / 2 / span 1 / span 1;
   box-shadow:0px 0px 20px var(--box-shadow-color);
   display: flex;
   flex-direction: column;
 }
+
+#channel_info > header {
+  display: flex;
+  flex-direction: row;
+}
+
+#channel_info > p {
+  margin: 0;
+}
+
+#channel_info > header > * {
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0em;
+  margin-inline-end: 0em;
+  font-weight: normal; 
+  padding: 0.2em;
+}
+
+#channel_info > header > h1 {
+  font-weight: bold; 
+  padding: 0;
+}
+
+#channel_info header a {
+  padding: 8px 15px;
+	text-decoration: none;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+#channel_info > header > * {
+  display: grid;
+}
+
+#channel_info > header > div > a {
+  justify-self: center;
+}
+
+#channel_info header div a:hover {
+  color:var(--font-hover-color);
+  border-radius:50px;
+  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+}
+
+#channel_info > header > form > * {
+  margin: auto;
+}
+
+#channel_info > header :first-child {
+  margin-right: auto;
+}
+
+/**
+* Stories
+*/
 
 #story_list {
   grid-area: 3 / 2 / span 1 / span 1;
@@ -679,7 +737,8 @@ textarea{
 }
 
 #story {
-  margin: 2em 0 2em 2em;
+  margin-top: 2em;
+  margin-left: 2em;
   padding: 2em;
   box-shadow:0px 0px 20px var(--box-shadow-color);
   display: grid;
@@ -687,4 +746,17 @@ textarea{
 
 #story > header {
   grid-area: 1 / 1 / span 1 / span 2;
+}
+
+/**
+* Comments
+*/
+
+#comment_list {
+  grid-area: 3 / 2 / span 1 / span 1;
+  margin: 2em 0 2em 2em;
+  padding: 2em;
+  box-shadow:0px 0px 20px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
 }

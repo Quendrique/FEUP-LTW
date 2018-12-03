@@ -10,7 +10,8 @@ CREATE TABLE users (
 
 CREATE TABLE channels (
   name VARCHAR PRIMARY KEY,
-  author VARCHAR REFERENCES users
+  author VARCHAR REFERENCES users,
+  description VARCHAR
 );
 
 CREATE TABLE stories (
@@ -52,9 +53,10 @@ CREATE TABLE storyInChannel (
 );
 
 INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", ""); -- password in SHA-1 format
-INSERT INTO channels VALUES ("general", "admin");
+INSERT INTO channels VALUES ("general", "admin", "main channel");
 INSERT INTO subscribed VALUES (NULL, "admin", "general");
 INSERT INTO stories VALUES (0, "test", NULL, NULL, NULL, NULL, NULL);
 INSERT INTO stories VALUES (1, "test1", NULL, NULL, NULL, NULL, NULL);
 INSERT INTO storyInChannel VALUES (NULL, 0, "general");
 INSERT INTO storyInChannel VALUES (NULL, 1, "general");
+INSERT INTO comments VALUES (0, 0, "admin", NULL, "sdfknsdlfnsdlf");

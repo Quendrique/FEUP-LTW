@@ -15,6 +15,13 @@
   }
 
   try {
+    $subCount = getSubCount($channel_name);
+  } catch(PDOException $e) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to access $channel_name's subscription count");
+    die(header("Location: ../pages/channels_list.php"));
+  }
+
+  try {
     $stories = getStoriesInChannel($channel_name);
   } catch(PDOException $e) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to access stories in channel $channel_name");
@@ -36,7 +43,7 @@
     draw_sidebar($subbed_channels);
   }
 
-  draw_channel_page($channel);
+  draw_channel_page($channel, $subCount);
   draw_stories($stories);
   draw_footer();
 ?>
