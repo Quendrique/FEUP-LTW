@@ -15,7 +15,7 @@
 
   <section id="upload">
   
-        <div id="h1upload"><h1> Upload</h1></div>
+        <div id="h1upload"><h1>New Story</h1></div>
         <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data">
 
             <div id=uploadInfo>
@@ -46,16 +46,15 @@
                     </label>    
                     <textarea class="inputField" rows="8" cols="50" name="description" placeholder="Description" required></textarea>
                 </div> 
-            </div> 
-
-            <hr>
+            </div>
             
-            <div id = "uploadInfo"> 
+            <div id = "uploadInfo2"> 
                 <!--<label class="fileUploadLabel uploadButton " for="image">Upload Track</label>-->
-                    <input type="file" name="track" id="track" onchange="onTrackSelected(event)"/> 
                 <div id="audiojs">
                     <audio id="uploadedTrack" src="../sampleTrack.mp3" preload="auto"></audio>
                 </div>
+                <input type="file" name="track" id="track" onchange="onTrackSelected(event)"/> 
+               
 
             </div> 
 
