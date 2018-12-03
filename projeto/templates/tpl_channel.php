@@ -66,15 +66,17 @@
  * page.
  */ ?>
 
-  <section id="channel_list">
+  <section id="add_channel">
 
     <h1>Create a new channel</h1>
    
     <form method="post" action="../actions/action_add_channel.php">
       <input type="text" name="username" value=<?=$username?> hidden>
       <p>Channel name: </p>
-      <input type="text" name="channel" >
-      <input id="submit" type="submit" value="Create">
+      <input class="inputField" type="text" name="channel" >
+      <p>Description: </p>
+      <textarea  class="inputField" rows="8" cols="50" name="description" placeholder="Description" required></textarea>
+      <input id="submit" type="submit" value="Create">          
     </form>
 
   </section>

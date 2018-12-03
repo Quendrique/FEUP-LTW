@@ -5,9 +5,10 @@
 
     $username = $_POST['username'];
     $channel = $_POST['channel'];
+    $description = $_POST['description'];
 
     try {
-      addChannel($username, $channel);
+      addChannel($username, $channel, $description);
       $_SESSION['messages'][] = array('type' => 'success', 'content' => "Channel $channel created");
       header("Location: ../pages/channel_page.php?channel=$channel");
     } catch (PDOException $e) {

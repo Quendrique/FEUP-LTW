@@ -45,12 +45,12 @@
     <h1>Edit your profile</h1>
 
     <form method="post" action="../actions/action_edit_profile.php">
-      <input type="text" name="username" value=<?=$userdata['username']?> hidden>
+      <input class="inputField" type="text" name="username" value=<?=$userdata['username']?> hidden>
       <p>Name: </p>
-      <input type="text" name="name" value=<?=$userdata['name']?>>
+      <input class="inputField" type="text" name="name" value=<?=$userdata['name']?>>
 
       <p>Birth Date: </p>
-      <input type="date" name="birthdate" value=<?=$userdata['birth_day']?>>
+      <input class="inputField" type="date" name="birthdate" value=<?=$userdata['birth_day']?>>
 
       <p>Gender: </p>
       <select name="gender">
@@ -72,12 +72,12 @@
       </select>
 
       <p>Nationality: </p>
-      <input type="text" name="nationality" value=<?=$userdata['nationality']?>>
+      <input class="inputField" type="text" name="nationality" value=<?=$userdata['nationality']?>>
 
       <p>E-mail: </p>
-      <input type="email" name="email" value=<?=$userdata['email']?>>
+      <input class="inputField" type="email" name="email" value=<?=$userdata['email']?>>
 
-      <input id="submit" type="submit" value="Save Changes">
+      <input class="inputField" id="submit" type="submit" value="Save Changes">
     </form>
 
   </section>

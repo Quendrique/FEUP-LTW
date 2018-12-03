@@ -35,10 +35,10 @@
   /**
    * Adds a new channel
    */
-  function addChannel($username, $channel) {
+  function addChannel($username, $channel, $description) {
     global $db;
-    $stmt = $db->prepare('INSERT INTO channels VALUES(?, ?, NULL)');
-    $stmt->execute(array($channel, $username));
+    $stmt = $db->prepare('INSERT INTO channels VALUES(?, ?, ?)');
+    $stmt->execute(array($channel, $username, $description));
     $stmt = $db->prepare('INSERT INTO subscribed VALUES(NULL, ?, ?)');
     $stmt->execute(array($username, $channel));
   }

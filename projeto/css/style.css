@@ -746,6 +746,60 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 /**
+* Add channel
+*/
+
+#add_channel {
+  margin: 2em 0 2em 2em;
+  padding: 2em;
+  grid-area: 2 / 2 / span 1 / span 1;
+  box-shadow:0px 0px 20px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+}
+
+#add_channel form{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 4em 10em 4em;
+  max-width: 60%;
+}
+
+#add_channel input{
+  font: var(--font);
+  color: var(--font-color);
+  font-weight: normal;
+  margin: 1em 0;
+}
+
+#add_channel textarea{
+  font: var(--font);
+  color: var(--font-color);
+  font-weight: normal;
+  resize: none;
+  border-radius:10px !important;
+  padding: 12px;
+  width:auto;
+}
+
+#add_channel #submit{
+  padding: 0.5em;
+  font-family: var(--font), sans-serif;
+  font-weight: bold;
+  color: var(--font-color);
+  border: none;
+  background-color: Transparent;
+  align-self: center;
+  width: 50%;
+}
+
+#add_channel #submit:hover{
+color:var(--font-hover-color);
+border-radius:16px;
+background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+}
+
+/**
 * Channel page
 */
 
