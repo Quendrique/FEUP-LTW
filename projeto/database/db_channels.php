@@ -37,8 +37,10 @@
    */
   function addChannel($username, $channel) {
     global $db;
-    $stmt = $db->prepare('INSERT INTO channels VALUES(?, ?)');
+    $stmt = $db->prepare('INSERT INTO channels VALUES(?, ?, NULL)');
     $stmt->execute(array($channel, $username));
+    $stmt = $db->prepare('INSERT INTO subscribed VALUES(NULL, ?, ?)');
+    $stmt->execute(array($username, $channel));
   }
 
   /**
@@ -89,6 +91,16 @@
     $stmt = $db->prepare('SELECT * FROM storyInChannel WHERE channel = ?');
     $stmt->execute(array($channel));
     return $stmt->fetchAll(); 
+  }
+
+  /**
+   * Returns number of subcribers of a given channel
+   */
+  function getSubCount($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT COUNT(*) AS numSubs FROM subscribed WHERE channel = ?');
+    $stmt->execute(array($channel));
+    return $stmt->fetch(); 
   }
 
 ?>

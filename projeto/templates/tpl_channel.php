@@ -29,14 +29,14 @@
   </article>
 <?php } ?>
 
-<?php function draw_channel_page($channel) {
+<?php function draw_channel_page($channel, $subCount) {
 /**
  * Draws a channel's page
  * page.
  */ ?>
   <section id="channel_info">
     <header>
-      <h1><?= $channel['name']?></h1>
+      <h1>#<?= $channel['name']?></h1>
       <?php
       if (isset($_SESSION['username'])) { 
         if (!(isSubbedTo($_SESSION['username'], $channel['name']))) {?>
@@ -55,6 +55,8 @@
         }
       } ?>
     </header>
+    <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
+    <p><?= $channel['description']?></p> 
   </section>
 <?php } ?>
 
