@@ -223,8 +223,7 @@ p{
  */
 
  #sidebar_login {
-  margin-left: 1em;
-  margin-top: 2em;
+  margin: 2em 0 0 2em;
   padding: 0.5em;
   grid-area: 2 / 1 / span 1 / span 1;
   display: flex;
@@ -297,7 +296,7 @@ p{
  */
 
  #sidebar_subs {
-  margin: 2em 0 0 1em;
+  margin: 2em 0 0 2em;
   padding: 0.5em;
   grid-area: 2 / 1 / span 1 / span 1;
   display: flex;

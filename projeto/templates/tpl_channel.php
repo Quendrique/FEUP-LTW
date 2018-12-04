@@ -74,7 +74,7 @@
  * page.
  */ ?>
 
-  <section id="add_channel" class= "blockStyle blockLayout">
+  <section id="add_channel" class= "blockStyle blockLayout page">
 
     <h1>Create a new channel</h1>
    
