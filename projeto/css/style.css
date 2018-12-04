@@ -77,7 +77,17 @@ select{
   background: none;
 }
 
-
+.pageBackground{
+  margin: 2em 2em 2em 2em;
+  padding: 2em;
+  grid-area: 2 / 2 / span 1 / span 1;
+  box-shadow: 0px 0px 20px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font: var(--font);
+  color: var(--font-color);
+}
 
 /**
  * Common Header
@@ -516,17 +526,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 * Upload
 */
 
-#upload{
-  margin: 2em 2em 2em 2em;
-  padding: 2em;
-  grid-area: 2 / 2 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font: var(--font);
-  color: var(--font-color);
-}
 
 #upload h1{
   margin: 0;
@@ -647,6 +646,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   display: flex;
   flex-direction: column;
 }
+
 #save{
   display: flex;
   justify-content: center;
@@ -689,16 +689,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 /**
 * Channel list
 */
-
-#channel_list {
-  margin: 2em 0 2em 2em;
-  padding: 2em;
-  grid-area: 2 / 2 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
-  display: flex;
-  flex-direction: column;
-}
-
 #channel_list h1 {
    color: var(--font-color);
    margin: 0 0 1em 0;
@@ -762,16 +752,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 /**
 * Add channel
 */
-
-#add_channel {
-  margin: 2em 0 2em 2em;
-  padding: 2em;
-  grid-area: 2 / 2 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
-  display: flex;
-  flex-direction: column;
-}
-
 #add_channel form{
   display: grid;
   grid-template-columns: 1fr 3fr;
