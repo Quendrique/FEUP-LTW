@@ -88,7 +88,7 @@
    */
   function getStoriesInChannel($channel) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM storyInChannel WHERE channel = ?');
+    $stmt = $db->prepare('SELECT * FROM stories WHERE channel = ?');
     $stmt->execute(array($channel));
     return $stmt->fetchAll(); 
   }

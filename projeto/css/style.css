@@ -20,7 +20,7 @@ body{
   --box-shadow-color: rgba(0,0,0,0.1);
   --grad-start-color: rgb(131, 193, 233);
   --grad-end-color: #A46BE5;
-  --washed-out-blue:rgba(156, 192, 233, 0.781);
+  --washed-out-blue:#aec5e05c;
 
   --font: 'Abel';
 
@@ -685,10 +685,19 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   align-self: center;
 }
 
+input[name="title"]:focus .inputLabel{
+  text-decoration: underline;
+  text-decoration-color: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+}
+
 
 /**
 * Channel list
 */
+#channel_page{
+  margin-right: 2em;
+}
+
 #channel_list h1 {
    color: var(--font-color);
    margin: 0 0 1em 0;
@@ -798,10 +807,10 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 */
 
 #channel_info {
-  margin-top: 2em;
-  margin-left: 2em;
+  margin: 2em 0 0 2em;
   padding: 2em 2em 1em 2em;
   box-shadow:0px 0px 20px var(--box-shadow-color);
+  background: var(--washed-out-blue);
   display: flex;
   flex-direction: column;
   color: var(--font-color);

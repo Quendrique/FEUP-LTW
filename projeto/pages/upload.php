@@ -6,7 +6,7 @@
     include_once('../templates/tpl_upload.php');
     include_once('../database/db_account.php');
 
-    $username = $_GET['username'];
+    $username = $_SESSION['username'];
 
     //if (!isset($_SESSION['username']) || $_SESSION['username'] != $username)
       //die(header('Location: ../pages/mainpage.php'));

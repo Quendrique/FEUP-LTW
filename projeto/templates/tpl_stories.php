@@ -29,7 +29,7 @@
  * Draws a single story
  * page.
  */ ?>
-  <article id="story">
+  <article id="story" >
     <header> 
     <h2><?= $story['id']?></h2>
     </header>

@@ -12,13 +12,15 @@
 
   $track = file_get_contents($_FILES['track']['tmp_name']);
   $date = date('Y-m-d H:i:s');
-  
+  $channel =  $_POST['channels'];
+
 
     try {
-      upload($username,$title,$description,$date,$image,$track);
-      header("Location:../pages/channel_page.php?channel=general");
+      upload($username,$title,$description,$date,$image,$track,$channel);
+      header("Location:../pages/channel_page.php?channel=$channel");
     } catch (PDOException $e) {
-      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Failed to upload $username ");
+      echo $e;
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Failed to upload to $channel  ");
       die(header('Location: ../pages/upload.php'));
     }  
 ?>
