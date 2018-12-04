@@ -29,11 +29,21 @@
  * Draws a single story
  * page.
  */ ?>
+ <script src="../audiojs/audio.min.js"></script>
+ <script>
+   audiojs.events.ready(function() {
+    audiojs.createAll();
+  });
+</script>
   <article id="story" >
     <header> 
-    <h2><?= $story['id']?></h2>
+    <span id="user"> <?= $story['author']?></span>
+    <span id="date"> <?= $story['date']?></span>
     </header>
-    <h3>Test</h3>
+    <h2><?= $story['title']?></h2>
+    <!--<img src= <?= $story['coverImage']?>/>
+    <audio id="uploadedTrack" preload="auto" src= <?= $story['track']?>></audio>-->
+    <p> <?= $story['text']?></p>
   </article>
 <?php 
 } ?>

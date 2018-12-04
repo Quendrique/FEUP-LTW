@@ -37,6 +37,7 @@
   <section id="channel_info">
     <header>
       <h1>#<?= $channel['name']?></h1>
+      <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
       <?php
       if (isset($_SESSION['username'])) { 
         if (!(isSubbedTo($_SESSION['username'], $channel['name']))) {?>
@@ -63,7 +64,6 @@
         <?php }
       } ?>
     </header>
-    <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
     <p><?= $channel['description']?></p> 
   </section>
 <?php } ?>
