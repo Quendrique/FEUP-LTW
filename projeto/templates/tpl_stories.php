@@ -28,7 +28,10 @@
 /**
  * Draws a single story
  * page.
- */ ?>
+ */ 
+$date_str = $story['date'];
+$date = strtotime($date_str);
+?>
  <script src="../audiojs/audio.min.js"></script>
  <script>
    audiojs.events.ready(function() {
@@ -38,7 +41,7 @@
   <article id="story" class = "blockStyle blockLayout">
     <header> 
     <span id="user"> <?= $story['author']?></span>
-    <span id="date"> <?= $story['date']?></span>
+    <?= date('d M Y', $date);?>
     </header>
     <h2><?= $story['title']?></h2>
     <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/>

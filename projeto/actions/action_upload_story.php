@@ -11,7 +11,7 @@
   else $image = null;
 
   $track = file_get_contents($_FILES['track']['tmp_name']);
-  $date = date('Y-m-d H:i:s');
+  $date = date('d-m-Y H:i:s');
   $channel =  $_POST['channels'];
 
     try {
