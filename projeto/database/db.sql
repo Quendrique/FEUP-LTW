@@ -35,7 +35,7 @@ CREATE TABLE comments (
 
 CREATE TABLE vote (
   id INTEGER PRIMARY KEY,
-  type VARCHAR, -- either 'UP' or 'DOWN'
+  type INTEGER, -- either 0 (downvote) or 1 (upvote)
   author VARCHAR REFERENCES users,
   story_id INTEGER REFERENCES stories, -- either story_id or comment_id is NULL
   comment_id INTEGER REFERENCES comments
