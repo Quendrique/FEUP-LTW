@@ -48,7 +48,7 @@
    */
   function getSubbedChannels($username) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM subscribed WHERE user = ?');
+    $stmt = $db->prepare('SELECT channel FROM subscribed WHERE user = ?');
     $stmt->execute(array($username));
     return $stmt->fetchAll(); 
   }
@@ -88,7 +88,7 @@
    */
   function getStoriesInChannel($channel) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories WHERE channel = ?');
+    $stmt = $db->prepare('SELECT * FROM stories WHERE channel = ? ORDER BY date DESC');
     $stmt->execute(array($channel));
     return $stmt->fetchAll(); 
   }

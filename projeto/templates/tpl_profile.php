@@ -1,5 +1,5 @@
 <?php function printProfileError($username) {  ?>
-  <section id="profile">
+  <section id="profile" class= "blockStyle blockLayout page">
 
    <h1>Profile Error</h1>
 
@@ -11,7 +11,7 @@
 <?php } ?>
 
 <?php function printProfile($userdata) {  ?>
-  <section id="profile">
+  <section id="profile" class= "blockStyle blockLayout page">
 
     <h1><?=$userdata['username']?></h1>
 
@@ -40,7 +40,7 @@
 
 <?php function printProfileEdit($userdata) { 
 ?>
-  <section id="profile">
+  <section id="profile" class= "blockStyle blockLayout page">
 
     <h1>Edit your profile</h1>
 

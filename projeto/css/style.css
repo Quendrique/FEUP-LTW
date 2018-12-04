@@ -77,16 +77,22 @@ select{
   background: none;
 }
 
-.pageBackground{
-  margin: 2em 2em 2em 2em;
+.blockLayout{
   padding: 2em;
   grid-area: 2 / 2 / span 1 / span 1;
-  box-shadow: 0px 0px 20px var(--box-shadow-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.blockStyle{
+  box-shadow: 0px 0px 20px var(--box-shadow-color);
   font: var(--font);
   color: var(--font-color);
+}
+
+.page{
+  margin: 2em 2em 0 2em;
 }
 
 p{
@@ -129,9 +135,7 @@ p{
   background-repeat: no-repeat;
   background-position: 8px 5px;
   background-size: 10px 10px;
-  background-color: var(--search-background-color);
-  border:none;
-  padding-left:20px !important;
+  padding-left:25px !important;
 }
 
 .tabs form label 
@@ -223,7 +227,6 @@ p{
   margin-top: 2em;
   padding: 0.5em;
   grid-area: 2 / 1 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
   display: flex;
   flex-direction: column;
  }
@@ -294,11 +297,9 @@ p{
  */
 
  #sidebar_subs {
-  margin-left: 1em;
-  margin-top: 2em;
+  margin: 2em 0 0 1em;
   padding: 0.5em;
   grid-area: 2 / 1 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
   display: flex;
   flex-direction: column;
  }
@@ -338,12 +339,7 @@ p{
  * Signup page
  */
 
- #signup
- {
-  margin: 2em 0 2em 2em;
-  padding: 2em;
-  grid-area: 2 / 2 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
+ #signup{
   display: flex;
   flex-direction: column;
  }
@@ -394,12 +390,7 @@ p{
  * Login page
  */
 
- #login
- {
-  margin: 2em 0 2em 2em;
-  padding: 2em;
-  grid-area: 2 / 2 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
+ #login {
   display: flex;
   flex-direction: column;
  }
@@ -456,12 +447,7 @@ p{
  * Profile page
  */
 
- #profile
- {
-  margin: 2em 0 2em 2em;
-  padding: 2em;
-  grid-area: 2 / 2 / span 1 / span 1;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
+ #profile{
   display: flex;
   flex-direction: column;
  }
@@ -545,8 +531,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #uploadInfo2{
   display: flex;
   flex-direction: column;
-  margin: 0 1.5em;
-  justify-content: center;
 }
 
 #uploadInfo .uploadButton{
@@ -676,16 +660,9 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
 }
 
-#uploadInfo  input{
-  font-family: var(--font), sans-serif;
-  color: var(--font-color);
-  align-self: center;
-}
 
 #uploadInfo2  input{
   margin: 1em 0;
-  font-family: var(--font), sans-serif;
-  color: var(--font-color);
   align-self: center;
 }
 
@@ -698,9 +675,6 @@ input[name="title"]:focus .inputLabel{
 /**
 * Channel list
 */
-#channel_page{
-  margin-right: 2em;
-}
 
 #channel_list h1 {
    color: var(--font-color);
@@ -811,13 +785,13 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 */
 
 #channel_info {
-  margin: 2em 0 0 2em;
-  padding: 2em 2em 1em 2em;
+  padding: 2em 4em 1em 4em;
   box-shadow:0px 0px 20px var(--box-shadow-color);
   background: var(--washed-out-blue);
   display: flex;
   flex-direction: column;
   color: var(--font-color);
+  margin-bottom: 2em;
 }
 
 #channel_info > header {
@@ -887,12 +861,12 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #channel_info #submit{
-  padding: 0.5em;
   font-family: var(--font), sans-serif;
   font-weight: bold;
   color: var(--font-color);
   border: none;
   background-color: Transparent;
+  font-size:14px;
 }
 
 #channel_info #submit:hover{
@@ -911,9 +885,8 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #story {
-  margin: 2em 0 0 2em;
-  padding: 4em;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
+  padding: 4em !important;
+  margin-bottom: 2em;
 }
 
 #story > header {

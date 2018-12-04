@@ -13,7 +13,7 @@
   if (isset($_SESSION['username']))
   { 
     $username = $_SESSION['username'];?>
-    <section id="sidebar_login">
+    <section id="sidebar_login" class="blockStyle">
         
         <a href="../pages/edit_profile.php?user=<?= $username ?>"><?= $username ?></a>
         <div><a href="../actions/action_logout.php">Logout</a></div>
@@ -38,7 +38,7 @@
 <?php function draw_sidebar_subs($subbed_channels) { 
   if (isset($_SESSION['username']) && !empty($subbed_channels)) {
     ?>
-    <section id="sidebar_subs">
+    <section id="sidebar_subs" class= "blockStyle">
 
       <h1>Subscribed Channels</h1>
       <ul>
@@ -59,7 +59,7 @@
 /**
  * Draws the login section.
  */ ?>
-  <section id="login">
+  <section id="login" class= "blockStyle blockLayout page">
 
       <h1>Insert your account credentials.</h1>
       <h2><?= $message ?></h2>
@@ -81,7 +81,7 @@
 /**
  * Draws the signup section.
  */ ?>
-  <section id="signup">
+  <section id="signup" class= "blockStyle blockLayout page">
 
       <h1>Create an account today!</h1>
       <?php if($message !== "") {?>
