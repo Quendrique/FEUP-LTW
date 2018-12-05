@@ -12,6 +12,13 @@
     return $stmt->fetch(); 
   }
 
+  function getStoryInChannel($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories WHERE channel = ?');
+    $stmt->execute(array($story));
+    return $stmt->fetch(); 
+  }
+
   /**
    * Returns a story's comments 
    */

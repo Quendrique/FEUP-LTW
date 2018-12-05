@@ -4,7 +4,7 @@
  * as articles. Uses the draw_list function to draw
  * each list.
  */ ?>
-  <section id="channel_list" class= "pageBackground">
+  <section id="channel_list" class= "blockStyle blockLayout page">
     <h1>Channels</h1>
     <header>
       <h2>Channel Name</h2>
@@ -74,7 +74,7 @@
  * page.
  */ ?>
 
-  <section id="add_channel" class= "pageBackground">
+  <section id="add_channel" class= "blockStyle blockLayout">
 
     <h1>Create a new channel</h1>
    

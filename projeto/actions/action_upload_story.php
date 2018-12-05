@@ -14,7 +14,6 @@
   $date = date('Y-m-d H:i:s');
   $channel =  $_POST['channels'];
 
-
     try {
       upload($username,$title,$description,$date,$image,$track,$channel);
       header("Location:../pages/channel_page.php?channel=$channel");

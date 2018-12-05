@@ -35,7 +35,7 @@
     audiojs.createAll();
   });
 </script>
-  <article id="story" >
+  <article id="story" class = "blockStyle blockLayout">
     <header> 
     <span id="user"> <?= $story['author']?></span>
     <span id="date"> <?= $story['date']?></span>
@@ -55,8 +55,7 @@
     <p><?= $story['downvotes']?></p>
     </header>
     <h2><?= $story['title']?></h2>
-    <!--<img src= <?= $story['coverImage']?>/>
-    <audio id="uploadedTrack" preload="auto" src= <?= $story['track']?>></audio>-->
+    <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/>
     <p> <?= $story['text']?></p>
   </article>
 <?php 

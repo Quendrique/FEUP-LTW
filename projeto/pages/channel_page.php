@@ -43,7 +43,7 @@
     draw_sidebar($subbed_channels);
   }
 ?>
-  <section id="channel_page">
+  <section id="channel_page" class="page">
 <?php
   draw_channel_page($channel, $subCount);
   draw_stories($stories);
