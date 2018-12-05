@@ -88,7 +88,7 @@
    */
   function getStoriesInChannel($channel) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories WHERE channel = ? ORDER BY date DESC');
+    $stmt = $db->prepare('SELECT * FROM stories WHERE channel = ? ORDER BY [date] DESC');
     $stmt->execute(array($channel));
     return $stmt->fetchAll(); 
   }

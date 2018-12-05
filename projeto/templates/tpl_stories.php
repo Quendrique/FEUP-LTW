@@ -16,7 +16,7 @@
  * Draws a single story
  * page.
  */ ?>
-  <section id="story_page">
+  <section id="story_page" class="page">
     <?php 
       draw_story($story); 
     ?>
@@ -41,7 +41,21 @@ $date = strtotime($date_str);
   <article id="story" class = "blockStyle blockLayout">
     <header> 
     <span id="user"> <?= $story['author']?></span>
-    <?= date('d M Y', $date);?>
+    <span id="date"> <?= $story['date']?></span>
+    <form method="post" action="../actions/action_vote_story.php">
+      <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+      <input type="number" name="action" value= 1 hidden>
+      <input type="text" name="story" value=<?=$story['id']?> hidden>
+      <input id="submit" type="submit" value="Upvote">
+    </form>
+    <form method="post" action="../actions/action_vote_story.php">
+      <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+      <input type="number" name="action" value= 0 hidden>
+      <input type="text" name="story" value=<?=$story['id']?> hidden>
+      <input id="submit" type="submit" value="Downvote">
+    </form>
+    <p><?= $story['upvotes']?></p>
+    <p><?= $story['downvotes']?></p>
     </header>
     <h2><?= $story['title']?></h2>
     <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/>
