@@ -10,7 +10,6 @@
 
     //if (!isset($_SESSION['username']) || $_SESSION['username'] != $username)
       //die(header('Location: ../pages/mainpage.php'));
-    
     //else {
         draw_header($username);
         $subbed_channels = getSubbedChannels($username);

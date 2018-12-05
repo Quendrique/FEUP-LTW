@@ -14,12 +14,12 @@
   $date = date('d-m-Y H:i:s');
   $channel =  $_POST['channels'];
 
-    try {
+    //try {
       upload($username,$title,$description,$date,$image,$track,$channel);
-      header("Location:../pages/channel_page.php?channel=$channel");
-    } catch (PDOException $e) {
-      echo $e;
-      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Failed to upload to $channel  ");
+      //header("Location:../pages/channel_page.php?channel=$channel");
+    //} catch (PDOException $e) {
+      //echo $e;
+      //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Failed to upload to $channel  ");
       die(header('Location: ../pages/upload.php'));
-    }  
+    //}  
 ?>

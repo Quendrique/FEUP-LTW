@@ -19,12 +19,12 @@ CREATE TABLE stories (
   title VARCHAR,
   text VARCHAR,
   author VARCHAR REFERENCES users,
-  datetime INTEGER,
+  datetime DATETIME,
   upvotes INTEGER,
   downvotes INTEGER,
   coverImage BLOB,
   track BLOB,
-  channel INTEGER REFERENCES channels
+  channel VARCHAR REFERENCES channels
 );
 
 CREATE TABLE comments (
@@ -97,7 +97,7 @@ END;
 INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", ""); -- password in SHA-1 format
 INSERT INTO channels VALUES ("general", "admin", "main channel");
 INSERT INTO subscribed VALUES (NULL, 'admin', 'general');
-INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', CURRENT_TIMESTAMP, 0, 0, NULL, NULL, 'general');
-INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', CURRENT_TIMESTAMP, 0, 0, NULL, NULL, 'general');
+INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', date('now'), 0, 0, NULL, NULL, 'general');
+INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', date('now'), 0, 0, NULL, NULL, 'general');
 INSERT INTO vote VALUES (NULL, 1, 'admin', 0, NULL);
 INSERT INTO comments VALUES (0, 0, 'admin', NULL, 'sdfknsdlfnsdlf');
