@@ -12,7 +12,7 @@
 
       $prev_vote = hasUserVotedStory($user, $story);
 
-      if (!$prev_vote) {
+      if ($prev_vote == null) {
         voteStory($user, $story, $action);
       } else if ($prev_vote['type'] === $action) {
         removeVoteStory($user, $story);
@@ -20,9 +20,9 @@
         changeVoteStory($user, $story);
       }
       $_SESSION['messages'][] = array('type' => 'success', 'content' => "Voted");
-      header("Location: ../pages/story.php?story_id=$story");
+      header("Location: ../pages/story_page.php?story_id=$story");
     } catch (PDOException $e) {
       $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to vote");
-      die(header("Location: ../pages/story.php?story_id=$story"));
+      die(header("Location: ../pages/story_page.php?story_id=$story"));
     }
 ?>

@@ -41,17 +41,18 @@
     <span id="date"> <?= $story['date']?></span>
     <form method="post" action="../actions/action_vote_story.php">
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-      <input type="number" name="action" value='1' hidden>
+      <input type="number" name="action" value= 1 hidden>
       <input type="text" name="story" value=<?=$story['id']?> hidden>
       <input id="submit" type="submit" value="Upvote">
     </form>
     <form method="post" action="../actions/action_vote_story.php">
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-      <input type="number" name="action" value= '0' hidden>
+      <input type="number" name="action" value= 0 hidden>
       <input type="text" name="story" value=<?=$story['id']?> hidden>
       <input id="submit" type="submit" value="Downvote">
     </form>
-
+    <p><?= $story['upvotes']?></p>
+    <p><?= $story['downvotes']?></p>
     </header>
     <h2><?= $story['title']?></h2>
     <!--<img src= <?= $story['coverImage']?>/>
