@@ -6,6 +6,6 @@
   {
     global $db;
     $stmt = $db->prepare('INSERT INTO stories VALUES(NULL, ?, ?, ?, ?, ?, 0, 0, ?, ?)');
-    $stmt->execute(array($title, $username, $description, $date, $image, $track, $channel));
+    $stmt->execute(array($title, $description, $username, $date, $image, $track, $channel));
   }
 ?>

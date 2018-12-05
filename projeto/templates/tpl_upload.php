@@ -7,7 +7,7 @@
   
         <div id="h1upload"><h1>New Story</h1></div>
         <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data">
-        <input id="username" name="username"  type="hidden"  value="<?=$username?>">
+        <input id="username" name="username"  type="hidden"  value=<?=$username?>>
 
             <div id=uploadInfo>
                 <div id = "uploadFile"> 
@@ -23,7 +23,7 @@
                     <label class="inputLabel">channel: 
                         <select name="channels">
                         <?php 
-                            $all_channels =getChannels();
+                            $all_channels = getChannels();
                             foreach($all_channels as $channel){
                                 foreach($channel as $channel_name){ ?>
                                     <option value=<?=$channel_name?>><?=$channel_name?></option> 
