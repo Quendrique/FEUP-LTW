@@ -29,7 +29,7 @@
  * Draws a single story
  * page.
  */ 
-$date_str = $story['date'];
+$date_str = $story['datetime'];
 $date = strtotime($date_str);
 ?>
  <script src="../audiojs/audio.min.js"></script>
@@ -41,7 +41,7 @@ $date = strtotime($date_str);
   <article id="story" class = "blockStyle blockLayout">
     <header> 
     <span id="user"> <?= $story['author']?></span>
-    <span id="date"> <?= $story['date']?></span>
+    <span id="date"> <?= $story['datetime']?></span>
     <form method="post" action="../actions/action_vote_story.php">
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
       <input type="number" name="action" value= 1 hidden>
