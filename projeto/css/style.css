@@ -900,7 +900,13 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   flex-direction: row;
 }
 
-#story > footer #upvote, #story > footer #downvote{
+#story #numUpvotes, #story #numDownvotes {
+  display: grid;
+  align-content: center;
+  margin-left: 0.2em;
+}
+
+#story > footer #upvote, #story > footer #downvote {
   display: flex;
   flex-direction: row;
   margin-right:1em;
@@ -932,6 +938,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 .voteup_btn, .votedown_btn{
   border:none;
   color:var(--font-color);
+  background-color: transparent;
 }
 
 .voteup_btn:hover{

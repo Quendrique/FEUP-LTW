@@ -56,7 +56,7 @@ $date = strtotime($date_str);
             <i class="fas fa-caret-up fa-2x"></i>
           </button>
         </form>
-        <span><?= $story['upvotes']?></span>
+        <span id = numUpvotes><?= $story['upvotes']?></span>
       </section>
       <section id="downvote">
         <form method="post" action="../actions/action_vote_story.php">
@@ -67,7 +67,7 @@ $date = strtotime($date_str);
             <i class="fas fa-caret-down fa-2x"></i>
           </button>
         </form>
-        <span><?= $story['downvotes']?></span>
+        <span id = numDownvotes><?= $story['downvotes']?></span>
       </section>
     </footer>  
   </article>
