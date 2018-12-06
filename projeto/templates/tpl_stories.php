@@ -43,7 +43,7 @@ $date = strtotime($date_str);
       <span id="user"> <?= $story['author']?></span>
       <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
-    <h2><?= $story['title']?></h2>
+    <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
     <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/> 
     <p> <?= $story['text']?></p>
     <footer>

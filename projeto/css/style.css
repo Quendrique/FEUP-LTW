@@ -900,6 +900,11 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   flex-direction: row;
 }
 
+#story > h2 > a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
 #story #numUpvotes, #story #numDownvotes {
   display: grid;
   align-content: center;
@@ -910,6 +915,10 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   display: flex;
   flex-direction: row;
   margin-right:1em;
+}
+
+#story > footer #downvote {
+  margin-right: 0;
 }
 
 #story #user {

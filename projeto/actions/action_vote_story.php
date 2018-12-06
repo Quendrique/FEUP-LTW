@@ -8,6 +8,12 @@
     $action = $_POST['action'];
     $story = $_POST['story'];
 
+    if(isset($_SERVER['HTTP_REFERER'])) {
+      $prev_page = $_SERVER['HTTP_REFERER'];
+    } else {
+      $prev_page = "../pages/story_page.php?story_id=$story";
+    }
+
     try {
 
       $prev_vote = hasUserVotedStory($user, $story);
@@ -20,9 +26,9 @@
         changeVoteStory($user, $story);
       }
       $_SESSION['messages'][] = array('type' => 'success', 'content' => "Voted");
-      header("Location: ../pages/story_page.php?story_id=$story");
+      header("Location: ".$prev_page);
     } catch (PDOException $e) {
       $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to vote");
-      die(header("Location: ../pages/story_page.php?story_id=$story"));
+      die(header("Location: ".$prev_page));
     }
 ?>
