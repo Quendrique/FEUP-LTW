@@ -241,6 +241,7 @@ p{
   font-family: var(--font), sans-serif;
   margin: 0.2em  auto auto auto;
   padding: 0.2em;
+  width: 95px;
 }
 
  #sidebar_login input:nth-of-type(3){
@@ -893,6 +894,17 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   flex-direction: row;
 }
 
+#story > footer {
+  display: flex;
+  flex-direction: row;
+}
+
+#story > footer #upvote, #story > footer #downvote{
+  display: flex;
+  flex-direction: row;
+  margin-right:1em;
+}
+
 #story #user {
   margin-right:auto;
 }
@@ -921,24 +933,19 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   flex-direction: column;
 }
 
-/**
-* Votes
-*/
-
-#story #vote {
-  font-family: var(--font), sans-serif;
-  font-weight: bold;
-  color: var(--font-color);
-  border: none;
-  background-color: Transparent;
-  font-size:14px;
+.voteup_btn, .votedown_btn{
+  border:none;
+  color:var(--font-color);
 }
 
-#story #vote:hover{
-  color:var(--font-hover-color);
-  border-radius:16px;
-  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
-  }
+.voteup_btn:hover{
+  color:var(--grad-start-color);
+}
 
+.votedown_btn:hover{
+  color:var(--grad-end-color);
+}
 
-
+.voteup_btn:focus, .votedown_btn:focus{
+  outline:none;
+}

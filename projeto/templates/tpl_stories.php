@@ -40,26 +40,36 @@ $date = strtotime($date_str);
 </script>
   <article id="story" class = "blockStyle blockLayout">
     <header> 
-    <span id="user"> <?= $story['author']?></span>
-    <span id="date"> <?= $story['datetime']?></span>
-    <form method="post" action="../actions/action_vote_story.php">
-      <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-      <input type="number" name="action" value= 1 hidden>
-      <input type="text" name="story" value=<?=$story['id']?> hidden>
-      <button id="vote" type="submit"><i class="far fa-thumbs-up"></i></button>
-    </form>
-    <p><?= $story['upvotes']?></p>
-    <form method="post" action="../actions/action_vote_story.php">
-      <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-      <input type="number" name="action" value= 0 hidden>
-      <input type="text" name="story" value=<?=$story['id']?> hidden>
-      <button id="vote" type="submit"><i class="far fa-thumbs-down"></i></button>
-    </form>
-    <p><?= $story['downvotes']?></p>
+      <span id="user"> <?= $story['author']?></span>
+      <span id="date"> <?= $story['datetime']?></span>
     </header>
     <h2><?= $story['title']?></h2>
     <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/> 
     <p> <?= $story['text']?></p>
+    <footer>
+      <section id="upvote">
+        <form method="post" action="../actions/action_vote_story.php">
+          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+          <input type="number" name="action" value= 1 hidden>
+          <input type="text" name="story" value=<?=$story['id']?> hidden>
+          <button type="submit" class="voteup_btn">
+            <i class="fas fa-caret-up fa-2x"></i>
+          </button>
+        </form>
+        <span><?= $story['upvotes']?></span>
+      </section>
+      <section id="downvote">
+        <form method="post" action="../actions/action_vote_story.php">
+          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+          <input type="number" name="action" value= 0 hidden>
+          <input type="text" name="story" value=<?=$story['id']?> hidden>
+          <button type="submit" class="votedown_btn">
+            <i class="fas fa-caret-down fa-2x"></i>
+          </button>
+        </form>
+        <span><?= $story['downvotes']?></span>
+      </section>
+    </footer>  
   </article>
 <?php 
 } ?>

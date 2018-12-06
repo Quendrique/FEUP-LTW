@@ -22,7 +22,7 @@
   <?php }
   else
   { ?>
-    <section id="sidebar_login">
+    <section id="sidebar_login" class = "blockStyle">
         
         <form method="post" action="../actions/action_login.php">
         <input type="text" name="username" placeholder="username" class="inputField" required>
