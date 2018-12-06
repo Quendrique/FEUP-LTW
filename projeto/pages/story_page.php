@@ -33,6 +33,6 @@
   }
 
   draw_story_page($story);
-  draw_comments($comments);
+  draw_comments($comments, $story_id);
   draw_footer();
 ?>

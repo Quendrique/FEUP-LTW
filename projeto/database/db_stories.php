@@ -69,4 +69,44 @@
     return $stmt->fetch();
   }
 
+  /**
+   * Vote on a story (0 - downvote; 1 - upvote)
+   */
+  function voteComment($user, $comment, $action) {
+    global $db;
+    $stmt = $db->prepare('INSERT INTO vote VALUES (NULL, ?, ?, NULL, ?)');
+    $stmt->execute(array($action, $user, $comment));
+  }
+
+  /**
+   * Changes a vote on a particular story
+   */
+  function changeVoteComment($user, $comment) {
+    global $db;
+    $stmt = $db->prepare('UPDATE vote SET [type] = 1 - [type] WHERE author = ?
+                          AND comment_id = ?');
+    $stmt->execute(array($user, $comment));
+  }
+
+  /**
+   * Remove a vote from a story
+   */
+  function removeVoteComment($user, $comment) {
+    global $db;
+    $stmt = $db->prepare('DELETE FROM vote WHERE author = ?
+                          AND comment_id = ?');
+    $stmt->execute(array($user, $comment));
+  }
+
+  /**
+   * Check if user has voted on a story
+   */
+  function hasUserVotedComment($user, $comment) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM vote WHERE author = ?
+                          AND comment_id = ?');
+    $stmt->execute(array($user, $comment));
+    return $stmt->fetch();
+  }
+
 ?>
