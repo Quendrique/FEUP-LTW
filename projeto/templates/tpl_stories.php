@@ -93,9 +93,34 @@ $date = strtotime($date_str);
  * Draws a single story
  * page.
  */ 
+  $date_str = $comment['datetime'];
+  $date = strtotime($date_str);
 ?>
   <article id="comment">
-    <h2><?= $comment['id']?></h2>
-  </section>
+    <header> 
+      <span id="user"> <?= $comment['author']?></span>
+      <span id="date"> <?= date('d M Y', $date)?></span>
+    </header>
+    <p><?= $comment['text']?></p>
+    <footer>
+      <section id="upvote">
+        <form method="post" action="../actions/action_vote_comment.php">
+          
+          <button type="submit" class="voteup_btn">
+            <i class="fas fa-caret-up fa-2x"></i>
+          </button>
+        </form>
+        <span id = numUpvotes><?= $comment['upvotes']?></span>
+      </section>
+      <section id="downvote">
+        <form method="post" action="../actions/action_vote_comment.php">
+          <button type="submit" class="votedown_btn">
+            <i class="fas fa-caret-down fa-2x"></i>
+          </button>
+        </form>
+        <span id = numDownvotes><?= $comment['downvotes']?></span>
+      </section>
+    </footer>  
+  </article>
 <?php 
 } ?>

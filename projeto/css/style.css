@@ -944,6 +944,62 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   grid-area: 3 / 2 / span 1 / span 1 !important;
 }
 
+#comment {
+  padding: 0;
+  margin-bottom: 2em;
+}
+
+#comment > header {
+  display: flex;
+  flex-direction: row;
+}
+
+#comment > footer {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#comment > h2 > a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+#comment #numUpvotes, #comment #numDownvotes {
+  display: grid;
+  align-content: center;
+  margin-left: 0.2em;
+}
+
+#comment > footer #upvote, #comment > footer #downvote {
+  display: flex;
+  flex-direction: row;
+  margin-right:1em;
+}
+
+#comment > footer #upvote {
+  margin-left: auto;
+}
+
+#comment > footer #downvote {
+  margin-right: 0;
+}
+
+#comment #user {
+  margin-right:auto;
+}
+
+#comment > header > * {
+  display: grid;
+  padding: 0.1em;
+  margin: 0;
+  align-content: center;
+}
+
+#comment > header:nth-child(2) {
+  margin-left: auto;
+}
+
 .voteup_btn, .votedown_btn{
   border:none;
   color:var(--font-color);
