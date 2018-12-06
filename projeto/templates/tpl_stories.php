@@ -48,13 +48,13 @@ $date = strtotime($date_str);
       <input type="text" name="story" value=<?=$story['id']?> hidden>
       <button id="vote" type="submit"><i class="far fa-thumbs-up"></i></button>
     </form>
+    <p><?= $story['upvotes']?></p>
     <form method="post" action="../actions/action_vote_story.php">
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
       <input type="number" name="action" value= 0 hidden>
       <input type="text" name="story" value=<?=$story['id']?> hidden>
       <button id="vote" type="submit"><i class="far fa-thumbs-down"></i></button>
     </form>
-    <p><?= $story['upvotes']?></p>
     <p><?= $story['downvotes']?></p>
     </header>
     <h2><?= $story['title']?></h2>

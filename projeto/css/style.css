@@ -897,6 +897,17 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-right:auto;
 }
 
+#story > header > * {
+  display: grid;
+  padding: 0.1em;
+  margin: 0;
+  align-content: center;
+}
+
+#story > header:nth-child(2) {
+  margin-left: auto;
+}
+
 /**
 * Comments
 */
