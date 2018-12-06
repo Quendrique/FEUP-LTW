@@ -46,19 +46,19 @@ $date = strtotime($date_str);
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
       <input type="number" name="action" value= 1 hidden>
       <input type="text" name="story" value=<?=$story['id']?> hidden>
-      <input id="submit" type="submit" value="Upvote">
+      <button id="vote" type="submit"><i class="far fa-thumbs-up"></i></button>
     </form>
     <form method="post" action="../actions/action_vote_story.php">
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
       <input type="number" name="action" value= 0 hidden>
       <input type="text" name="story" value=<?=$story['id']?> hidden>
-      <input id="submit" type="submit" value="Downvote">
+      <button id="vote" type="submit"><i class="far fa-thumbs-down"></i></button>
     </form>
     <p><?= $story['upvotes']?></p>
     <p><?= $story['downvotes']?></p>
     </header>
     <h2><?= $story['title']?></h2>
-    <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/>
+    <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/> 
     <p> <?= $story['text']?></p>
   </article>
 <?php 
@@ -89,5 +89,3 @@ $date = strtotime($date_str);
   </section>
 <?php 
 } ?>
-
-

@@ -909,3 +909,25 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   display: flex;
   flex-direction: column;
 }
+
+/**
+* Votes
+*/
+
+#story #vote {
+  font-family: var(--font), sans-serif;
+  font-weight: bold;
+  color: var(--font-color);
+  border: none;
+  background-color: Transparent;
+  font-size:14px;
+}
+
+#story #vote:hover{
+  color:var(--font-hover-color);
+  border-radius:16px;
+  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+  }
+
+
+
