@@ -895,6 +895,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #story > footer {
+  margin-left: auto;
   display: flex;
   flex-direction: row;
 }
