@@ -41,7 +41,7 @@ $date = strtotime($date_str);
   <article id="story" class = "blockStyle blockLayout">
     <header> 
       <span id="user"> <?= $story['author']?></span>
-      <span id="date"> <?= $story['datetime']?></span>
+      <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
     <h2><?= $story['title']?></h2>
     <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/> 
