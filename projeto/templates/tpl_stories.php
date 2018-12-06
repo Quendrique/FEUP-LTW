@@ -80,7 +80,7 @@ $date = strtotime($date_str);
  * page.
  */ 
 ?>
-  <section id="comment_list">
+  <section id="comment_list" class="page blockStyle blockLayout">
     <?php foreach($comments as $comment) {
       draw_comment($comment);
     } ?>
