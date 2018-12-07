@@ -32,19 +32,18 @@
 $date_str = $story['datetime'];
 $date = strtotime($date_str);
 ?>
- <script src="../audiojs/audio.min.js"></script>
- <script>
-   audiojs.events.ready(function() {
-    audiojs.createAll();
-  });
-</script>
+<script src="../audiojs/audio.min.js"></script>
   <article id="story" class = "blockStyle blockLayout">
     <header> 
       <span id="user"> <?= $story['author']?></span>
       <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
     <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
-    <img src= "../img/thumbs_medium/<?=$story['id']?>.png" width="200" height="200">
+    <img src= "../img/stories/thumbs_medium/<?=$story['id']?>.png" width="200" height="200">
+    <script>audiojs.events.ready(function() {
+    audiojs.createAll();
+});</script>
+    <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>
     <p> <?= $story['text']?></p>
     <footer>
       <section id="upvote">
