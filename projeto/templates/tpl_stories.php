@@ -44,7 +44,7 @@ $date = strtotime($date_str);
       <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
     <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
-    <img src= 'data:image/jpeg;base64,'.base64_encode($coverImage)/> 
+    <img src= "../img/thumbs_medium/<?=$story['id']?>.png" width="200" height="200">
     <p> <?= $story['text']?></p>
     <footer>
       <section id="upvote">

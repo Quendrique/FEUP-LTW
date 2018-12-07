@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <title>Mel-o</title>
       <link rel="stylesheet" href="../css/style.css">
-      <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">-->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
     </head>
 
     <body>
