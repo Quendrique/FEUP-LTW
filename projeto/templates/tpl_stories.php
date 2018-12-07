@@ -39,12 +39,16 @@ $date = strtotime($date_str);
       <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
     <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
-    <img src= "../img/stories/thumbs_medium/<?=$story['id']?>.png" width="200" height="200">
-    <script>audiojs.events.ready(function() {
-    audiojs.createAll();
-});</script>
-    <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>
-    <p> <?= $story['text']?></p>
+    <div id = "storyContent">
+      <img src= "../img/stories/thumbs_medium/<?=$story['id']?>.png" width="200" height="200">
+      <div id = "storyTextAndTrack">
+        <p> <?= $story['text']?></p>
+        <!-- <script>audiojs.events.ready(function() {
+          audiojs.createAll();
+        });</script>
+        <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>-->
+      </div>
+    </div>
     <footer>
       <section id="upvote">
         <form method="post" action="../actions/action_vote_story.php">

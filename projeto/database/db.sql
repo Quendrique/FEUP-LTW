@@ -22,8 +22,6 @@ CREATE TABLE stories (
   datetime DATETIME,
   upvotes INTEGER,
   downvotes INTEGER,
-  coverImage BLOB,
-  track BLOB,
   channel VARCHAR REFERENCES channels
 );
 

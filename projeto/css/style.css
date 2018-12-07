@@ -65,7 +65,6 @@ hr {
 .audiojs {
   border-radius: 5px;
   margin: auto;
-  justify-content: center;
 }
 
 select{
@@ -97,6 +96,7 @@ select{
 
 p{
   text-align: justify;
+  margin-block-start: 0;
 }
 
 /**
@@ -521,6 +521,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin: 0;
 }
 
+
 #uploadInfo{
   display: flex;
   flex-direction: row;
@@ -934,6 +935,17 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 #story > header:nth-child(2) {
   margin-left: auto;
+}
+
+#story #storyContent {
+  display: flex;
+  flex-direction: row;
+}
+
+#story #storyTextAndTrack {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 2em;
 }
 
 /**

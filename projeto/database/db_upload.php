@@ -6,8 +6,8 @@
   function upload($username, $title, $description, $date, $channel) 
   {
     global $db;
-    $stmt = $db->prepare('INSERT INTO stories(title, text, author,datetime,upvotes,downvotes,coverImage, track,channel) VALUES( ?, ?, ?, ?, 0, 0, ?, ?, ?)');
-    $stmt->execute(array($title, $description, $username, $date, null, null, $channel));
+    $stmt = $db->prepare('INSERT INTO stories(title, text, author,datetime,upvotes,downvotes,channel) VALUES( ?, ?, ?, ?, 0, 0, ?)');
+    $stmt->execute(array($title, $description, $username, $date, $channel));
     
     $id = $db->lastInsertId();
 
