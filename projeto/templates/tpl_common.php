@@ -20,7 +20,7 @@
               <li><a href="../pages/upload.php?username=<?= $username ?>"><i class="fas fa-file-upload"></i> New Story</a></li>
             <?php } ?> 
           </ul>
-          <form method="POST" action="../pages/search.php">
+          <form method="GET" action="../pages/search.php">
             <label><input type="text" name="search" class="inputField" placeholder="Search..." required></label>
           </form>
         </nav>

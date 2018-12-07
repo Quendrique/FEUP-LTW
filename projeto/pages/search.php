@@ -9,13 +9,14 @@
   include_once('../templates/tpl_stories.php');
   include_once('../templates/tpl_search.php');
 
-  $search = $_POST['search'];
-  //try {
+  $search = $_GET['search'];
+  
+  try {
     $search_stories = searchStories($search);
-  //} catch(PDOException $e) {
-    //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to search for stories");
-    //die(header("Location: ../pages/channels_list.php"));
-  //}
+  } catch(PDOException $e) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to search for stories");
+    die(header("Location: ../pages/channels_list.php"));
+  }
 
   if (!isset($_SESSION['username'])) {
     draw_header(null);
