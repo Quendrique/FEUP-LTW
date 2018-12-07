@@ -7,4 +7,11 @@
     $stmt->execute(array($search));
     return $stmt->fetchAll();
   }
+
+  function searchChannels($search) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM channels WHERE [name] LIKE ?');
+    $stmt->execute(array($search));
+    return $stmt->fetchAll();
+  }
 ?>

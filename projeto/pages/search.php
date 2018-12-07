@@ -15,7 +15,14 @@
     $search_stories = searchStories($search);
   } catch(PDOException $e) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to search for stories");
-    die(header("Location: ../pages/channels_list.php"));
+    die(header("Location: ../pages/mainpage.php"));
+  }
+
+  try {
+    $search_channels = searchChannels($search);
+  } catch(PDOException $e) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to search for stories");
+    die(header("Location: ../pages/mainpage.php"));
   }
 
   if (!isset($_SESSION['username'])) {
@@ -28,6 +35,6 @@
     draw_sidebar($subbed_channels);
   }
 
-  draw_search_results($search_stories, NULL);
+  draw_search_results($search_stories, $search_channels);
   draw_footer();
 ?>

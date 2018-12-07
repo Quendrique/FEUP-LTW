@@ -1036,3 +1036,11 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 .voteup_btn:focus, .votedown_btn:focus{
   outline:none;
 }
+
+/**
+* Channel search
+*/
+
+#search_channels {
+  margin: 0;
+}

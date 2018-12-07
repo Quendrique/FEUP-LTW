@@ -6,7 +6,7 @@
   <section id="search_results" class="page blockStyle blockLayout">
     <?php 
       draw_search_stories($search_stories);
-      //draw_search_channels($search_channels);
+      draw_search_channels($search_channels);
     ?>
   </section>
 <?php } ?>
@@ -34,3 +34,17 @@
   draw_story($search_story);
 } ?>
 
+<?php function draw_search_channels($search_channels) {
+/**
+ * Draws channel search results
+ */ ?>
+  <section id="search_channels" class="page blockStyle blockLayout">
+    <ul>
+    <?php 
+      foreach($search_channels as $search_channel) { ?>
+        <li><a href="../pages/channel_page.php?channel=<?= $search_channel['name']?>"><?= $search_channel['name']?></a></li>
+    <?php }
+    ?>
+    </ul>
+  </section>
+<?php } ?>
