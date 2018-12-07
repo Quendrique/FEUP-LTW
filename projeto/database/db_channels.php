@@ -103,12 +103,12 @@
     return $stmt->fetch(); 
   }
 
-  function editChannel($name, $description)
+  function editChannel($channel, $description)
   {
     global $db;
     $stmt = $db->prepare('UPDATE channels 
-                          SET description = ?
-                          WHERE name = ?');
-    $stmt->execute(array($description, $name));
+                          SET [description] = ?
+                          WHERE [name] = ?');
+    $stmt->execute(array($description, $channel));
   }
 ?>

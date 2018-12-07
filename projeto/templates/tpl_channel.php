@@ -96,14 +96,13 @@
  * page.
  */ ?>
 
-  <section id="add_channel">
+  <section id="add_channel" class="page blockStyle blockLayout">
 
-    <h1>Edit channel</h1>
+    <h1>Edit #<?=$channel['name']?></h1>
    
     <form method="post" action="../actions/action_edit_channel.php">
-      <p>Channel name: </p>
-      <input class="inputField" type="text" name="channel" value=<?=$channel['name']?> readonly>
       <p>Description: </p>
+      <input type="text" name="channel" value=<?=$channel['name']?> hidden>
       <textarea  class="inputField" rows="8" cols="50" name="description"  required><?=$channel['description']?></textarea>
       <input id="submit" type="submit" value="Update">          
     </form>
