@@ -31,10 +31,9 @@ CREATE TABLE comments (
   id INTEGER PRIMARY KEY,
   story_id INTEGER REFERENCES stories,
   author VARCHAR REFERENCES users,
-  datetime DATETIME,
   upvotes INTEGER,
   downvotes INTEGER,
-  date INTEGER,
+  datetime DATETIME,
   text VARCHAR
 );
 
@@ -147,5 +146,5 @@ INSERT INTO subscribed VALUES (NULL, 'admin', 'general');
 INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', date('now'), 0, 0, NULL, NULL, 'general');
 INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', date('now'), 0, 0, NULL, NULL, 'general');
 INSERT INTO vote VALUES (NULL, 1, 'admin', 0, NULL);
-INSERT INTO comments VALUES (0, 0, 'admin', date('now'), 0, 0, NULL, 'sdfknsdlfnsdlf');
+INSERT INTO comments VALUES (0, 0, 'admin', 0, 0,  date('now'), 'sdfknsdlfnsdlf');
 INSERT INTO vote VALUES (NULL, 1, 'admin', NULL, 0);

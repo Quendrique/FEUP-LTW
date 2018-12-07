@@ -83,7 +83,9 @@ $date = strtotime($date_str);
   <section id="comment_list" class="page blockStyle blockLayout">
     <?php foreach($comments as $comment) {
       draw_comment($comment, $story);
-    } ?>
+    } 
+      draw_add_comment($story);
+    ?>
   </section>
 <?php 
 } ?>
@@ -129,5 +131,21 @@ $date = strtotime($date_str);
       </section>
     </footer>  
   </article>
+<?php 
+} ?>
+
+<?php function draw_add_comment($story) {
+/**
+ * Draws a new comment form
+ */ 
+?>
+  <section id="add_comment" class="page blockStyle blockLayout">
+    <form method="post" action="../actions/action_add_comment.php">
+      <input type="text" name="story" value=<?=$story?> hidden>
+      <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
+      <input type="text" name="comment" placeholder="Add a comment">
+      <button type="submit" class="add_comment_btn">Post</button>
+    </form>
+  </section>
 <?php 
 } ?>

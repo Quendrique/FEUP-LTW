@@ -109,4 +109,13 @@
     return $stmt->fetch();
   }
 
+  /**
+   * Add a comment
+   */
+  function addComment($user, $story, $comment) {
+    global $db;
+    $stmt = $db->prepare('INSERT INTO comments VALUES (NULL, ?, ?, 0, 0, date("now"), ?)');
+    $stmt->execute(array($story, $user, $comment));
+  }
+
 ?>
