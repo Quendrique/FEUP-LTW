@@ -5,17 +5,12 @@
   $title = $_POST['title'];
   $description = $_POST['description'];
   $username = $_POST['username'];
-  
-  if (!empty($_FILES["image"]["tmp_name"]))
-    $image = $_FILES['image']['tmp_name'];
-  else $image = null;
 
-  $track = file_get_contents($_FILES['track']['tmp_name']);
   $date = date('d-m-Y H:i:s');
   $channel =  $_POST['channels'];
 
     try {
-      upload($username,$title,$description,$date,$image,$track,$channel);
+      upload($username,$title,$description,$date,$channel);
       header("Location:../pages/channel_page.php?channel=$channel");
     } catch (PDOException $e) {
       echo $e;

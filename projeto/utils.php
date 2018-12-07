@@ -5,13 +5,13 @@ function getExtension() {
   return end((explode(".", $name)));
 } 
 
-function fileHandler($image,$id) {
+function imageHandler($id) {
   $ext = getExtension();
 
   // Generate filenames for original, small and medium files
-  $originalFileName = "../img/originals/$id.$ext";
-  $smallFileName = "../img/thumbs_small/$id.$ext";
-  $mediumFileName = "../img/thumbs_medium/$id.$ext";
+  $originalFileName = "../img/stories/originals/$id.$ext";
+  $smallFileName = "../img/stories/thumbs_small/$id.$ext";
+  $mediumFileName = "../img/stories/thumbs_medium/$id.$ext";
 
 
   move_uploaded_file($_FILES['image']['tmp_name'], $originalFileName);
@@ -48,4 +48,10 @@ function fileHandler($image,$id) {
   else imagejpeg($medium, $mediumFileName);
 }
 
+function trackHandler($id) {
+
+  $fileName = "../tracks/$id.mp3";
+
+  move_uploaded_file($_FILES['track']['tmp_name'], $fileName);
+}
 ?>
