@@ -1,6 +1,7 @@
 <?php
   include_once('../includes/incl_session.php');
   include_once('../database/db_account.php');
+  include_once('../database/db_channels.php');
 
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -13,6 +14,7 @@
     try 
     {
       signup($username, $password);
+      subTo($username,'general');
       $_SESSION['username'] = $username;
       header("Location: ../pages/edit_profile.php?user=$username");
     } catch (PDOException $e) 
