@@ -956,9 +956,17 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   grid-area: 3 / 2 / span 1 / span 1 !important;
 }
 
+#comment_list > *:nth-last-child(2) {
+  margin-bottom: 0;
+}
+
 #comment {
   padding: 0;
   margin-bottom: 2em;
+}
+
+#comment > * {
+  margin-bottom: 0;
 }
 
 #comment > header {
@@ -1003,7 +1011,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 #comment > header > * {
   display: grid;
-  padding: 0.1em;
   margin: 0;
   align-content: center;
 }
