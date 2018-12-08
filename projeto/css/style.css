@@ -23,6 +23,7 @@ body{
   --washed-out-blue:#aec5e05c;
 
   --font: 'Abel';
+  background: #fcfbfb21;
 
   font-family: var(--font), sans-serif;
 }
@@ -52,7 +53,7 @@ body{
   width:100px;
 }
 
-#upload hr {
+.line {
   border: 0;
   clear:both;
   display:block;
@@ -62,13 +63,13 @@ body{
   margin:3em auto 3em auto;
 }
 
-#story hr {
+.invisibleLine {
   border: 0;
   clear:both;
   display:block;
   width: 100%;               
   background-color:#00000005;
-  height: 2px;
+  height: 5px;
   margin:0em auto 0em auto;
 }
 
@@ -98,6 +99,8 @@ select{
   box-shadow: 0px 0px 20px var(--box-shadow-color);
   font: var(--font);
   color: var(--font-color);
+  background: white;
+  border-radius: 3px;
 }
 
 .page{
@@ -899,23 +902,33 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   padding: 0!important;
   margin-bottom: 2em;
 }
+.footerSeparator{
+  border: 0;
+  clear:both;
+  display:block;        
+  background-color:#00000005;
+  height: 3px;
+}
 
 #story #body {
   padding: 1em 4em 3em 4em ;
 
 }
 
-#story > header {
+#story header {
   display: flex;
   flex-direction: row;
   background: var(--washed-out-blue);
   padding: 0.5em 2em 0.5em 2em;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 }
 
 #story  footer {
   display: flex;
   flex-direction: row;
-  padding: 1em 2em 1em 2em;
+  align-items: center; 
+  padding: 0em 2em 0.5em 2em;
 }
 
 #story  footer #channel{
@@ -973,6 +986,8 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #story #storyContent {
   display: flex;
   flex-direction: row;
+  margin-top: 1em;
+
 }
 
 #story #storyTextAndTrack {
