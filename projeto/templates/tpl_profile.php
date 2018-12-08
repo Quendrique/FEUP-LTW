@@ -53,6 +53,7 @@ function printProfileEdit($userdata) {
         <script type="text/javascript" src="../scripts/fileScripts.js"></script>
         <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
       </div>
+      <div id = "textForm">
         <input class="inputField" type="text" name="username" value=<?=$userdata['username']?> hidden>
         <p>Name: </p>
         <input class="inputField" type="text" name="name" value="<?=$userdata['name']?>" >
@@ -85,6 +86,7 @@ function printProfileEdit($userdata) {
         <input class="inputField" type="email" name="email" value=<?=$userdata['email']?>>
 
         <input class="inputField" id="submit" type="submit" value="save changes">
+        </div>
       </form>
     <div>
     <hr class="line">
