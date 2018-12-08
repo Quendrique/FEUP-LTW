@@ -38,47 +38,55 @@
   </section>
 <?php } ?>
 
-<?php function printProfileEdit($userdata) { 
+<?php 
+function printProfileEdit($userdata) { 
 ?>
   <section id="profile" class= "blockStyle blockLayout page">
 
     <h1>Edit your profile</h1>
+    <?php $igmsrc = getUserImage($userdata['username']);?>
+    <div id ="content">
+      <div id = "imageInfo">
+        <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200">
+        <script type="text/javascript" src="../scripts/fileScripts.js"></script>
+        <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
+      </div>
+      <form method="post" action="../actions/action_edit_profile.php">
+        <input class="inputField" type="text" name="username" value=<?=$userdata['username']?> hidden>
+        <p>Name: </p>
+        <input class="inputField" type="text" name="name" value=<?=$userdata['name']?> >
+        <p>Birth Date: </p>
+        <input class="inputField" type="date" name="birthdate" value=<?=$userdata['birth_day']?>>
 
-    <form method="post" action="../actions/action_edit_profile.php">
-      <input class="inputField" type="text" name="username" value=<?=$userdata['username']?> hidden>
-      <p>Name: </p>
-      <input class="inputField" type="text" name="name" value=<?=$userdata['name']?>>
+        <p>Gender: </p>
+        <select name="gender">
+          <?php if($userdata['gender'] == ""){?>
+          <option value="" selected></option>
+          <?php } else { ?>
+          <option value=""></option>
+          <?php } ?>
+          <?php if($userdata['gender'] == "Male"){?>
+          <option value="Male" selected>Male</option>
+          <?php } else { ?>
+          <option value="Male">Male</option>
+          <?php } ?>
+          <?php if($userdata['gender'] == "Female"){?>
+          <option value="Female" selected>Female</option>
+          <?php } else { ?>
+          <option value="Female">Female</option>
+          <?php } ?>
+        </select>
 
-      <p>Birth Date: </p>
-      <input class="inputField" type="date" name="birthdate" value=<?=$userdata['birth_day']?>>
+        <p>Nationality: </p>
+        <input class="inputField" type="text" name="nationality" value=<?=$userdata['nationality']?>>
 
-      <p>Gender: </p>
-      <select name="gender">
-        <?php if($userdata['gender'] == ""){?>
-        <option value="" selected></option>
-        <?php } else { ?>
-        <option value=""></option>
-        <?php } ?>
-        <?php if($userdata['gender'] == "Male"){?>
-        <option value="Male" selected>Male</option>
-        <?php } else { ?>
-        <option value="Male">Male</option>
-        <?php } ?>
-        <?php if($userdata['gender'] == "Female"){?>
-        <option value="Female" selected>Female</option>
-        <?php } else { ?>
-        <option value="Female">Female</option>
-        <?php } ?>
-      </select>
+        <p>E-mail: </p>
+        <input class="inputField" type="email" name="email" value=<?=$userdata['email']?>>
 
-      <p>Nationality: </p>
-      <input class="inputField" type="text" name="nationality" value=<?=$userdata['nationality']?>>
-
-      <p>E-mail: </p>
-      <input class="inputField" type="email" name="email" value=<?=$userdata['email']?>>
-
-      <input class="inputField" id="submit" type="submit" value="Save Changes">
-    </form>
+        <input class="inputField" id="submit" type="submit" value="save changes">
+      </form>
+    <div>
+    <hr class="line">
 
   </section>
 <?php } ?>

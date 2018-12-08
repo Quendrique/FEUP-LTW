@@ -34,6 +34,7 @@ body{
   border-radius:50px;
   font-size: 12px;
   padding-left:12px !important;
+  padding-right:12px !important;
   background: none;
 }
 
@@ -466,15 +467,33 @@ p{
   flex-direction: column;
  }
 
- #profile h1
- {
+ #profile #imageInfo{
+  width: 200px;
+  margin-right:4em;
+  display: flex;
+  flex-direction: column;
+ }
+
+ #profile img{
+   border-radius: 100px;
+   margin-bottom:1em;
+
+ }
+
+ #profile #content{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-top: 1em;
+ }
+
+ #profile h1{
     font-family: var(--font), sans-serif;
     color: var(--font-color);
     margin: 0 0 1em 0;
  }
 
- #profile p
- {
+ #profile p{
     font-family: var(--font), sans-serif;
     color: var(--font-color);
     margin: 0;
@@ -496,7 +515,6 @@ p{
 
  #profile form {
   display: grid;
-  margin: 1em 0 0 0;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   max-width: 60%;
@@ -509,14 +527,16 @@ p{
 }
 
 #profile #submit{
-  grid-area: 6 / 1 / span 1 / span 2;
+  grid-area: 6 / 2 / span 1 / span 1;
   margin: 0.5em  auto auto auto;
   padding: 0.5em;
   font-family: var(--font), sans-serif;
   font-weight: bold;
-  color: var(--font-color);
+  color: var(--font-hover-color);
   border: none;
-  background-color: Transparent;
+  background: var(--font-color);
+  align-content: center;
+  text-align: center;
 }
 
 #profile #submit:hover{

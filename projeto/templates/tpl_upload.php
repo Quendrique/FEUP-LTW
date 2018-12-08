@@ -4,6 +4,9 @@
  <meta charset="utf-8">
     <script src="../audiojs/audio.min.js"></script>
         <section id="upload" class= "blockStyle blockLayout page">
+        <script type="text/javascript" src="../scripts/fileScripts.js"></script>
+
+        <script> onAudioChange(); </script>
   
         <div id="h1upload"><h1>New Story</h1></div>
         <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data">
@@ -12,7 +15,6 @@
             <div id=uploadInfo>
                 <div id = "uploadFile"> 
                     <img id="uploadedImage" src= "../img/templatetrackcover.png" height="200" width="200"/>
-                    <script type="text/javascript" src="../scripts/fileScripts.js"></script>
                     <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
                 </div> 
 

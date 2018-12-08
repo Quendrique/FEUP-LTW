@@ -1,10 +1,10 @@
-
-audiojs.events.ready(function() {
-    audiojs.createAll();
-});
+function onAudioChange(event){
+    audiojs.events.ready(function() {
+        audiojs.createAll();
+    });
+}    
 
 function onImageSelected(event) {
-
     event.preventDefault();
     event.stopPropagation();
 
@@ -77,6 +77,7 @@ function onTrackSelected(event) {
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
+    onAudioChange(event);
 
 }
 
