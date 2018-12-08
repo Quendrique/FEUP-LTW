@@ -28,7 +28,7 @@
                             $all_channels = getChannels();
                             foreach($all_channels as $channel){
                                 foreach($channel as $channel_name){ ?>
-                                    <option value=<?=$channel_name?>><?=$channel_name?></option> 
+                                    <option value="<?=$channel_name?>"><?=$channel_name?></option> 
                                     <?php
                                     break;
                                 }    
