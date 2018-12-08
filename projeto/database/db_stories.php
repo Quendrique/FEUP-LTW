@@ -38,7 +38,7 @@
    */
   function getComments($story) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM comments WHERE story_id = ?');
+    $stmt = $db->prepare('SELECT * FROM comments WHERE story_id = ? ORDER BY datetime DESC');
     $stmt->execute(array($story));
     return $stmt->fetchAll(); 
   }
