@@ -82,10 +82,9 @@ $date = strtotime($date_str);
  */ 
 ?>
   <section id="comment_list" class="page blockStyle blockLayout">
-    <?php 
+    <?php draw_add_comment($story);
     
     foreach($comments as $comment) {
-      draw_add_comment($story);
       draw_comment($comment, $story);
     } 
     ?>
@@ -102,10 +101,10 @@ $date = strtotime($date_str);
   $date = strtotime($date_str);
 ?>
   <article id="comment">
-    <header> 
+    <div id ="userComment" class="comment">
       <span id="user"> <?= $comment['author']?></span>
-    </header>
     <p><?= $comment['text']?></p>
+</div>
     <footer>
       <section id="upvote">
         <form method="post" action="../actions/action_vote_comment.php">
@@ -114,7 +113,7 @@ $date = strtotime($date_str);
           <input type="text" name="comment" value=<?=$comment['id']?> hidden>
           <input type="text" name="story" value=<?=$story?> hidden>
           <button type="submit" class="voteup_btn">
-            <i class="fas fa-caret-up fa-2x"></i>
+            <i class="fas fa-caret-up fa-lg"></i>
           </button>
         </form>
         <span id = numUpvotes><?= $comment['upvotes']?></span>
@@ -126,11 +125,12 @@ $date = strtotime($date_str);
           <input type="text" name="comment" value=<?=$comment['id']?> hidden>
           <input type="text" name="story" value=<?=$story?> hidden>
           <button type="submit" class="votedown_btn">
-            <i class="fas fa-caret-down fa-2x"></i>
+            <i class="fas fa-caret-down fa-lg"></i>
           </button>
         </form>
         <span id = numDownvotes><?= $comment['downvotes']?></span>
       </section>
+      <span id ="divDot">&bull;</span>
       <span id="date"> <?= date('d/m/Y', $date)?></span>
     </footer>  
   </article>
