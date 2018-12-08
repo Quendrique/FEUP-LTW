@@ -50,27 +50,17 @@ $date = strtotime($date_str);
       </div>
     </div>
     <footer>
-      <section id="upvote">
-        <form method="post" action="../actions/action_vote_story.php">
-          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-          <input type="number" name="action" value= 1 hidden>
-          <input type="text" name="story" value=<?=$story['id']?> hidden>
-          <button type="submit" class="voteup_btn">
-            <i class="fas fa-caret-up fa-2x"></i>
-          </button>
-        </form>
-        <span id = numUpvotes><?= $story['upvotes']?></span>
+      <section id="upvote" data-storyid=<?=$story['id']?>>
+        <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
+          <i class="fas fa-caret-up fa-2x"></i>
+        </button>
+        <span id=numUpvotes><?= $story['upvotes']?></span>
       </section>
-      <section id="downvote">
-        <form method="post" action="../actions/action_vote_story.php">
-          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-          <input type="number" name="action" value= 0 hidden>
-          <input type="text" name="story" value=<?=$story['id']?> hidden>
-          <button type="submit" class="votedown_btn">
-            <i class="fas fa-caret-down fa-2x"></i>
-          </button>
-        </form>
-        <span id = numDownvotes><?= $story['downvotes']?></span>
+      <section id="downvote" data-storyid=<?=$story['id']?>>
+        <button type="submit" class="votedown_btn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?>>
+          <i class="fas fa-caret-down fa-2x"></i>
+        </button>
+        <span id=numDownvotes><?= $story['downvotes']?></span>
       </section>
     </footer>  
   </article>

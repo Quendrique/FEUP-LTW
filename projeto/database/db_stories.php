@@ -19,6 +19,20 @@
     return $stmt->fetch(); 
   }
 
+  function getUpvotesStory($story) {
+    global $db;
+    $stmt = $db->prepare('SELECT upvotes FROM stories WHERE id = ?');
+    $stmt->execute(array($story));
+    return $stmt->fetch(); 
+  }
+
+  function getDownvotesStory($story) {
+    global $db;
+    $stmt = $db->prepare('SELECT downvotes FROM stories WHERE id = ?');
+    $stmt->execute(array($story));
+    return $stmt->fetch(); 
+  }
+
   /**
    * Returns a story's comments 
    */
