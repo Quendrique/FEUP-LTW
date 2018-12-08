@@ -21,9 +21,12 @@
  * page.
  */ ?>
   <section id="story_page" class="page">
+  <script src="../audiojs/audio.min.js"></script>
+  <script>audiojs.events.ready(function() {
+            audiojs.createAll();
+    });</script>
     <?php 
       draw_story($story); 
-
     ?>
     
 </section>
@@ -54,6 +57,7 @@ $date = strtotime($date_str);
       </div>
     </div>
     <footer>
+    <span id="channel"><?= $story['channel']?></span>
       <section id="upvote" data-storyid=<?=$story['id']?>>
         <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
           <i class="fas fa-caret-up fa-2x"></i>
@@ -81,6 +85,7 @@ $date = strtotime($date_str);
     <?php 
     
     foreach($comments as $comment) {
+      draw_add_comment($story);
       draw_comment($comment, $story);
     } 
     ?>
@@ -102,7 +107,6 @@ $date = strtotime($date_str);
     </header>
     <p><?= $comment['text']?></p>
     <footer>
-      <span id="channel"> #<?= $story['channel']?></span>
       <section id="upvote">
         <form method="post" action="../actions/action_vote_comment.php">
           <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
@@ -142,7 +146,7 @@ $date = strtotime($date_str);
     <form method="post" action="../actions/action_add_comment.php">
       <input type="text" name="story" value=<?=$story?> hidden>
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-      <textarea  class="inputField" rows="2" cols="50" name="comment" placeholder="Add a comment" required></textarea>
+      <textarea  class="inputField" rows="1" cols="112" name="comment" placeholder="Add a comment" required></textarea>
       <button type="submit" class="add_comment_btn">Post</button>
     </form>
   </section>

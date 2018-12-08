@@ -96,7 +96,7 @@ select{
 }
 
 .blockStyle{
-  box-shadow: 0px 0px 20px var(--box-shadow-color);
+  box-shadow: 0px 0px 5px var(--box-shadow-color);
   font: var(--font);
   color: var(--font-color);
   background: white;
@@ -569,6 +569,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   color: var(--font-color);
   font-weight: normal;
 }
+
 #infoBlock textarea{
   font: var(--font);
   color: var(--font-color);
@@ -800,11 +801,9 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 #channel_info {
   padding: 2em 4em 1em 4em;
-  box-shadow:0px 0px 20px var(--box-shadow-color);
   background: var(--washed-out-blue);
   display: flex;
   flex-direction: column;
-  color: var(--font-color);
   margin-bottom: 2em;
 }
 
@@ -899,9 +898,13 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #story {
-  padding: 0!important;
+  padding: 0 0 0.8em 0!important;
+}
+
+#story_page {
   margin-bottom: 2em;
 }
+
 .footerSeparator{
   border: 0;
   clear:both;
@@ -911,7 +914,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #story #body {
-  padding: 1em 4em 3em 4em ;
+  padding: 1em 4em 0 4em ;
 
 }
 
@@ -986,7 +989,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #story #storyContent {
   display: flex;
   flex-direction: row;
-  margin-top: 1em;
+  margin: 1em 0 2em 0;
 
 }
 
@@ -1002,6 +1005,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 #comment_list {
   grid-area: 3 / 2 / span 1 / span 1 !important;
+  margin-top: 0;
 }
 
 #comment_list > *:nth-last-child(2) {
@@ -1065,6 +1069,19 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 #comment > header:nth-child(2) {
   margin-left: auto;
+}
+
+#add_comment{
+  align-items: right;
+}
+
+#add_comment textarea{
+  font: var(--font);
+  color: var(--font-color);
+  font-weight: normal;
+  resize: none;
+  padding: 6px 12px 6px 12px;
+  width: 80%;
 }
 
 .voteup_btn, .votedown_btn{

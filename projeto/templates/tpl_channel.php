@@ -34,7 +34,7 @@
  * Draws a channel's page
  * page.
  */ ?>
-  <section id="channel_info">
+  <section id="channel_info" class="blockStyle">
     <header>
       <h1>#<?= $channel['name']?></h1>
       <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
