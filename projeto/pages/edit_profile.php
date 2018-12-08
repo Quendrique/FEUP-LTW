@@ -21,11 +21,3 @@
 
     draw_footer();
 ?>
-
-<?php
-function getUserImage($username){
-  if(file_exists("../img/users/$username.png"))
-   $img = "../img/users/$username.png";
-  else  $img = "../img/unknownuser.png";
-  return $img;
-}?>

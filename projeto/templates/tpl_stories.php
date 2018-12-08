@@ -92,7 +92,9 @@ $date = strtotime($date_str);
 <?php 
 } ?>
 
-<?php function draw_comment($comment, $story) {
+<?php include_once('../templates/tpl_account.php');
+
+function draw_comment($comment, $story) {
 /**
  * Draws a single story
  * page.
@@ -101,9 +103,13 @@ $date = strtotime($date_str);
   $date = strtotime($date_str);
 ?>
   <article id="comment">
-    <div id ="userComment" class="comment">
-      <span id="user"> <?= $comment['author']?></span>
-    <p><?= $comment['text']?></p>
+    <div id ="singleComment">
+      <?php $igmsrc = getUserImage($comment['author']);?>
+      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35">
+      <div id ="userAndText" class="comment">
+        <span id="user"> <?= $comment['author']?></span>
+        <p><?= $comment['text']?></p>
+      </div>
     </div>
     <footer>
       <section id="upvote" data-commentid=<?=$comment['id']?>>

@@ -39,6 +39,7 @@
 <?php } ?>
 
 <?php 
+
 function printProfileEdit($userdata) { 
 ?>
   <section id="profile" class= "blockStyle blockLayout page">

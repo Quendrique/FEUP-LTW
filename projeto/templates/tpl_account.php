@@ -8,13 +8,15 @@
   </section>
 <?php } ?>
 
-<?php function draw_sidebar_login() { 
+<?php 
+    function draw_sidebar_login() { 
 
   if (isset($_SESSION['username']))
   { 
     $username = $_SESSION['username'];?>
     <section id="sidebar_login" class="blockStyle">
-        
+      <?php $igmsrc = getUserImage($username);?>
+        <img  id="userImage"  src=<?=$igmsrc?> width=40 height="40">
         <a href="../pages/edit_profile.php?user=<?= $username ?>"><?= $username ?></a>
         <div><a href="../actions/action_logout.php">Logout</a></div>
 
@@ -23,7 +25,6 @@
   else
   { ?>
     <section id="sidebar_login" class = "blockStyle">
-        
         <form method="post" action="../actions/action_login.php">
         <input type="text" name="username" placeholder="username" class="inputField" required>
         <input type="password" name="password" placeholder="password" class="inputField" required>
@@ -101,3 +102,11 @@
 
   </section>
 <?php } ?>
+
+<?php
+function getUserImage($username){
+  if(file_exists("../img/users/$username.png"))
+   $img = "../img/users/$username.png";
+  else  $img = "../img/unknownuser.png";
+  return $img;
+}?>
