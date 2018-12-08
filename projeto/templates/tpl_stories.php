@@ -104,30 +104,18 @@ $date = strtotime($date_str);
     <div id ="userComment" class="comment">
       <span id="user"> <?= $comment['author']?></span>
     <p><?= $comment['text']?></p>
-</div>
+    </div>
     <footer>
-      <section id="upvote">
-        <form method="post" action="../actions/action_vote_comment.php">
-          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-          <input type="number" name="action" value=1 hidden>
-          <input type="text" name="comment" value=<?=$comment['id']?> hidden>
-          <input type="text" name="story" value=<?=$story?> hidden>
-          <button type="submit" class="voteup_btn">
-            <i class="fas fa-caret-up fa-lg"></i>
-          </button>
-        </form>
+      <section id="upvote" data-commentid=<?=$comment['id']?>>
+        <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$story?> comment=<?=$comment['id']?>>
+          <i class="fas fa-caret-up fa-lg"></i>
+        </button>
         <span id = numUpvotes><?= $comment['upvotes']?></span>
       </section>
-      <section id="downvote">
-        <form method="post" action="../actions/action_vote_comment.php">
-          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-          <input type="number" name="action" value=0 hidden>
-          <input type="text" name="comment" value=<?=$comment['id']?> hidden>
-          <input type="text" name="story" value=<?=$story?> hidden>
-          <button type="submit" class="votedown_btn">
-            <i class="fas fa-caret-down fa-lg"></i>
-          </button>
-        </form>
+      <section id="downvote" data-commentid=<?=$comment['id']?>>
+        <button type="submit" class="votedown_btn" user=<?=$_SESSION['username']?> action=0 story=<?=$story?> comment=<?=$comment['id']?>>
+          <i class="fas fa-caret-up fa-lg"></i>
+        </button>
         <span id = numDownvotes><?= $comment['downvotes']?></span>
       </section>
       <span id ="divDot">&bull;</span>

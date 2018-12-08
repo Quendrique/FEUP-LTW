@@ -43,6 +43,13 @@
     return $stmt->fetchAll(); 
   }
 
+  function getComment($comment) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM comments WHERE id = ?');
+    $stmt->execute(array($comment));
+    return $stmt->fetch(); 
+  }
+
   /**
    * Vote on a story (0 - downvote; 1 - upvote)
    */
