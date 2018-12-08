@@ -37,21 +37,13 @@
   <section id="channel_info" class="blockStyle">
     <header>
       <h1>#<?= $channel['name']?></h1>
-      <h2><?= $subCount['numSubs']?> subscriber(s)</h2>
+      <h2 id="sub_count"><?= $subCount['numSubs']?> subscriber(s)</h2>
       <?php
       if (isset($_SESSION['username'])) { 
         if (!(isSubbedTo($_SESSION['username'], $channel['name']))) {?>
-        <form method="post" action="../actions/action_sub_channel.php">
-          <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-          <input type="text" name="channel" value=<?=$channel['name']?> hidden>
-          <input id="submit" type="submit" value="Subscribe">
-        </form>
+        <button id="submit" type="submit" user=<?=$_SESSION['username']?> action=1 channel=<?=$channel['name']?>>Subscribe</button>
       <?php } else { ?>
-          <form method="post" action="../actions/action_unsub_channel.php">
-              <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
-              <input type="text" name="channel" value=<?=$channel['name']?> hidden>
-              <input id="submit" type="submit" value="Unsubscribe">
-          </form>
+        <button id="submit" type="submit" user=<?=$_SESSION['username']?> action=0 channel=<?=$channel['name']?>>Unsubscribe</button>
       <?php 
         }
         if($_SESSION['username'] == $channel['author'])

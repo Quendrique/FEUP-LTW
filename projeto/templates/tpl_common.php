@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
       <script src="../scripts/vote_story.js" defer></script>
       <script src="../scripts/vote_comment.js" defer></script>
+      <script src="../scripts/sub.js" defer></script>
     </head>
 
     <body>

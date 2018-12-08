@@ -4,6 +4,8 @@
     include_once('../database/db_channels.php');
     include_once('../database/db_stories.php');
 
+    header('Content-Type: application/json');
+
     $user = $_POST['user'];
     $action = $_POST['action'];
     $comment = $_POST['comment'];
