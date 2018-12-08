@@ -301,6 +301,7 @@ p{
   color:var(--font-hover-color);
   border-radius:16px;
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+  padding: 0.1em 12px 0.1em 12px;
  }
 
  #sidebar_login > a
@@ -926,7 +927,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #story {
-  padding: 0 0 0.8em 0!important;
+  padding: 0 0 0.5em 0!important;
   margin-bottom: 2em;
 
 }
@@ -957,7 +958,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   display: flex;
   flex-direction: row;
   align-items: center; 
-  padding: 0em 2em 0.5em 2em;
+  padding: 0em 2em 0em 2em;
 }
 
 #story  footer #channel{
@@ -990,7 +991,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #story footer #upvote, #story  footer #downvote {
   display: flex;
   flex-direction: row;
-  margin-right:1em;
+  margin-right:0.3em;
 }
 
 #story footer #downvote {
@@ -1042,6 +1043,16 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   padding: 0;
   margin-top: 0.2em;
 }
+
+#story a{
+  margin-right: 1.5em;
+  color:var(--font-color);
+}
+
+#story a:hover{
+  color:var(--grad-start-color);
+}
+
 
 #comment > header {
   display: flex;
@@ -1137,11 +1148,11 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   background-color: transparent;
 }
 
-.voteup_btn:hover, #upvote:hover{
+.voteup_btn:hover{
   color:var(--grad-start-color);
 }
 
-.votedown_btn:hover, #downvote:hover{
+.votedown_btn:hover{
   color:var(--grad-end-color);
 }
 

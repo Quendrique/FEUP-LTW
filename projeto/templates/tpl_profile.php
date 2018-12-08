@@ -55,7 +55,7 @@ function printProfileEdit($userdata) {
       <form method="post" action="../actions/action_edit_profile.php">
         <input class="inputField" type="text" name="username" value=<?=$userdata['username']?> hidden>
         <p>Name: </p>
-        <input class="inputField" type="text" name="name" value=<?=$userdata['name']?> >
+        <input class="inputField" type="text" name="name" value="<?=$userdata['name']?>" >
         <p>Birth Date: </p>
         <input class="inputField" type="date" name="birthdate" value=<?=$userdata['birth_day']?>>
 
