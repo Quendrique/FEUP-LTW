@@ -30,11 +30,8 @@ function subClicked(event) {
       info.setAttribute('action', 1);
       document.querySelector('section#sidebar_subs ul li[data-channel=' + CSS.escape(channel) + ']').remove();
     };
-
     let updatedSubCount = JSON.parse(this.responseText);
-    console.log(document.querySelector('section#channel_info #sub_count'));
     document.querySelector('section#channel_info #sub_count').innerHTML = updatedSubCount.numSubs + ' subscriber(s)';
-
   });
   request.send(encodeForAjax({user: user, channel: channel, action: action}));
 }

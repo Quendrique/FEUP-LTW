@@ -36,25 +36,25 @@
     <?php }
 } ?>
 
-<?php function draw_sidebar_subs($subbed_channels) { 
-  if (isset($_SESSION['username']) && !empty($subbed_channels)) {
-    ?>
+<?php function draw_sidebar_subs($subbed_channels) { ?>
     <section id="sidebar_subs" class= "blockStyle">
 
       <h1>Subscribed Channels</h1>
       <ul>
         <?php
-          foreach($subbed_channels as $subbed_channel) { ?>
-            <li data-channel=<?= $subbed_channel['channel'] ?>>
-              <a href="../pages/channel_page.php?channel=<?= $subbed_channel['channel'] ?>"><?= $subbed_channel['channel'] ?></a>
-            </li>
+          if (isset($_SESSION['username']) && !empty($subbed_channels)) {
+            foreach($subbed_channels as $subbed_channel) { ?>
+              <li data-channel=<?= $subbed_channel['channel'] ?>>
+                <a href="../pages/channel_page.php?channel=<?= $subbed_channel['channel'] ?>"><?= $subbed_channel['channel'] ?></a>
+              </li>
         <?php }
+          }
         ?>
       </ul>
 
     </section>
-<?php } 
-}?>
+<?php 
+} ?>
 
 <?php function draw_login($message) { 
 /**
