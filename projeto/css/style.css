@@ -52,7 +52,7 @@ body{
   width:100px;
 }
 
-hr {
+#upload hr {
   border: 0;
   clear:both;
   display:block;
@@ -60,6 +60,16 @@ hr {
   background-color:var(--box-shadow-color);
   height: 2px;
   margin:3em auto 3em auto;
+}
+
+#story hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 100%;               
+  background-color:#00000005;
+  height: 2px;
+  margin:0em auto 0em auto;
 }
 
 .audiojs {
@@ -886,24 +896,47 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 }
 
 #story {
-  padding: 4em !important;
+  padding: 0!important;
   margin-bottom: 2em;
+}
+
+#story #body {
+  padding: 1em 4em 3em 4em ;
+
 }
 
 #story > header {
   display: flex;
   flex-direction: row;
+  background: var(--washed-out-blue);
+  padding: 0.5em 2em 0.5em 2em;
 }
 
-#story > footer {
-  margin-left: auto;
+#story  footer {
   display: flex;
   flex-direction: row;
+  padding: 1em 2em 1em 2em;
 }
 
-#story > h2 > a {
-  color: var(--link-color);
+#story  footer #channel{
+  color:var(--font-hover-color);
+  font-weight: bold;
+  margin-right: auto;
+  font-size: 14px;
+  width: 60px;
+  height: 19px;
+  text-align: center;
+  border-radius:16px;
+  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+}
+
+#story h2 > a {
+  color: var(--font-color);
   text-decoration: none;
+}
+
+#story h2 > a:hover {
+  color: var(--grad-end-color);
 }
 
 #story #numUpvotes, #story #numDownvotes {
@@ -912,13 +945,13 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-left: 0.2em;
 }
 
-#story > footer #upvote, #story > footer #downvote {
+#story footer #upvote, #story  footer #downvote {
   display: flex;
   flex-direction: row;
   margin-right:1em;
 }
 
-#story > footer #downvote {
+#story footer #downvote {
   margin-right: 0;
 }
 
@@ -926,14 +959,14 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-right:auto;
 }
 
-#story > header > * {
+#story header > * {
   display: grid;
   padding: 0.1em;
   margin: 0;
   align-content: center;
 }
 
-#story > header:nth-child(2) {
+#story header:nth-child(2) {
   margin-left: auto;
 }
 
@@ -1025,11 +1058,11 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   background-color: transparent;
 }
 
-.voteup_btn:hover{
+.voteup_btn:hover, #upvote:hover{
   color:var(--grad-start-color);
 }
 
-.votedown_btn:hover{
+.votedown_btn:hover, #downvote:hover{
   color:var(--grad-end-color);
 }
 
