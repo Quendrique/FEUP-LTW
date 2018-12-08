@@ -38,7 +38,7 @@
                 </div> 
             </div>
             
-            <hr>
+            <hr class="line">
 
             <div id = "uploadInfo2"> 
                 <div id="audiojs">
