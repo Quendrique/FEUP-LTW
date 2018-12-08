@@ -1,6 +1,7 @@
 <?php
 
   include('../database/db_connection.php');
+  include_once('../utils.php');
 
   function login($username, $password) 
   {
@@ -33,5 +34,6 @@
                           SET name = ?, birth_day = ?, email = ?, gender = ?, nationality = ?
                           WHERE username = ?');
     $stmt->execute(array($name, $birthdate, $email, $gender, $nationality, $username));
+    imageHandler($username ,"../img/users/");
   }
 ?>

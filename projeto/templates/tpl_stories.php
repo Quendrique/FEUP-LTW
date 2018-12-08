@@ -49,7 +49,8 @@ $date = strtotime($date_str);
     <section id="body" class = "blockLayout">
       <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
       <div id = "storyContent">
-        <img src= "../img/stories/thumbs_medium/<?=$story['id']?>.png" width="200" height="200">
+      <?php $igmsrc = getTrackImage( $story['id']);?>
+      <img  id="trackImage"  src=<?=$igmsrc?> width="200" height="200">
         <div id = "storyTextAndTrack">
           <p> <?= $story['text']?></p>
           <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>

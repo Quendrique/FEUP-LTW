@@ -13,14 +13,13 @@ function imageHandler($id,$path) {
   $smallFileName = "$path/thumbs_small/$id.png";
   $mediumFileName = "$path/thumbs_medium/$id.png";
 
-
   move_uploaded_file($_FILES['image']['tmp_name'], $originalFileName);
 
 
   // Crete an image representation of the original image
-  if($ext == "png")
-    $original = imagecreatefrompng($originalFileName);
-  else $original = imagecreatefromjpeg($originalFileName);
+  imagepng(imagecreatefromstring(file_get_contents($originalFileName)), $originalFileName);
+  $original = imagecreatefrompng($originalFileName);
+
 
   $width = imagesx($original);     // width of the original image
   $height = imagesy($original);    // height of the original image
@@ -29,8 +28,7 @@ function imageHandler($id,$path) {
   // Create and save a small square thumbnail
   $small = imagecreatetruecolor(200, 200);
   imagecopyresized($small, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 200, 200, $square, $square);
-  if($ext == "png") imagepng($small, $smallFileName);
-  else imagejpeg($small, $smallFileName);
+  imagepng($small, $smallFileName);
 
   // Calculate width and height of medium sized image (max width: 400)
   $mediumwidth = $width;
@@ -44,8 +42,7 @@ function imageHandler($id,$path) {
   $medium = imagecreatetruecolor($mediumwidth, $mediumheight);
   imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
 
-  if($ext == "png") imagepng($medium, $mediumFileName);
-  else imagejpeg($medium, $mediumFileName);
+  imagepng($medium, $mediumFileName);
 }
 
 function trackHandler($id) {

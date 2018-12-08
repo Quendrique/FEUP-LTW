@@ -47,12 +47,12 @@ function printProfileEdit($userdata) {
     <h1>Edit your profile</h1>
     <?php $igmsrc = getUserImage($userdata['username']);?>
     <div id ="content">
+      <form action="../actions/action_edit_profile.php" method="POST" enctype="multipart/form-data">
       <div id = "imageInfo">
         <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200">
         <script type="text/javascript" src="../scripts/fileScripts.js"></script>
         <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
       </div>
-      <form method="post" action="../actions/action_edit_profile.php">
         <input class="inputField" type="text" name="username" value=<?=$userdata['username']?> hidden>
         <p>Name: </p>
         <input class="inputField" type="text" name="name" value="<?=$userdata['name']?>" >

@@ -11,7 +11,6 @@
     $nationality = $_POST['nationality'];
 
     updateProfile($username, $name, $birthdate, $email, $gender, $nationality);
-
     header("Location: ../pages/profile.php?user=$username");
 
 ?>

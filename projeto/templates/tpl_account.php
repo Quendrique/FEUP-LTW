@@ -105,8 +105,16 @@
 
 <?php
 function getUserImage($username){
-  if(file_exists("../img/users/$username.png"))
-   $img = "../img/users/$username.png";
-  else  $img = "../img/unknownuser.png";
+  if(file_exists("../img/users/originals/$username.png")){
+   $img = "../img/users/originals/$username.png";
+  }else  $img = "../img/unknownuser.png";   
+  return $img;
+}?>
+
+<?php
+function getTrackImage($username){
+  if(file_exists("../img/stories/originals/$username.png")){
+   $img = "../img/stories/originals/$username.png";
+  }else  $img = "../img/templatetrackcover.png";   
   return $img;
 }?>
