@@ -1,6 +1,6 @@
 <?php function draw_sidebar($subbed_channels) {
 ?>
-  <section id="sidebar">
+  <section id="sidebar" >
     <?php
       draw_sidebar_login();
       draw_sidebar_subs($subbed_channels);
@@ -24,7 +24,7 @@
   <?php }
   else
   { ?>
-    <section id="sidebar_login" class = "blockStyle">
+    <section id="sidebar_login" class = "blockStyle sidebar_notlogged">
         <form method="post" action="../actions/action_login.php">
         <input type="text" name="username" placeholder="username" class="inputField" required>
         <input type="password" name="password" placeholder="password" class="inputField" required>
