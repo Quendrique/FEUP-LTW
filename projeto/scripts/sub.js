@@ -17,9 +17,18 @@ function subClicked(event) {
     if (action == 1) { // 1 - sub 
       info.innerHTML = 'Unsubscribe';  
       info.setAttribute('action', 0);
+      let listItem = document.createElement('li');
+      let newSub = document.createElement('a');
+      let subList = document.querySelector('section#sidebar_subs ul');
+      newSub.setAttribute('href', "../pages/channel_page.php?channel=" + channel);
+      listItem.setAttribute('data-channel', channel);
+      newSub.innerHTML = channel;
+      listItem.appendChild(newSub);
+      subList.appendChild(listItem);
     } else { // 0 - unsub
       info.innerHTML = 'Subscribe';  
       info.setAttribute('action', 1);
+      document.querySelector('section#sidebar_subs ul li[data-channel=' + CSS.escape(channel) + ']').remove();
     };
 
     let updatedSubCount = JSON.parse(this.responseText);

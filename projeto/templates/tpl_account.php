@@ -45,7 +45,7 @@
       <ul>
         <?php
           foreach($subbed_channels as $subbed_channel) { ?>
-            <li>
+            <li data-channel=<?= $subbed_channel['channel'] ?>>
               <a href="../pages/channel_page.php?channel=<?= $subbed_channel['channel'] ?>"><?= $subbed_channel['channel'] ?></a>
             </li>
         <?php }
