@@ -10,7 +10,7 @@ body{
 
   overflow-x: hidden;
 
-  --bg-color: white;
+  --bg-color : #efebeb66;
   --font-color: #373843;
   --search-background-color: #e8e8e8;
   --error-color: rgba(236, 96, 96, 0.829);
@@ -23,7 +23,7 @@ body{
   --washed-out-blue:#aec5e05c;
 
   --font: 'Abel';
-  background: #fcfbfb21;
+  background: var(--bg-color);
 
   font-family: var(--font), sans-serif;
 }
@@ -137,7 +137,7 @@ p{
   width: 100%;
 	float: left;
   padding: 12px;
-  background-color: var(--bg-color);
+  background-color: white;
   box-shadow:0px 0px 20px var(--box-shadow-color);
 }
 
@@ -1188,9 +1188,4 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-left:1em;
   display:flex;
   flex-direction: row;
-}
-
-#add_comment button{
-  background: none;
-  border:none;
 }

@@ -11,7 +11,7 @@
     
     $id = $db->lastInsertId();
 
-    imageHandler($id);
+    imageHandler($id,"../img/stories/");
     trackHandler($id);
   }
 ?>

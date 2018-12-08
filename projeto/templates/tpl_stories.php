@@ -145,10 +145,9 @@ function draw_comment($comment, $story) {
       <input type="text" name="story" value=<?=$story?> hidden>
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
       <textarea  class="inputField" rows="1" cols="112" name="comment" placeholder="Add a comment" required></textarea>
-      <span id = "postBtn" class="add_comment_btn">
-      <i class="fas fa-plus-circle"></i>
-      <button type="submit" ></button>
-</span>
+      <button type="submit" class="add_comment_btn">
+      <i class="fas fa-angle-down fa-2x"></i>
+       </button>
     </form>
   </section>
 <?php 

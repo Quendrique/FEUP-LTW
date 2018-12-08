@@ -5,13 +5,13 @@ function getExtension() {
   return end((explode(".", $name)));
 } 
 
-function imageHandler($id) {
+function imageHandler($id,$path) {
   $ext = getExtension();
 
   // Generate filenames for original, small and medium files
-  $originalFileName = "../img/stories/originals/$id.$ext";
-  $smallFileName = "../img/stories/thumbs_small/$id.$ext";
-  $mediumFileName = "../img/stories/thumbs_medium/$id.$ext";
+  $originalFileName = "$path/originals/$id.png";
+  $smallFileName = "$path/thumbs_small/$id.png";
+  $mediumFileName = "$path/thumbs_medium/$id.png";
 
 
   move_uploaded_file($_FILES['image']['tmp_name'], $originalFileName);
