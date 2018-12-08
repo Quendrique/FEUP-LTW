@@ -60,7 +60,7 @@ $date = strtotime($date_str);
     </section>
     <hr class = "footerSeparator">
     <footer>
-    <span id="channel"><?= $story['channel']?></span>
+    <span id="channel">#<?= $story['channel']?></span>
     <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>
       <section id="upvote" data-storyid=<?=$story['id']?>>
         <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>

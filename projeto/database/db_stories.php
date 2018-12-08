@@ -11,6 +11,12 @@
     $stmt->execute(array($story));
     return $stmt->fetch(); 
   }
+  function getAllStories() {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
 
   function getStoryInChannel($channel) {
     global $db;
