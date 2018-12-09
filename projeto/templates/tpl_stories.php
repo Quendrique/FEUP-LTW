@@ -42,7 +42,7 @@ $date = strtotime($date_str);
 ?>
   <article id="story" class = "blockStyle ">
     <header> 
-      <span id="user"> <?= $story['author']?></span>
+      <span id="user"><a href="../pages/profile.php?user=<?= $story['author']?>"><?= $story['author']?></a></span>
       <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
     <hr class = "invisibleLine">

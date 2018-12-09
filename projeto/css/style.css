@@ -1055,6 +1055,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #story a{
   margin-right: 1.5em;
   color:var(--font-color);
+  text-decoration: none;
 }
 
 #story a:hover{
