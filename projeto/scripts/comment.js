@@ -21,6 +21,7 @@ function postComment() {
     let commentList = document.querySelector('section#comment_list');
     console.log(commentList);
     commentList.appendChild(newDisplay);
+    info.querySelector('textarea[name=comment]').value = '';
   });
   request.send(encodeForAjax({user: user, story: story, comment: comment}));
 }
@@ -49,7 +50,7 @@ function createComment(data, imgsrc) {
       "</section>" +
       "<section id='downvote' data-commentid="+ data.id +">" +
         "<button type='submit' class='votedown_btn' user=" + data.author + " action=0 story=" + data.story_id + " comment="+ data.id +">" +
-          "<i class='fas fa-caret-up fa-lg'></i>" +
+          "<i class='fas fa-caret-down fa-lg'></i>" +
         "</button>" +
         "<span id = numDownvotes>"+ data.downvotes +"</span>" +
       "</section>" +
