@@ -9,10 +9,13 @@
     $comment = $_POST['comment'];
 
     //try {
-      addComment($user, $story, $comment);
+      $lastInsertId = addComment($user, $story, $comment);
       //header("Location: ".$prev_page);
     //} catch (PDOException $e) {
       //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to post comment");
       //die(header("Location: ".$prev_page));
     //}
+
+    //RETURN COMMENT!!
+    echo json_encode(getComment($lastInsertId));
 ?>

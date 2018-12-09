@@ -143,6 +143,7 @@
     global $db;
     $stmt = $db->prepare('INSERT INTO comments VALUES (NULL, ?, ?, 0, 0, date("now"), ?)');
     $stmt->execute(array($story, $user, $comment));
+    return $db->lastInsertId();
   }
 
 ?>
