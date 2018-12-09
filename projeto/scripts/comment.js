@@ -1,30 +1,22 @@
-let upvotesComments = document.querySelectorAll('article#comment section#upvote button');
-let downvotesComments = document.querySelectorAll('article#comment section#downvote button');
+let addComment = document.querySelector('section#add_comment');
+addComment.addEventListener('click', postComment); 
 
-console.log(document.querySelectorAll('article#comment section#upvote button'));
+function postComment(event) {
+  let info = event.currentTarget.querySelector('form');
+  let user = info.querySelector('input[name=user]').getAttribute('value');
+  let story = info.querySelector('input[name=story]').getAttribute('value');
+  let comment = info.querySelector('textarea[name=comment]').value;
 
-upvotesComments.forEach((upvoteComments) => upvoteComments.addEventListener('click', voteCommentClicked)); 
-downvotesComments.forEach((downvoteComments) => downvoteComments.addEventListener('click', voteCommentClicked)); 
-
-function voteCommentClicked(event) {
-  let info = event.currentTarget;
-  console.log(event.currentTarget);
-  let user = info.getAttribute('user');
-  let story = info.getAttribute('story');
-  let action = info.getAttribute('action');
-  let comment = info.getAttribute('comment');
-  
   let request = new XMLHttpRequest();
-  request.open("POST", "../api/api_vote_comment.php", true);
+  request.open("POST", "../api/api_add_comment.php", true);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.addEventListener("load", function () {
-    let updatedComment = JSON.parse(this.responseText);
-    console.log(document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes'));
-    document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes').innerHTML = updatedComment.upvotes;
-    document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes').innerHTML = updatedComment.downvotes;
-    
+    //display new comment
+
+    //let commentList = document.querySelector('section#comment_list');
+    //commentList.appendChild();
   });
-  request.send(encodeForAjax({user: user, story: story, action: action, comment: comment}));
+  request.send(encodeForAjax({user: user, story: story, comment: comment}));
 }
 
 function encodeForAjax(data) {
