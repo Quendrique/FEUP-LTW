@@ -13,13 +13,15 @@ function draw_feed($username) { ?>
         });
         </script>
 
-    <?php
-    $all_stories =getAllStories();
-    foreach($all_stories as $story){
-           
+        <?php
+        if ($username !== null) {
+            $all_stories =getAllStories();
+            foreach($all_stories as $story){
                 draw_story($story);
-            
-        
-    }    
-
- } ?> 
+            }
+        } else { ?>
+            <h2>Sign in to see all posts!</h2>
+        <?php } ?>     
+    </section>
+ <?php } 
+ ?> 
