@@ -21,7 +21,14 @@
   try {
     $search_channels = searchChannels($search);
   } catch(PDOException $e) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to search for stories");
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to search for channels");
+    die(header("Location: ../pages/mainpage.php"));
+  }
+
+  try {
+    $search_comments = searchComments($search);
+  } catch(PDOException $e) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to search for comments");
     die(header("Location: ../pages/mainpage.php"));
   }
 
@@ -35,6 +42,6 @@
     draw_sidebar($subbed_channels);
   }
 
-  draw_search_results($search_stories, $search_channels);
+  draw_search_results($search_stories, $search_channels, $search_comments);
   draw_footer();
 ?>

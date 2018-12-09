@@ -14,4 +14,11 @@
     $stmt->execute(array(':search' => '%'.$search.'%'));
     return $stmt->fetchAll();
   }
+
+  function searchComments($search) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM comments WHERE [text] LIKE :search');
+    $stmt->execute(array(':search' => '%'.$search.'%'));
+    return $stmt->fetchAll();
+  }
 ?>

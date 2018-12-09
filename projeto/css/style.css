@@ -1194,9 +1194,17 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 * Channel search
 */
 
-#search_channels {
+#search_channels, #search_stories {
+  margin: 0 0 2em 0;
+}
+
+#search_comments {
   margin: 0;
 }
+
+/**
+* Add comment
+*/
 
 .add_comment_btn{
   border-radius: 100px;

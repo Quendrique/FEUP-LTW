@@ -88,7 +88,7 @@ $date = strtotime($date_str);
     <?php draw_add_comment($story);
     
     foreach($comments as $comment) {
-      draw_comment($comment, $story);
+      draw_comment($comment);
     } 
     ?>
   </section>
@@ -97,10 +97,9 @@ $date = strtotime($date_str);
 
 <?php include_once('../templates/tpl_account.php');
 
-function draw_comment($comment, $story) {
+function draw_comment($comment) {
 /**
- * Draws a single story
- * page.
+ * Draws a single page
  */ 
   $date_str = $comment['datetime'];
   $date = strtotime($date_str);
@@ -116,13 +115,13 @@ function draw_comment($comment, $story) {
     </div>
     <footer>
       <section id="upvote" data-commentid=<?=$comment['id']?>>
-        <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$story?> comment=<?=$comment['id']?>>
+        <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
           <i class="fas fa-caret-up fa-lg"></i>
         </button>
         <span id = numUpvotes><?= $comment['upvotes']?></span>
       </section>
       <section id="downvote" data-commentid=<?=$comment['id']?>>
-        <button type="submit" class="votedown_btn" user=<?=$_SESSION['username']?> action=0 story=<?=$story?> comment=<?=$comment['id']?>>
+        <button type="submit" class="votedown_btn" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
           <i class="fas fa-caret-down fa-lg"></i>
         </button>
         <span id = numDownvotes><?= $comment['downvotes']?></span>
