@@ -4,6 +4,7 @@
     <?php
       draw_sidebar_login();
       draw_sidebar_subs($subbed_channels);
+      draw_sidebar_messages();
     ?>
   </section>
 <?php } ?>
@@ -118,3 +119,22 @@ function getTrackImage($username){
   }else  $img = "../img/templatetrackcover.png";   
   return $img;
 }?>
+
+<?php
+function draw_sidebar_messages() {
+  if(isset($_SESSION['messages'])) { ?>
+      <section class="messages">
+        <?php foreach($_SESSION['messages'] as $message) { ?>
+          <div class="<?=$message['type']?>">
+            <?php if ($message['type'] == 'error') { ?>
+              <i class="fas fa-exclamation"></i>
+            <?php } else { ?>
+              <i class="fas fa-check"></i>
+            <?php } ?>
+            <h2><?=$message['content']?></h2> 
+          </div>
+        <?php } ?>
+      </section>
+    <?php unset($_SESSION['messages']); 
+  }
+} ?> 
