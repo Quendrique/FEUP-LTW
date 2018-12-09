@@ -123,7 +123,7 @@ function draw_comment($comment, $story) {
       </section>
       <section id="downvote" data-commentid=<?=$comment['id']?>>
         <button type="submit" class="votedown_btn" user=<?=$_SESSION['username']?> action=0 story=<?=$story?> comment=<?=$comment['id']?>>
-          <i class="fas fa-caret-up fa-lg"></i>
+          <i class="fas fa-caret-down fa-lg"></i>
         </button>
         <span id = numDownvotes><?= $comment['downvotes']?></span>
       </section>
