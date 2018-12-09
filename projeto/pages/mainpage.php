@@ -9,13 +9,14 @@
     if (!isset($_SESSION['username'])) {
         draw_header(null);
         draw_sidebar(null);
+        draw_feed(null);
     }
     else {
         draw_header($_SESSION['username']);
         $subbed_channels = getSubbedChannels($_SESSION['username']);
         draw_sidebar($subbed_channels);
+        draw_feed($_SESSION['username']);
     }
     
-    draw_feed($_SESSION['username']);
     draw_footer();
 ?>
