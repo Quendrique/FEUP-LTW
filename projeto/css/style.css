@@ -76,7 +76,7 @@ body{
 
 .audiojs {
   border-radius: 5px;
-  margin: auto;
+  margin-top: 2em;
 }
 
 select{
@@ -106,8 +106,6 @@ select{
 
 .page{
   margin: 2em 12em 0 2em;
-  overflow: hidden;
-  overflow-x: hidden;
 
 }
 
@@ -478,6 +476,7 @@ p{
  #profile{
   display: flex;
   flex-direction: column;
+  padding: 2em 4em 2em 4em;
  }
 
  #profile #imageInfo{
@@ -485,6 +484,8 @@ p{
   margin-right:4em;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
  }
 
  #profile img{
@@ -495,10 +496,17 @@ p{
 
  #profile #content{
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: center;
    margin-top: 1em;
  }
+
+ #profile #info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 
  #profile h1{
     font-family: var(--font), sans-serif;
@@ -529,17 +537,22 @@ p{
  #profile form{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
- #profile #textForm{
+#profile form #image{
+  width:75%;
+}
+
+ #profile #textForm, #profile #info{
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   max-width: 60%;
 }
 
-#profile #textForm * {
-  margin: 1em;
+#profile #textForm *, #profile #info * {
+  margin: 0.5em;
   color: var(--font-color);
   font-family: var(--font), sans-serif;
 }
@@ -983,6 +996,21 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
 }
 
+#story >header a{
+  margin-right: auto !important;
+  color:var(--font-color);
+}
+
+#story > footer a:hover{
+  color:var(--grad-start-color);
+}
+
+#story > footer a {
+  color: var(--font-color);
+  text-decoration: none;
+  margin-right: 1.5em;
+}
+
 #story h2 > a {
   color: var(--font-color);
   text-decoration: none;
@@ -1006,10 +1034,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 #story footer #downvote {
   margin-right: 0;
-}
-
-#story #user {
-  margin-right:auto;
 }
 
 #story header > * {
@@ -1036,6 +1060,11 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin: 0 0 0 2em;
 }
 
+
+#story #storyTextAndTrack p{
+  margin: 0;
+}
+
 /**
 * Comments
 */
@@ -1052,15 +1081,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #comment {
   padding: 0;
   margin-top: 0.2em;
-}
-
-#story a{
-  margin-right: 1.5em;
-  color:var(--font-color);
-}
-
-#story a:hover{
-  color:var(--grad-start-color);
 }
 
 

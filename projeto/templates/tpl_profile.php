@@ -12,29 +12,33 @@
 
 <?php function printProfile($userdata) {  ?>
   <section id="profile" class= "blockStyle blockLayout page">
+  <h1><?=$userdata['username']?></h1>
+    <div id ="info">
+      <?php $igmsrc = getUserImage($userdata['username']);?>
+      <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200">
+    
+      <div id = "textForm">
+        <?php if($userdata['name'] !== ""){?>
+        <span><b>Name: </b></span><span><?=$userdata['name']?></span>
+        <?php } ?>
 
-    <h1><?=$userdata['username']?></h1>
+        <?php if($userdata['birth_day'] !== ""){?>
+        <span><b>Birthday: </b></span><span><?=$userdata['birth_day']?></span>
+        <?php } ?>
 
-    <?php if($userdata['name'] !== ""){?>
-    <p><b>Name: </b><?=$userdata['name']?></p>  
-    <?php } ?>
+        <?php if($userdata['gender'] !== ""){?>
+        <span><b>Gender: </b></span><span><?=$userdata['gender']?></span>
+        <?php } ?>
 
-    <?php if($userdata['birth_day'] !== ""){?>
-    <p><b>Birthday: </b><?=$userdata['birth_day']?></p>  
-    <?php } ?>
+        <?php if($userdata['nationality'] !== ""){?>
+        <span><b>Nationality: </b></span><span><?=$userdata['nationality']?></span>
+        <?php } ?>
 
-    <?php if($userdata['gender'] !== ""){?>
-    <p><b>Gender: </b><?=$userdata['gender']?></p>  
-    <?php } ?>
-
-    <?php if($userdata['nationality'] !== ""){?>
-    <p><b>Nationality: </b><?=$userdata['nationality']?></p>  
-    <?php } ?>
-
-    <?php if($userdata['email'] !== ""){?>
-    <p><b>Email: </b><?=$userdata['email']?></p>  
-    <?php } ?>
-
+        <?php if($userdata['email'] !== ""){?>
+        <span><b>Email: </b></span><span><?=$userdata['email']?></span>
+        <?php } ?>
+      </div>  
+  </div>
   </section>
 <?php } ?>
 
@@ -44,7 +48,7 @@ function printProfileEdit($userdata) {
 ?>
   <section id="profile" class= "blockStyle blockLayout page">
 
-    <h1>Edit your profile</h1>
+    <h1>My profile</h1>
     <?php $igmsrc = getUserImage($userdata['username']);?>
     <div id ="content">
       <form action="../actions/action_edit_profile.php" method="POST" enctype="multipart/form-data">
@@ -92,4 +96,5 @@ function printProfileEdit($userdata) {
     <hr class="line">
 
   </section>
+
 <?php } ?>
