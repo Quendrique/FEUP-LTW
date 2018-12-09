@@ -35,6 +35,8 @@
     <p><b>Email: </b><?=$userdata['email']?></p>  
     <?php } ?>
 
+    <p><b>Points: </b><?=$userdata['points']?></p>
+
   </section>
 <?php } ?>
 
