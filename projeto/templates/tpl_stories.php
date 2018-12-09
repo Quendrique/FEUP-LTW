@@ -142,11 +142,11 @@ function draw_comment($comment, $story) {
   <section id="add_comment">
   <?php $igmsrc = getUserImage($_SESSION['username']);?>
       <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35">
-    <form method="post" action="../actions/action_add_comment.php">
+    <form>
       <input type="text" name="story" value=<?=$story?> hidden>
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
       <textarea  class="inputField" rows="1" cols="112" name="comment" placeholder="Add a comment" required></textarea>
-      <button type="submit" class="add_comment_btn">
+      <button type="button" class="add_comment_btn">
         <i class="fas fa-angle-down fa-2x"></i>
       </button>
     </form>
