@@ -13,6 +13,7 @@
       <script src="../scripts/vote_story.js" defer></script>
       <script src="../scripts/vote_comment.js" defer></script>
       <script src="../scripts/sub.js" defer></script>
+      <script src="../scripts/comment.js" defer></script>
     </head>
 
     <body>
