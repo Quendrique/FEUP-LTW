@@ -29,8 +29,8 @@
           <form method="GET" action="../pages/search.php">
             <label><input type="text" name="search" class="inputField" placeholder="Search..." required></label>
           </form>
+          <a href="../pages/mainpage.php"><img src= "../img/logo.png" height="40" width="40"/></a>
         </nav>
-        <img src= "../img/logo.png" height="40" width="40"/>
       </div>
       <?php if(isset($_SESSION['messages'])) { ?>
         <section class="messages">

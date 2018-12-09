@@ -1,5 +1,7 @@
 <?php 
 include_once('../templates/tpl_stories.php');
+include_once('../database/db_stories.php');
+
 
 function draw_feed($username) { ?>
 
@@ -11,23 +13,13 @@ function draw_feed($username) { ?>
         });
         </script>
 
-        <?php
-        if ($username !== null) {
-            $all_channels = getSubbedChannels($username);
-            foreach($all_channels as $channel){
-                foreach($channel as $channel_name){
-                
-                    $stories_in_channel = getStoriesInChannel($channel_name);
-                
-                    foreach($stories_in_channel as $story){
-                        draw_story($story);
-                    }
-                    break;
-                }
-            }
-        } else { ?>
-            <h2>Sign in to see all posts!</h2>
-        <?php } ?> 
-    </section>       
- <?php } 
- ?> 
+    <?php
+    $all_stories =getAllStories();
+    foreach($all_stories as $story){
+           
+                draw_story($story);
+            
+        
+    }    
+
+ } ?> 
