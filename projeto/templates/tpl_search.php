@@ -16,8 +16,11 @@
 /**
  * Draws story search results
  */ ?>
-
-  <section id="search_stories">
+ 
+  <section id="search_stories" class="page blockStyle blockLayout">
+    <header>
+      <h2>Stories</h2>
+    </header>
     <?php 
       foreach($search_stories as $search_story) {
         draw_search_story($search_story);
@@ -40,6 +43,9 @@
  * Draws channel search results
  */ ?>
   <section id="search_channels" class="page blockStyle blockLayout">
+    <header>
+      <h2>Channels</h2>
+    </header>
     <ul>
     <?php 
       foreach($search_channels as $search_channel) { ?>
@@ -57,6 +63,9 @@
   include_once('../templates/tpl_stories.php');
 ?>
   <section id="search_comments" class="page blockStyle blockLayout">
+    <header>
+      <h2>Comments</h2>
+    </header>
     <ul>
     <?php 
       foreach($search_comments as $search_comment) {
