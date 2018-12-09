@@ -1,8 +1,6 @@
 let addComment = document.querySelector('section#add_comment button');
 addComment.addEventListener('click', postComment); 
 
-console.log(document.querySelector('section#add_comment button'));
-
 function postComment() {
   let info = document.querySelector('section#add_comment');
   let user = info.querySelector('input[name=user]').getAttribute('value');
@@ -19,8 +17,7 @@ function postComment() {
     newDisplay.setAttribute('id', 'comment');
     newDisplay.innerHTML = createComment(newComment, imgsrc);
     let commentList = document.querySelector('section#comment_list');
-    console.log(commentList);
-    commentList.appendChild(newDisplay);
+    commentList.insertBefore(newDisplay, commentList.firstElementChild.nextSibling);
     info.querySelector('textarea[name=comment]').value = '';
   });
   request.send(encodeForAjax({user: user, story: story, comment: comment}));

@@ -45,6 +45,7 @@ $date = strtotime($date_str);
     <?php $igmsrc = getUserImage($_SESSION['username']);?>
       <img  id="userImage"  src=<?=$igmsrc?> width=20 height="20">
     <a href="../pages/profile.php?user=<?= $story['author'] ?>"><?= $story['author']?></a>
+      <span id="user"><a href="../pages/profile.php?user=<?= $story['author']?>"><?= $story['author']?></a></span>
       <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
     <hr class = "invisibleLine">

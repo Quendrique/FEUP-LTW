@@ -1091,6 +1091,11 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-top: 0.2em;
 }
 
+#story a{
+  margin-right: 1.5em;
+  color:var(--font-color);
+  text-decoration: none;
+}
 
 #comment > header {
   display: flex;
