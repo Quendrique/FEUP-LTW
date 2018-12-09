@@ -18,11 +18,11 @@
     return $stmt->fetchAll(); 
   }
 
-  function getStoryInChannel($channel) {
+  function getStoriesByUser($user) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories WHERE channel = ?');
-    $stmt->execute(array($story));
-    return $stmt->fetch(); 
+    $stmt = $db->prepare('SELECT * FROM stories WHERE author = ?');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll();  
   }
 
   function getUpvotesStory($story) {

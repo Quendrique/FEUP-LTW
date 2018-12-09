@@ -3,6 +3,8 @@
     include_once('../templates/tpl_common.php');
     include_once('../templates/tpl_account.php');
     include_once('../templates/tpl_profile.php');
+    include_once('../templates/tpl_stories.php');
+    include_once('../database/db_stories.php');
     include_once('../database/db_account.php');
     include_once('../database/db_channels.php');
 
@@ -13,9 +15,9 @@
     if(!empty($userdata)) //if user exists
     {
         draw_header($username);
+        draw_sidebar($subbed_channels);
         printProfile($userdata[0]);
         $subbed_channels = getSubbedChannels($username);
-        draw_sidebar($subbed_channels);
     }
     else //if user does not exist
     {

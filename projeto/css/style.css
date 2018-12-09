@@ -474,7 +474,6 @@ p{
  #profile{
   display: flex;
   flex-direction: column;
-  padding: 2em 4em 2em 4em;
  }
 
  #profile #imageInfo{
@@ -485,11 +484,9 @@ p{
   align-items: center;
 
  }
-
- #profile img{
-   border-radius: 100px;
-   margin-bottom:1em;
-
+ #imageInfo img{
+ border-radius: 100px;
+  margin-bottom: 1em;
  }
 
  #profile #content{
@@ -510,7 +507,20 @@ p{
     font-family: var(--font), sans-serif;
     color: var(--font-color);
     margin: 0 0 1em 0;
+    font-size: 20px;
  }
+
+ #profile h1{
+  font-family: var(--font), sans-serif;
+  color: var(--font-color);
+  margin: 0 0 1em 0;
+  font-size: 20px;
+}
+
+#profile #activity{
+  text-align: center;
+  margin-top:2em;
+}
 
  #profile p{
     font-family: var(--font), sans-serif;
@@ -518,38 +528,33 @@ p{
     margin: 0;
  }
 
-#profile a {
-  width: fit-content;
-	padding: 8px 15px;
-	text-decoration: none;
-  font-weight: bold;
-  color: var(--font-color);
-}
 
-#profile a:hover{
-  color:var(--font-hover-color);
-  border-radius:16px;
-  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
- }
 
  #profile form{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom:2em;
 }
 
 #profile form #image{
   width:75%;
 }
 
- #profile #textForm, #profile #info{
+ #profile #textForm, #profile #personalData{
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   max-width: 60%;
 }
 
-#profile #textForm *, #profile #info * {
+#profileInf > #info img{
+  margin-right: 4em;
+  border-radius: 100px;
+  margin-bottom: 1em;
+}
+
+#profile #textForm *, #profile #personalData * {
   margin: 0.5em;
   color: var(--font-color);
   font-family: var(--font), sans-serif;
@@ -950,7 +955,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #story {
   padding: 0 0 0.5em 0!important;
   margin-bottom: 2em;
-
 }
 
 .footerSeparator{
@@ -973,6 +977,12 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   padding: 0.5em 2em 0.5em 2em;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  align-items: center;
+
+}
+
+#story #userImage {
+  margin-right: 0.5em;
 }
 
 #story  footer {
