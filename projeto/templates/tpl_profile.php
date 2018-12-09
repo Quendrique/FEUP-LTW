@@ -34,13 +34,24 @@
             <span><b>Nationality: </b></span><span><?=$userdata['nationality']?></span>
             <?php } ?>
 
-            <?php if($userdata['email'] !== ""){?>
-            <span><b>Email: </b></span><span><?=$userdata['email']?></span>
-            <?php } ?>
-          </div>  
-      </div>
-      </section> 
-      <?php draw_activity($userdata['username']);?>
+    <?php if($userdata['birth_day'] !== ""){?>
+    <p><b>Birthday: </b><?=$userdata['birth_day']?></p>  
+    <?php } ?>
+
+    <?php if($userdata['gender'] !== ""){?>
+    <p><b>Gender: </b><?=$userdata['gender']?></p>  
+    <?php } ?>
+
+    <?php if($userdata['nationality'] !== ""){?>
+    <p><b>Nationality: </b><?=$userdata['nationality']?></p>  
+    <?php } ?>
+
+    <?php if($userdata['email'] !== ""){?>
+    <p><b>Email: </b><?=$userdata['email']?></p>  
+    <?php } ?>
+
+    <p><b>Points: </b><?=$userdata['points']?></p>
+
   </section>
 <?php } ?>
 

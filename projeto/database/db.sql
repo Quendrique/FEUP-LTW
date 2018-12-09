@@ -5,7 +5,8 @@ CREATE TABLE users (
   birth_day INTEGER,
   gender VARCHAR,
   email VARCHAR,
-  nationality VARCHAR
+  nationality VARCHAR,
+  points INTEGER
 );
 
 CREATE TABLE channels (
@@ -53,14 +54,30 @@ CREATE TRIGGER onAddUpvoteStory
 BEFORE INSERT ON vote
 WHEN NEW.type = 1 AND NEW.story_id IS NOT NULL
 BEGIN
-	UPDATE stories SET upvotes = upvotes + 1 WHERE id = NEW.story_id;		
+	UPDATE stories SET upvotes = upvotes + 1 WHERE id = NEW.story_id;
+  UPDATE users
+  SET points = points + 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM stories
+    WHERE id = NEW.story_id
+  );		
 END;
 
 CREATE TRIGGER onAddDownvoteStory
 BEFORE INSERT ON vote
 WHEN NEW.type = 0 AND NEW.story_id IS NOT NULL
 BEGIN
-	UPDATE stories SET downvotes = downvotes + 1 WHERE id = NEW.story_id;		
+	UPDATE stories SET downvotes = downvotes + 1 WHERE id = NEW.story_id;	
+  UPDATE users
+  SET points = points - 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM stories
+    WHERE id = NEW.story_id
+  );	
 END;
 
 CREATE TRIGGER onChangeUpvoteStory  
@@ -68,7 +85,15 @@ BEFORE UPDATE ON vote
 WHEN NEW.type = 1 AND NEW.story_id IS NOT NULL
 BEGIN
 	UPDATE stories SET upvotes = upvotes + 1 WHERE id = NEW.story_id;		
-	UPDATE stories SET downvotes = downvotes - 1 WHERE id = NEW.story_id;		
+	UPDATE stories SET downvotes = downvotes - 1 WHERE id = NEW.story_id;
+  UPDATE users
+  SET points = points + 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM stories
+    WHERE id = NEW.story_id
+  );		
 END;
 
 CREATE TRIGGER onChangeDownvoteStory
@@ -76,35 +101,75 @@ BEFORE UPDATE ON vote
 WHEN NEW.type = 0 AND NEW.story_id IS NOT NULL
 BEGIN
 	UPDATE stories SET downvotes = downvotes + 1 WHERE id = NEW.story_id;	
-	UPDATE stories SET upvotes = upvotes - 1 WHERE id = NEW.story_id;	
+	UPDATE stories SET upvotes = upvotes - 1 WHERE id = NEW.story_id;
+  UPDATE users
+  SET points = points - 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM stories
+    WHERE id = NEW.story_id
+  );	
 END;  
 
 CREATE TRIGGER onRemoveUpvoteStory
 BEFORE DELETE ON vote 
 WHEN OLD.type = 1 AND OLD.story_id IS NOT NULL
 BEGIN
-	UPDATE stories SET upvotes = upvotes - 1 WHERE id = OLD.story_id;	
+	UPDATE stories SET upvotes = upvotes - 1 WHERE id = OLD.story_id;
+  UPDATE users
+  SET points = points - 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM stories
+    WHERE id = OLD.story_id
+  );	
 END;
 
 CREATE TRIGGER onRemoveDownvoteStory
 BEFORE DELETE ON vote 
 WHEN OLD.type = 0 AND OLD.story_id IS NOT NULL
 BEGIN
-	UPDATE stories SET downvotes = downvotes - 1 WHERE id = OLD.story_id;	
+	UPDATE stories SET downvotes = downvotes - 1 WHERE id = OLD.story_id;
+  UPDATE users
+  SET points = points + 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM stories
+    WHERE id = OLD.story_id
+  );	
 END;
 
 CREATE TRIGGER onAddUpvoteComment
 BEFORE INSERT ON vote
 WHEN NEW.type = 1 AND NEW.comment_id IS NOT NULL
 BEGIN
-	UPDATE comments SET upvotes = upvotes + 1 WHERE id = NEW.comment_id;		
+	UPDATE comments SET upvotes = upvotes + 1 WHERE id = NEW.comment_id;
+  UPDATE users
+  SET points = points + 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM comments
+    WHERE id = NEW.comment_id
+  );		
 END;
 
 CREATE TRIGGER onAddDownvoteComment
 BEFORE INSERT ON vote
 WHEN NEW.type = 0 AND NEW.comment_id IS NOT NULL
 BEGIN
-	UPDATE comments SET downvotes = downvotes + 1 WHERE id = NEW.comment_id;		
+	UPDATE comments SET downvotes = downvotes + 1 WHERE id = NEW.comment_id;
+  UPDATE users
+  SET points = points - 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM comments
+    WHERE id = NEW.comment_id
+  );		
 END;
 
 CREATE TRIGGER onChangeUpvoteComment
@@ -112,7 +177,15 @@ BEFORE UPDATE ON vote
 WHEN NEW.type = 1 AND NEW.comment_id IS NOT NULL
 BEGIN
 	UPDATE comments SET upvotes = upvotes + 1 WHERE id = NEW.comment_id;		
-	UPDATE comments SET downvotes = downvotes - 1 WHERE id = NEW.comment_id;		
+	UPDATE comments SET downvotes = downvotes - 1 WHERE id = NEW.comment_id;
+  UPDATE users
+  SET points = points + 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM comments
+    WHERE id = NEW.comment_id
+  );		
 END;
 
 CREATE TRIGGER onChangeDownvoteComment
@@ -120,29 +193,53 @@ BEFORE UPDATE ON vote
 WHEN NEW.type = 0 AND NEW.comment_id IS NOT NULL
 BEGIN
 	UPDATE comments SET downvotes = downvotes + 1 WHERE id = NEW.comment_id;	
-	UPDATE comments SET upvotes = upvotes - 1 WHERE id = NEW.comment_id;	
+	UPDATE comments SET upvotes = upvotes - 1 WHERE id = NEW.comment_id;
+  UPDATE users
+  SET points = points - 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM comments
+    WHERE id = NEW.comment_id
+  );	
 END;
 
 CREATE TRIGGER onRemoveUpvoteComment
 BEFORE DELETE ON vote
 WHEN OLD.type = 1 AND OLD.comment_id IS NOT NULL
 BEGIN
-	UPDATE comments SET upvotes = upvotes - 1 WHERE id = OLD.comment_id;	
+	UPDATE comments SET upvotes = upvotes - 1 WHERE id = OLD.comment_id;
+  UPDATE users
+  SET points = points - 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM comments
+    WHERE id = OLD.comment_id
+  );	
 END;
 
 CREATE TRIGGER onRemoveDownvoteComment
 BEFORE DELETE ON vote
 WHEN OLD.type = 0 AND OLD.comment_id IS NOT NULL
 BEGIN
-	UPDATE comments SET downvotes = downvotes - 1 WHERE id = OLD.comment_id;	
+	UPDATE comments SET downvotes = downvotes - 1 WHERE id = OLD.comment_id;
+  UPDATE users
+  SET points = points + 1
+  WHERE username IN
+  (
+    SELECT author
+    FROM comments
+    WHERE id = OLD.comment_id
+  );	
 END;
 
 
-INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", ""); -- password in SHA-1 format
+INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", "", 0); -- password in SHA-1 format
 INSERT INTO channels VALUES ("general", "admin", "main channel");
 INSERT INTO subscribed VALUES (NULL, 'admin', 'general');
-INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', date('now'), 0, 0, NULL, NULL, 'general');
-INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', date('now'), 0, 0, NULL, NULL, 'general');
+INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', date('now'), 0, 0, 'general');
+INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', date('now'), 0, 0, 'general');
 INSERT INTO vote VALUES (NULL, 1, 'admin', 0, NULL);
 INSERT INTO comments VALUES (0, 0, 'admin', 0, 0,  date('now'), 'sdfknsdlfnsdlf');
 INSERT INTO vote VALUES (NULL, 1, 'admin', NULL, 0);
