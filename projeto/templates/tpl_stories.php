@@ -85,19 +85,16 @@ function draw_stories($stories) {
 <?php 
 } ?>
 
-<?php function draw_comments($comments, $story) {
-/**
- * Draws a single story
- * page.
- */ 
-?>
+<?php function draw_comments($comments, $story) { ?>
   <section id="comment_list" class="page blockStyle blockLayout">
-    <?php draw_add_comment($story);
+    <?php if (isset($_SESSION['username'])) {
+    draw_add_comment($story);
     
     foreach($comments as $comment) {
       draw_comment($comment);
     } 
-    ?>
+  }
+ ?>
   </section>
 <?php 
 } ?>

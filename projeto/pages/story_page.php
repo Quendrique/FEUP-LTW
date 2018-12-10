@@ -23,6 +23,7 @@
   }
 
   if (!isset($_SESSION['username'])) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Log in to see comments");
     draw_header(null);
     draw_sidebar(null, false);
   }
