@@ -12,6 +12,8 @@ function voteStoryClicked(event) {
   let action = info.getAttribute('action');
   let oldUpVotes = $('#numUpvotes').text();
   let oldDownVotes = $('#numDownvotes').text();
+  let newUpVotes = document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] #numUpvotes');
+  let newDownVotes = document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #numDownvotes');
 
   
   let request = new XMLHttpRequest();
@@ -20,24 +22,24 @@ function voteStoryClicked(event) {
   request.addEventListener("load", function () {
     let updatedStory = JSON.parse(this.responseText);
 
-    document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] #numUpvotes').innerHTML = updatedStory.upvotes;
+    newUpVotes.innerHTML = updatedStory.upvotes;
+    newDownVotes.innerHTML = updatedStory.downvotes;
+
     if(updatedStory.upvotes>oldUpVotes){
-      document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] #numUpvotes').style.color = "rgb(131, 193, 233)";
+      newUpVotes.style.color = "rgb(131, 193, 233)";
       info.style.color = "rgb(131, 193, 233)";
-      document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #numDownvotes').style.color = "#373843";
+      newDownVotes.style.color = "#373843";
       document.getElementById('votedownBtn').style.color = "#373843";
     }else{
       document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] #numUpvotes').style.color = "#373843";
       info.style.color = "#373843";
     }
 
-    document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #numDownvotes').innerHTML = updatedStory.downvotes;
     if(updatedStory.downvotes>oldDownVotes){
-      document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #numDownvotes').style.color = "rgb(131, 193, 233)";
-      info.style.color = "rgb(131, 193, 233)";
-      document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] #numUpvotes').style.color = "#373843";
+      newDownVotes.style.color = "#A46BE5";
+      info.style.color = "#A46BE5";
+      newUpVotes.style.color = "#373843";
       document.getElementById('voteupBtn').style.color = "#373843";
-      console.log(info);
     }else{
       document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #numDownvotes').style.color = "#373843";
       info.style.color = "#373843";

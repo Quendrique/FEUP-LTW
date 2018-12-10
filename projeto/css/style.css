@@ -334,13 +334,17 @@ p{
  }
 
  #sidebar_subs #h1 {
-   color: var(--font-color);
    font-size: 0.9em;
    padding: 0.5em;
    margin: 0;
    text-align: center;
    background: var(--washed-out-blue);
  }
+
+ #sidebar_subs #h1 a{
+  text-decoration: none;
+  color: var(--font-color);
+}
 
  #sidebar_subs > a {
   color: var(--font-color);
