@@ -7,7 +7,7 @@
    */
   function getChannels() {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM channels ORDER BY [datetime] DESC');
+    $stmt = $db->prepare('SELECT * FROM channels');
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }

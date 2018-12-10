@@ -13,7 +13,7 @@
   }
   function getAllStories() {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories');
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY [datetime] DESC');
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
@@ -44,7 +44,7 @@
    */
   function getComments($story) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM comments WHERE story_id = ? ORDER BY datetime DESC');
+    $stmt = $db->prepare('SELECT * FROM comments WHERE story_id = ? ORDER BY datetime ASC');
     $stmt->execute(array($story));
     return $stmt->fetchAll(); 
   }

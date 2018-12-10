@@ -13,11 +13,11 @@
     $userdata = getUserData($username);
 
     if(!empty($userdata)) //if user exists
-    {
+    {        
+        $subbed_channels = getSubbedChannels($username);
         draw_header($username);
         draw_sidebar($subbed_channels);
         printProfile($userdata[0]);
-        $subbed_channels = getSubbedChannels($username);
     }
     else //if user does not exist
     {
