@@ -285,7 +285,6 @@ p{
  .sidebarPurpleLink{
   font-family: var(--font), sans-serif;
   font-weight: bold;
-  font-size: 0.85em;
   text-decoration: none;
   color: var(--link-color);
   margin: auto;
@@ -346,23 +345,17 @@ p{
 
  #sidebar_login input:nth-of-type(3){
     margin: 0.5em  auto auto auto;
-    font-family: var(--font), sans-serif;
-    font-weight: bold;
-    color: var(--font-color);
     border: none;
     background-color: Transparent;
- }
-
- #sidebar_login input:nth-of-type(3):hover{
-  color:var(--font-hover-color);
-  border-radius:16px;
-  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
- }
+   }
 
  #sidebar_login div{
     display: flex;
     flex-direction: row;
+    justify-content: center;
  }
+
+
 
  /**
  * Sidebar subs
@@ -373,6 +366,7 @@ p{
   list-style: none;
   padding: 0;
   text-align: center;
+  font-size: 14px;
  }
 
 
@@ -517,7 +511,7 @@ p{
 }
 
 
- #profile h1{
+ #profile #username{
     font-family: var(--font), sans-serif;
     color: var(--font-color);
     font-size: 20px;
@@ -569,13 +563,29 @@ p{
   border-bottom: 3px solid var(--grad-start-color);
 }
 
+#profile #commentSection{
+  margin-bottom:1em;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+
+.commentHeader{
+  color: var(--font-color);
+  font-size: 13px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  text-align: center;
+  background: var(--washed-out-blue);
+  font-weight: bold;
+  margin:0;
+  text-align: left;
+  border-radius: 3px;
+}
+
  #profile p{
     font-family: var(--font), sans-serif;
     color: var(--font-color);
     margin: 0;
  }
-
-
 
  #profile form{
   display: flex;

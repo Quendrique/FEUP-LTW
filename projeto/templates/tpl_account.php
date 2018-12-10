@@ -38,12 +38,12 @@
   else
   { ?>
     <section id="sidebar_login" class = "blockStyle sidebar_notlogged sidebarCard">
-      <h1 class="sidebarCardHeader">Login</h1>
-        <form method="post" action="../actions/action_login.php">
-        <input type="text" name="username" placeholder="username" class="inputField" required>
-        <input type="password" name="password" placeholder="password" class="inputField" required>
-        <input type="submit" value="Login" >
-        <div><a href="../pages/signup.php">Signup</a></div>
+      <h1 class="sidebarCardHeader sidebarH1">Login</h1>
+        <form method="post" action="../actions/action_login.php" class="sidebarCardContent">
+          <input type="text" name="username" placeholder="username" class="inputField" required>
+          <input type="password" name="password" placeholder="password" class="inputField" required>
+          <input type="submit" value="Login" class="sidebarButtonLink hoverButton">
+          <div><a href="../pages/signup.php" class="sidebarButtonLink hoverButton">Signup</a></div>
         </form>
 
     </section>

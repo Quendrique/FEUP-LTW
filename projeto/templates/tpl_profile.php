@@ -97,7 +97,6 @@ function printProfileEdit($userdata) {
           </form>
          </div>
       </section>
-      <?php draw_activity($userdata['username']);?>
     </section>
   
   
@@ -119,14 +118,21 @@ function draw_activity($username) { ?>
   </div>
   <section id = "activity">
     <section id = "posts" style="display:inline;">
-    <?php draw_stories(getStoriesByUser($username)) ?>
+      <?php draw_stories(getStoriesByUser($username)) ?>
     </section>
     <section id = "comment_list" style="display:none;">
-    <?php $comments = getCommentsByUser($username);
-    foreach($comments as $comment){
-      draw_comment($comment);
-    }?>
-    </section>
+      <?php $comments = getCommentsByUser($username);
+      foreach($comments as $comment){?>
+      <?php $story = getStory($comment['story_id']);?>
+      <h1 class="commentHeader">
+            <a href="../pages/profile.php?user=<?=$story['author']?>" class="sidebarPurpleLink"><?=$story['author']?></a>'s story: 
+              <a href="../pages/story_page.php?story_id=<?=$story['id']?>" class="sidebarPurpleLink"><?=$story['title']?></a>
+          </h1>
+        <div id = "commentSection" class="blockStyle">
+          <?php draw_comment($comment);?>
+        </div>
+      <?php }?>
+    <section>
   </section>
   <?php
 } ?>
