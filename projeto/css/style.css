@@ -146,7 +146,7 @@ p{
 
 .tabs{ 
   display: grid;
-  grid-template-columns: 60px 140px auto;
+  grid-template-columns: 60px 90px auto;
   background-color: white;
   box-shadow:0px 0px 20px var(--box-shadow-color);
 }
@@ -348,34 +348,35 @@ p{
   text-align: center;
  }
 
- #sidebar_subs #h1 {
-   font-size: 0.9em;
-   width: 100%;
-  padding: 0.5em 0 0.5em 0;
-   margin: 0;
-   text-align: center;
-   background: var(--washed-out-blue);
- }
-
- #sidebar_subs #h1 a{
-  text-decoration: none;
-  color: var(--font-color);
-}
-
- #sidebar_subs > a {
+ #sidebar_subs h1 {
   color: var(--font-color);
   font-size: 0.9em;
   padding: 0.5em;
   margin: 0;
   text-align: center;
-  font-weight: bold;
-  text-decoration: none;
   background: var(--washed-out-blue);
 }
 
-#sidebar_subs > a:hover {
-  color:var(--font-hover-color);
+ #sidebar_subs #h1{
+  padding: 0.5em;
+  margin: 0;
+  text-align: center;
+  background: var(--washed-out-blue);
+}
+
+#sidebar_subs #h1 a{
+  color: var(--font-color);
+  font-size: 0.9em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#sidebar_subs #h1:hover {
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+}
+
+#sidebar_subs #h1:hover a{
+  color:var(--font-hover-color);
 }
 
  #sidebar_subs ul a {
@@ -387,7 +388,6 @@ p{
   color: var(--link-color);
   margin: auto;
   padding: 0.1em;
-  color: var(--link-color);
   text-align: center;
  }
 
@@ -521,6 +521,7 @@ p{
     font-weight: bold;
     color: var(--font-color);
     border: none;
+    background-color: transparent;
  }
 
  #login input:nth-of-type(3):hover{
