@@ -40,7 +40,7 @@
 <?php function draw_sidebar_subs($subbed_channels) { ?>
     <section id="sidebar_subs" class= "blockStyle">
     <?php if (isset($_SESSION['username'])) {?>
-      <a href="../pages/subfeed.php">Subscribed Channels</a>
+      <span id=h1><a href="../pages/subfeed.php">Subscribed Channels</a></span>
     <?php } else {?>
       <h1>Subscribed Channels</h1>
     <?php } ?>

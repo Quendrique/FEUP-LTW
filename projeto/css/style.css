@@ -333,7 +333,7 @@ p{
   text-align: center;
  }
 
- #sidebar_subs h1 {
+ #sidebar_subs #h1 {
    color: var(--font-color);
    font-size: 0.9em;
    padding: 0.5em;
@@ -1162,7 +1162,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   color:#949494;
 }
 
-#comment #user {
+#comment #user a{
   margin-right:0.5em;
   font-weight: bold;
   color:var(--link-color);

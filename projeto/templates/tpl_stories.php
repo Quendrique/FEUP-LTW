@@ -62,7 +62,7 @@ $date = strtotime($date_str);
     </section>
     <hr class = "footerSeparator">
     <footer>
-    <a id="channel" href="../pages/channel_page.php?channel=<?=$story['channel']?>">#<?= $story['channel']?></a>
+    <span id="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
     <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>
       <section id="upvote" data-storyid=<?=$story['id']?>>
         <button type="submit" class="voteup_btn" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
@@ -111,7 +111,7 @@ function draw_comment($comment) {
       <?php $igmsrc = getUserImage($comment['author']);?>
       <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35">
       <div id ="userAndText" class="comment">
-        <span id="user"> <?= $comment['author']?></span>
+      <span id="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
         <p><?= $comment['text']?></p>
       </div>
     </div>
