@@ -10,10 +10,10 @@ function voteCommentClicked(event) {
   let story = info.getAttribute('story');
   let action = info.getAttribute('action');
   let comment = info.getAttribute('comment');
-  let oldUpVotes = $('#numUpvotes').text();
-  let oldDownVotes = $('#numDownvotes').text();
-  let newUpVotes = document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes')
-  let newDownVotes = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes')
+  let oldUpVotes =  document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes').innerHTML;
+  let oldDownVotes = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes').innerHTML;
+  let newUpVotes = document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes');
+  let newDownVotes = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes');
 
   
   let request = new XMLHttpRequest();
@@ -27,11 +27,11 @@ function voteCommentClicked(event) {
 
     //update 
     if(updatedComment.upvotes>oldUpVotes){
-      let downButton = document.getElementById('commentVoteDown');
+      let downButton = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #commentVoteDown');
       styleButtons(info,newUpVotes,newDownVotes,downButton,"rgb(131, 193, 233)"); 
 
     }else if(updatedComment.downvotes>oldDownVotes){
-      let upButton = document.getElementById('commentVoteUp');
+      let upButton = document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #commentVoteUp');
       styleButtons(info,newDownVotes,newUpVotes,upButton,"#A46BE5"); 
 
     }else{

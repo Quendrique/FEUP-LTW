@@ -28,7 +28,6 @@ function voteStoryClicked(event) {
     //update styles
     if(updatedStory.upvotes>oldUpVotes){
       let downButton =  document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #votedownBtn');
-      console.log(downButton);
       styleButtons(info,newUpVotes,newDownVotes,downButton,"rgb(131, 193, 233)"); 
 
     }else if(updatedStory.downvotes>oldDownVotes){
