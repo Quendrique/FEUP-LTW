@@ -10,10 +10,11 @@
   </section>
 <?php } ?>
 
+
 <?php function printProfile($userdata) {  ?>
   <section id="profile" class= "page">
     <section id="profileInf" class= " blockLayout blockStyle">
-      <h1><?=$userdata['username']?></h1>
+      <span id="username"><h1><?=$userdata['username']?></h1></span>
       <div id ="info">
           <?php $igmsrc = getUserImage($userdata['username']);?>
           <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200">
@@ -41,6 +42,7 @@
             <span><b>Points: </b></span><span><?=$userdata['points']?></span>
 
   </section>
+  <?php draw_activity($userdata['username']);?>
 <?php } ?>
 
 <?php 
@@ -59,7 +61,8 @@ function printProfileEdit($userdata) {
             <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
           </div>
           <div id = "textForm">
-            <input class="inputField" type="text" name="username" value="<?=$userdata['username']?>" hidden>
+            <p>Username: </p>
+            <input class="inputField" type="text"  id="username" name="username" value="<?=$userdata['username']?>">
             <p>Name: </p>
             <input class="inputField" type="text" name="name" value="<?=$userdata['name']?>" >
             <p>Birth Date: </p>
@@ -106,12 +109,21 @@ include('../templates/tpl_stories.php');
 include('../database/db_stories.php');
 function draw_activity($username) { ?>
           <script type="text/javascript" src="../scripts/profileActivity.js"></script>
-  <span id = "activity"><h1>Activity</h1></span>
+  <h1>Activity</h1>
   <div id ="links">
     <input type="button" value="Posts"  onclick="loadPostsActivity(event)" />
-    <span id = "comments"><a href="../pages/profile.php?user=<?= $username ?>">Comments</span>
+    <input type="button" value="Comments"  onclick="loadPostsActivity(event)" />
   </div>
+  <section id = "activity">
+    <section id = "posts" style="display:inline;">
+    <?php draw_stories(getStoriesByUser($username)) ?>
+    </section>
+    <section id = "comments" style="display:none;">
+    <?php $comments = getCommentsByUser($username);
+    foreach($comments as $comment){
+      draw_comment($comment);
+    }?>
+    </section>
+  </section>
   <?php
-  $stories = getStoriesByUser($username);
-  draw_stories($stories);
 } ?>

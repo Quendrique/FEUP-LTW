@@ -5,7 +5,6 @@
   $title = $_POST['title'];
   $description = $_POST['description'];
   $username = $_POST['username'];
-
   $date = date('d-m-Y H:i:s');
   $channel =  $_POST['channels'];
 

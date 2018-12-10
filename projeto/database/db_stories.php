@@ -56,6 +56,13 @@
     return $stmt->fetch(); 
   }
 
+  function getCommentsByUser($user) {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM comments WHERE comments.author = ? ');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll();  
+  }
+
   /**
    * Vote on a story (0 - downvote; 1 - upvote)
    */

@@ -1,12 +1,16 @@
 function loadPostsActivity(event) {
-    let username = document.getElementById('username').value;
-    let info = event.currentTarget;
-    info.innerHTML = 'Unsubscribe';  
-
+  let button = event.target;
+  
+  if(button.value=="Posts"){
+    let stories = document.getElementById('posts');
+    let comments = document.getElementById('comments');
+    stories.style.display = "inline";
+    comments.style.display = "none";
+  }else{
+    let stories = document.getElementById('posts');
+    let comments = document.getElementById('comments');
+    stories.style.display = "none";
+    comments.style.display = "inline";
   }
-
-function encodeForAjax(data) {
-    return Object.keys(data).map(function(k){
-      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-    }).join('&');
-  }
+  
+}
