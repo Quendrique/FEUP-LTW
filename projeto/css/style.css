@@ -5,7 +5,6 @@ body{
   margin: 0 0;
 
   display: grid;
-  grid-template-columns: 15em 7fr;
   grid-template-rows: 1fr auto;
 
   overflow-x: hidden;
@@ -109,7 +108,7 @@ select{
 }
 
 .page{
-  margin: 2em 2em 0 2em;
+  margin: 2em auto 0 2em;
 
 }
 
@@ -117,6 +116,10 @@ p{
   text-align: justify;
   margin-block-start: 0;
   margin-bottom: auto;
+}
+
+#sidebar{
+  margin-left:auto;
 }
 
 /**
