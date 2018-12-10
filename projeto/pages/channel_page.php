@@ -35,12 +35,12 @@
 
   if (!isset($_SESSION['username'])) {
     draw_header(null);
-    draw_sidebar(null, false);
+    draw_sidebar(null, true);
   }
   else {
     draw_header($_SESSION['username']);
     $subbed_channels = getSubbedChannels($_SESSION['username']);
-    draw_sidebar($subbed_channels, false);
+    draw_sidebar($subbed_channels, true);
   }
 ?>
   <section id="channel_page" class="page">
