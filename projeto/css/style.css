@@ -348,7 +348,18 @@ p{
   text-align: center;
  }
 
- #sidebar_subs h1 {
+ #sidebar_subs #h1 {
+   font-size: 0.9em;
+   width: 100%;
+   padding: 0.5em 0 0.5em 0;
+   margin: 0;
+   text-align: center;
+   background: var(--washed-out-blue);
+   font-weight: bold;
+ }
+
+ #sidebar_subs #h1 a{
+  text-decoration: none;
   color: var(--font-color);
   font-size: 0.9em;
   padding: 0.5em;
@@ -569,14 +580,27 @@ p{
  #profile h1{
     font-family: var(--font), sans-serif;
     color: var(--font-color);
-    margin: 0 0 1em 0;
     font-size: 20px;
  }
 
 
 #profile #activityTitle{
   text-align: center;
-  margin: 2em 0 0em 0;
+  flex: 0 0 auto;
+  margin: 0 1em 0 1em;
+}
+
+#profile #activityDiv{
+  display:flex;
+  align-items: center;
+  margin-top:2em;
+}
+
+#profile #activityDiv hr{
+  flex: 1 1 0;
+  height:3px;
+  background: var(--washed-out-blue);
+  border:none;
 }
 
 #profile #links{

@@ -107,8 +107,12 @@ function printProfileEdit($userdata) {
 include('../templates/tpl_stories.php');
 include('../database/db_stories.php');
 function draw_activity($username) { ?>
-          <script type="text/javascript" src="../scripts/profileActivity.js"></script>
-  <span id="activityTitle"><h1>Activity</h1></span>
+  <script type="text/javascript" src="../scripts/profileActivity.js"></script>
+  <div id="activityDiv">
+    <hr>        
+    <span id="activityTitle"><h1>Activity</h1></span>
+    <hr> 
+  </div> 
   <div id ="links">
     <input type="button" value="Posts" id="Posts" onclick="loadPostsActivity(event)" />
     <input type="button" value="Comments" id="Comments"  onclick="loadPostsActivity(event)" />
