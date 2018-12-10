@@ -25,7 +25,7 @@ function voteCommentClicked(event) {
     newUpVotes.innerHTML = updatedComment.upvotes;
     newDownVotes.innerHTML = updatedComment.downvotes;
 
-    //update styles
+    //update 
     if(updatedComment.upvotes>oldUpVotes){
       let downButton = document.getElementById('commentVoteDown');
       styleButtons(info,newUpVotes,newDownVotes,downButton,"rgb(131, 193, 233)"); 
