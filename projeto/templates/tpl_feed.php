@@ -3,7 +3,7 @@ include_once('../templates/tpl_stories.php');
 include_once('../database/db_stories.php');
 
 
-function draw_feed($username) { ?>
+function draw_feed() { ?>
 
     <section id="stories_list" class="page">
         <script src="../audiojs/audio.min.js"></script>
@@ -14,14 +14,10 @@ function draw_feed($username) { ?>
         </script>
 
         <?php
-        if ($username !== null) {
             $all_stories =getAllStories();
-            foreach($all_stories as $story){
+            foreach($all_stories as $story)
                 draw_story($story);
-            }
-        } else { ?>
-            <h2>Sign in to see all posts!</h2>
-        <?php } ?>     
+        ?>     
     </section>
  <?php }
  
