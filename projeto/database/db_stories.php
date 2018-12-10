@@ -17,6 +17,14 @@
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
+  function getAllSubStories($user) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
+                          WHERE stories.channel = subscribed.channel AND subscribed.user = ?
+                          ORDER BY [datetime] DESC');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll(); 
+  }
 
   function getStoriesByUser($user) {
     global $db;

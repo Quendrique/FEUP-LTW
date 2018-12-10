@@ -17,7 +17,7 @@
    */
   function getChannelsNames() {
     global $db;
-    $stmt = $db->prepare('SELECT name FROM channels');
+    $stmt = $db->prepare('SELECT [name] FROM channels');
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
