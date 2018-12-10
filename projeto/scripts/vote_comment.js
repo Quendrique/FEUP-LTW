@@ -1,25 +1,24 @@
-let upvotesComments = document.querySelectorAll('article#comment section#upvote button');
-let downvotesComments = document.querySelectorAll('article#comment section#downvote button');
-
-upvotesComments.forEach((upvoteComments) => upvoteComments.addEventListener('click', voteCommentClicked)); 
-downvotesComments.forEach((downvoteComments) => downvoteComments.addEventListener('click', voteCommentClicked)); 
+let voteComment = document.querySelector('section#comment_list');
+voteComment.addEventListener('click', voteCommentClicked);
 
 function voteCommentClicked(event) {
-  let info = event.currentTarget;
-  let user = info.getAttribute('user');
-  let story = info.getAttribute('story');
-  let action = info.getAttribute('action');
-  let comment = info.getAttribute('comment');
-  let oldUpVotes =  document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes').innerHTML;
-  let oldDownVotes = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes').innerHTML;
-  let newUpVotes = document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes');
-  let newDownVotes = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes');
 
-  
-  let request = new XMLHttpRequest();
-  request.open("POST", "../api/api_vote_comment.php", true);
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  request.addEventListener("load", function () {
+  let info = event.target.closest('button');
+
+  if (info) { 
+    let user = info.getAttribute('user');
+    let story = info.getAttribute('story');
+    let action = info.getAttribute('action');
+    let comment = info.getAttribute('comment');
+    let oldUpVotes =  document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes').innerHTML;
+    let oldDownVotes = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes').innerHTML;
+    let newUpVotes = document.querySelector('article#comment section#upvote[data-commentid=' + CSS.escape(comment) + '] #numUpvotes');
+    let newDownVotes = document.querySelector('article#comment section#downvote[data-commentid=' + CSS.escape(comment) + '] #numDownvotes');
+
+    let request = new XMLHttpRequest();
+    request.open("POST", "../api/api_vote_comment.php", true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.addEventListener("load", function () {
     let updatedComment = JSON.parse(this.responseText);
 
     newUpVotes.innerHTML = updatedComment.upvotes;
@@ -40,8 +39,9 @@ function voteCommentClicked(event) {
       newUpVotes.style.color = "#373843";
     }
 
-  });
-  request.send(encodeForAjax({user: user, story: story, action: action, comment: comment}));
+    });
+    request.send(encodeForAjax({user: user, story: story, action: action, comment: comment}));
+  }
 }
 
 function encodeForAjax(data) {
@@ -54,6 +54,6 @@ function encodeForAjax(data) {
 function styleButtons(targetVotes,targetButton,oppositeVotes,oppositeButton,color){
   targetVotes.style.color = color;
   targetButton.style.color = color;
-  oppositeVotes.style.color = "#373843";
+  oppositeVotes.style.  color = "#373843";
   oppositeButton.style.color = "#373843";
 }
