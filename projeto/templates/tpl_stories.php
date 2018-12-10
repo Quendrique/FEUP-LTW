@@ -1,17 +1,21 @@
-<?php function draw_stories($stories) {
+<?php 
+
+function draw_stories($stories) {
 /**
  * Draws a channel's stories
  * page.
  */ ?>
 
-  <section id="story_list">
   <script src="../audiojs/audio.min.js"></script>
   <script>audiojs.events.ready(function() {
             audiojs.createAll();
     });</script>
+
+    <section id="story_list">
     <?php foreach($stories as $story) { 
-      draw_story($story);
-    } ?>
+      draw_story($story); /*?>
+      <div id="comments"> <?php draw_comments(getComments($story['id']),$story['id']);?> </div>
+    <?php*/ } ?>
   </section>
 <?php } ?>
 
@@ -37,9 +41,10 @@
  * Draws a single story
  * page.
  */ 
-$date_str = $story['datetime'];
-$date = strtotime($date_str);
-?>
+  $date_str = $story['datetime'];
+  $date = strtotime($date_str);
+  ?>
+  <script type="text/javascript" src="../scripts/profileActivity.js"></script>
   <article id="story" class = "blockStyle ">
     <header> 
     <?php $igmsrc = getUserImage($story['author']);?>
@@ -117,13 +122,13 @@ function draw_comment($comment) {
     </div>
     <footer>
       <section id="upvote" data-commentid=<?=$comment['id']?>>
-        <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+        <button type="submit" class="voteup_btn" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
           <i class="fas fa-caret-up fa-lg"></i>
         </button>
         <span id = numUpvotes><?= $comment['upvotes']?></span>
       </section>
       <section id="downvote" data-commentid=<?=$comment['id']?>>
-        <button type="submit" class="votedown_btn" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+        <button type="submit" class="votedown_btn" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
           <i class="fas fa-caret-down fa-lg"></i>
         </button>
         <span id = numDownvotes><?= $comment['downvotes']?></span>

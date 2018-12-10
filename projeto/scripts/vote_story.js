@@ -25,25 +25,21 @@ function voteStoryClicked(event) {
     newUpVotes.innerHTML = updatedStory.upvotes;
     newDownVotes.innerHTML = updatedStory.downvotes;
 
+    //update styles
     if(updatedStory.upvotes>oldUpVotes){
-      newUpVotes.style.color = "rgb(131, 193, 233)";
-      info.style.color = "rgb(131, 193, 233)";
-      newDownVotes.style.color = "#373843";
-      document.getElementById('votedownBtn').style.color = "#373843";
+      let downButton = document.getElementById('votedownBtn');
+      styleButtons(info,newUpVotes,newDownVotes,downButton,"rgb(131, 193, 233)"); 
+
+    }else if(updatedStory.downvotes>oldDownVotes){
+      let upButton = document.getElementById('voteupBtn');
+      styleButtons(info,newDownVotes,newUpVotes,upButton,"#A46BE5"); 
+
     }else{
-      document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] #numUpvotes').style.color = "#373843";
+      newDownVotes.style.color = "#373843";
       info.style.color = "#373843";
+      newUpVotes.style.color = "#373843";
     }
 
-    if(updatedStory.downvotes>oldDownVotes){
-      newDownVotes.style.color = "#A46BE5";
-      info.style.color = "#A46BE5";
-      newUpVotes.style.color = "#373843";
-      document.getElementById('voteupBtn').style.color = "#373843";
-    }else{
-      document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #numDownvotes').style.color = "#373843";
-      info.style.color = "#373843";
-    }
   });
   request.send(encodeForAjax({user: user, story: story, action: action}));
 }
@@ -52,4 +48,11 @@ function encodeForAjax(data) {
   return Object.keys(data).map(function(k){
     return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
   }).join('&');
+}
+
+function styleButtons(targetVotes,targetButton,oppositeVotes,oppositeButton,color){
+  targetVotes.style.color = color;
+  targetButton.style.color = color;
+  oppositeVotes.style.color = "#373843";
+  oppositeButton.style.color = "#373843";
 }

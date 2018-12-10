@@ -29,10 +29,10 @@
             <?php } ?> 
           </ul>
           <form method="GET" action="../pages/search.php">
-            <label><input type="text" name="search" class="inputField" placeholder="Search..." required></label>
+            <input type="text" name="search" class="inputField" placeholder="Search..." required>
           </form>
           <a href="../pages/mainpage.php"><img id="logo" src= "../img/logo.png" height="40" width="40"/></a>
-          <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="40" width="120"/></a>
+          <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="50" width="80"/></a>
         </nav>
       </div>
 <?php } 

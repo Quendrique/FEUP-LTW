@@ -5,7 +5,6 @@
     <script src="../audiojs/audio.min.js"></script>
         <section id="upload" class= "blockStyle blockLayout page">
         <script type="text/javascript" src="../scripts/fileScripts.js"></script>
-
         <script> onAudioChange(); </script>
   
         <div id="h1upload"><h1>New Story</h1></div>

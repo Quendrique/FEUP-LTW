@@ -14,3 +14,14 @@ function loadPostsActivity(event) {
   }
   
 }
+
+function showComents(event) {
+  let section = event.target;
+  let stories = document.getElementById('storyContent');
+  console.log(stories);
+  if(section.style.display=="none"){
+    section.style.display = "inline";
+  }else{
+    section.style.display = "inline";
+  }
+}
