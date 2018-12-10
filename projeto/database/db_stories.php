@@ -58,7 +58,7 @@
 
   function getCommentsByUser($user) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM comments WHERE comments.author = ? ');
+    $stmt = $db->prepare('SELECT * FROM comments WHERE author = ? ');
     $stmt->execute(array($user));
     return $stmt->fetchAll();  
   }

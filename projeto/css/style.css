@@ -510,16 +510,35 @@ p{
     font-size: 20px;
  }
 
- #profile h1{
-  font-family: var(--font), sans-serif;
-  color: var(--font-color);
-  margin: 0 0 1em 0;
-  font-size: 20px;
+
+#profile #activityTitle{
+  text-align: center;
+  margin: 2em 0 0em 0;
+}
+
+#profile #links{
+  text-align: center;
+}
+
+
+#profile #links *{
+  border: none;
+  color:var(--font-color);
+  background: none;
+  font-size: 16px;
+  font: var(--font);
 }
 
 #profile #activity{
-  text-align: center;
   margin-top:2em;
+}
+
+#profile #links #Posts:hover{
+  border-bottom: 3px solid var(--grad-end-color);
+}
+
+#profile #links #Comments:hover {
+  border-bottom: 3px solid var(--grad-start-color);
 }
 
  #profile p{

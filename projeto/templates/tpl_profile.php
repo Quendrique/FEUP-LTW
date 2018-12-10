@@ -61,8 +61,7 @@ function printProfileEdit($userdata) {
             <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
           </div>
           <div id = "textForm">
-            <p>Username: </p>
-            <input class="inputField" type="text"  id="username" name="username" value="<?=$userdata['username']?>">
+            <input class="inputField" type="text" name="username" value=<?=$userdata['username']?> hidden>
             <p>Name: </p>
             <input class="inputField" type="text" name="name" value="<?=$userdata['name']?>" >
             <p>Birth Date: </p>
@@ -109,10 +108,10 @@ include('../templates/tpl_stories.php');
 include('../database/db_stories.php');
 function draw_activity($username) { ?>
           <script type="text/javascript" src="../scripts/profileActivity.js"></script>
-  <h1>Activity</h1>
+  <span id="activityTitle"><h1>Activity</h1></span>
   <div id ="links">
-    <input type="button" value="Posts"  onclick="loadPostsActivity(event)" />
-    <input type="button" value="Comments"  onclick="loadPostsActivity(event)" />
+    <input type="button" value="Posts" id="Posts" onclick="loadPostsActivity(event)" />
+    <input type="button" value="Comments" id="Comments"  onclick="loadPostsActivity(event)" />
   </div>
   <section id = "activity">
     <section id = "posts" style="display:inline;">
