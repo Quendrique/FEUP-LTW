@@ -34,7 +34,7 @@
         <input type="text" name="username" placeholder="username" class="inputField" required>
         <input type="password" name="password" placeholder="password" class="inputField" required>
         <input type="submit" value="Login" >
-        <div><a href="../pages/signup.php?message=">Signup</a></div>
+        <div><a href="../pages/signup.php">Signup</a></div>
         </form>
 
     </section>
@@ -82,14 +82,13 @@
 <?php 
 } ?>
 
-<?php function draw_login($message) { 
+<?php function draw_login() { 
 /**
  * Draws the login section.
  */ ?>
   <section id="login" class= "blockStyle blockLayout page">
 
       <h1>Insert your account credentials.</h1>
-      <h2><?= $message ?></h2>
 
     <form method="post" action="../actions/action_login.php">
       <input type="text" name="username" placeholder="username" class="inputField" required>
@@ -98,22 +97,19 @@
     </form>
 
     <footer>
-      <p>Don't have an account? <a href="signup.php?message=">Signup!</a></p>
+      <p>Don't have an account? <a href="signup.php">Signup!</a></p>
     </footer>
 
   </section>
 <?php } ?>
 
-<?php function draw_signup($message) { 
+<?php function draw_signup() { 
 /**
  * Draws the signup section.
  */ ?>
   <section id="signup" class= "blockStyle blockLayout page">
 
       <h1>Create an account today!</h1>
-      <?php if($message !== "") {?>
-      <h2><?= $message ?></h2>
-      <?php }?>
 
     <form method="post" action="../actions/action_signup.php">
       <input type="text" name="username" placeholder="username" autocomplete="new-username" class="inputField" required>
@@ -123,7 +119,7 @@
     </form>
 
     <footer>
-      <p>Already have an account? <a href="login.php?message=">Login!</a></p>
+      <p>Already have an account? <a href="login.php">Login!</a></p>
     </footer>
 
   </section>

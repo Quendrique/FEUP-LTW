@@ -12,7 +12,8 @@
   } 
   else 
   {
-    header('Location: ../pages/login.php?message=Username+or+password+invalid');
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Username or password invalid");
+    header('Location: ../pages/login.php');
   }
 
 ?>

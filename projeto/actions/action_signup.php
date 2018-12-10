@@ -8,7 +8,10 @@
   $repeat_password = $_POST['repeat_password'];
 
   if($password !== $repeat_password)
-    header('Location: ../pages/signup.php?message=Passwords+do+not+match');
+  {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Passwords do not match");
+    header('Location: ../pages/signup.php');
+  }
   else
   {
     try 
@@ -19,7 +22,8 @@
       header("Location: ../pages/edit_profile.php?user=$username");
     } catch (PDOException $e) 
     {
-      header('Location: ../pages/signup.php?message=Username+already+taken');
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Username already taken");
+      header('Location: ../pages/signup.php');
     }
 }
 ?>
