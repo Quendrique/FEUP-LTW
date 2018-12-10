@@ -62,16 +62,16 @@ $date = strtotime($date_str);
     </section>
     <hr class = "footerSeparator">
     <footer>
-    <span id="channel">#<?= $story['channel']?></span>
+    <span id="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
     <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>
       <section id="upvote" data-storyid=<?=$story['id']?>>
-        <button type="submit" class="voteup_btn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
+        <button type="submit" class="voteup_btn" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
           <i class="fas fa-caret-up fa-2x"></i>
         </button>
         <span id=numUpvotes><?= $story['upvotes']?></span>
       </section>
       <section id="downvote" data-storyid=<?=$story['id']?>>
-        <button type="submit" class="votedown_btn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?>>
+        <button type="submit" class="votedown_btn" id="votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?> >
           <i class="fas fa-caret-down fa-2x"></i>
         </button>
         <span id=numDownvotes><?= $story['downvotes']?></span>
@@ -111,7 +111,7 @@ function draw_comment($comment) {
       <?php $igmsrc = getUserImage($comment['author']);?>
       <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35">
       <div id ="userAndText" class="comment">
-        <span id="user"> <?= $comment['author']?></span>
+        <span id="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
         <p><?= $comment['text']?></p>
       </div>
     </div>
