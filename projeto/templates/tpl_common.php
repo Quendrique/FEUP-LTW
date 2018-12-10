@@ -31,7 +31,8 @@
           <form method="GET" action="../pages/search.php">
             <label><input type="text" name="search" class="inputField" placeholder="Search..." required></label>
           </form>
-          <a href="../pages/mainpage.php"><img src= "../img/logo.png" height="40" width="40"/></a>
+          <a href="../pages/mainpage.php"><img id="logo" src= "../img/logo.png" height="40" width="40"/></a>
+          <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="40" width="120"/></a>
         </nav>
       </div>
 <?php } 

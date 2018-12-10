@@ -34,12 +34,12 @@
 
   if (!isset($_SESSION['username'])) {
     draw_header(null);
-    draw_sidebar(null);
+    draw_sidebar(null, false);
   }
   else {
     draw_header($_SESSION['username']);
     $subbed_channels = getSubbedChannels($_SESSION['username']);
-    draw_sidebar($subbed_channels);
+    draw_sidebar($subbed_channels, false);
   }
 
   draw_search_results($search_stories, $search_channels, $search_comments);

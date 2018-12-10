@@ -12,7 +12,7 @@
     else {
         draw_header($_SESSION['username']);
         $subbed_channels = getSubbedChannels($_SESSION['username']);
-        draw_sidebar($subbed_channels);
+        draw_sidebar($subbed_channels, false);
         draw_sub_feed($_SESSION['username']);
     }
     
