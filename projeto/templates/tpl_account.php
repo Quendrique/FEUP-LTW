@@ -39,8 +39,11 @@
 
 <?php function draw_sidebar_subs($subbed_channels) { ?>
     <section id="sidebar_subs" class= "blockStyle">
-
+    <?php if (isset($_SESSION['username'])) {?>
+      <a href="../pages/subfeed.php">Subscribed Channels</a>
+    <?php } else {?>
       <h1>Subscribed Channels</h1>
+    <?php } ?>
       <ul>
         <?php
           if (isset($_SESSION['username']) && !empty($subbed_channels)) {
