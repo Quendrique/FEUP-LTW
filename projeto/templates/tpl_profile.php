@@ -121,7 +121,7 @@ function draw_activity($username) { ?>
     <section id = "posts" style="display:inline;">
     <?php draw_stories(getStoriesByUser($username)) ?>
     </section>
-    <section id = "comments" style="display:none;">
+    <section id = "comment_list" style="display:none;">
     <?php $comments = getCommentsByUser($username);
     foreach($comments as $comment){
       draw_comment($comment);
