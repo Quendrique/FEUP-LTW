@@ -417,6 +417,10 @@ p{
   padding: 1em;
 }
 
+#sidebar_sort select {
+  width: 100%;
+}
+
  /**
  * Signup page
  */
@@ -585,6 +589,7 @@ p{
   background: none;
   font-size: 16px;
   font: var(--font);
+  border-bottom: 3px solid var(--bg-color);
 }
 
 #profile #activity{

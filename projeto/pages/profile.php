@@ -22,7 +22,7 @@
     else //if user does not exist
     {
         draw_header(null);
-        draw_sidebar(null, false);
+        draw_sidebar(null, true);
         printProfileError($username);
     }
 
