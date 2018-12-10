@@ -3,7 +3,8 @@
   <section id="sidebar" >
     <?php
       draw_sidebar_login();
-      draw_sidebar_subs($subbed_channels);
+      if($subbed_channels)
+        draw_sidebar_subs($subbed_channels);
       if($sort)
       {
         draw_sidebar_sort();
@@ -19,17 +20,25 @@
   if (isset($_SESSION['username']))
   { 
     $username = $_SESSION['username'];?>
-    <section id="sidebar_login" class="blockStyle">
-      <?php $igmsrc = getUserImage($username);?>
-        <img  id="userImage"  src=<?=$igmsrc?> width=40 height="40">
-        <a href="../pages/edit_profile.php?user=<?= $username ?>"><?= $username ?></a>
-        <div><a href="../actions/action_logout.php">Logout</a></div>
-
+    <section id="sidebar_login" class="blockStyle sidebarCard">
+      <span class="sidebarCardHeader sidebarH1">My Account</span >
+      <section class="sidebarCardContent">
+        <div id=userInfo>
+          <?php $igmsrc = getUserImage($username);?>
+          <img  id="userImage"  src=<?=$igmsrc?> width=40 height="40">
+          <a href="../pages/profile.php?user=<?= $username ?>" class="sidebarPurpleLink" id="username"><?= $username ?></a>    
+        </div> 
+        <section id="options">
+          <span class="lineSpan"> <a href="../pages/edit_profile.php?user=<?= $username ?>" class="sidebarButtonLink">Edit Profile</a></span>
+          <span><a href="../actions/action_logout.php" class="sidebarButtonLink">Logout</a></span>
+        </section>
+      </section>
     </section>
   <?php }
   else
   { ?>
-    <section id="sidebar_login" class = "blockStyle sidebar_notlogged">
+    <section id="sidebar_login" class = "blockStyle sidebar_notlogged sidebarCard">
+      <h1 class="sidebarCardHeader">Login</h1>
         <form method="post" action="../actions/action_login.php">
         <input type="text" name="username" placeholder="username" class="inputField" required>
         <input type="password" name="password" placeholder="password" class="inputField" required>
@@ -42,18 +51,18 @@
 } ?>
 
 <?php function draw_sidebar_subs($subbed_channels) { ?>
-    <section id="sidebar_subs" class= "blockStyle">
+    <section id="sidebar_subs" class= "blockStyle sidebarCard">
     <?php if (isset($_SESSION['username'])) {?>
-      <span id=h1><a href="../pages/subfeed.php">Subscribed Channels</a></span>
+      <span class="sidebarCardHeader"><a href="../pages/subfeed.php" class="sidebarH1">Subscribed Channels</a></span>
     <?php } else {?>
-      <h1>Subscribed Channels</h1>
+      <h1 class="sidebarCardHeader sidebarH1">Subscribed Channels</h1>
     <?php } ?>
-      <ul>
+      <ul class="sidebarCardContent">
         <?php
           if (isset($_SESSION['username']) && !empty($subbed_channels)) {
             foreach($subbed_channels as $subbed_channel) { ?>
               <li data-channel=<?= $subbed_channel['channel'] ?>>
-                <a href="../pages/channel_page.php?channel=<?= $subbed_channel['channel'] ?>"><?= $subbed_channel['channel'] ?></a>
+                <a href="../pages/channel_page.php?channel=<?= $subbed_channel['channel'] ?>" class="sidebarPurpleLink"><?= $subbed_channel['channel'] ?></a>
               </li>
         <?php }
           }
@@ -65,10 +74,10 @@
 } ?>
 
 <?php function draw_sidebar_sort() { ?>
-    <section id="sidebar_sort" class= "blockStyle">
-      <h1>Sort Stories</h1>
+    <section class= "blockStyle sidebarCard">
+    <span class="sidebarCardHeader"><h1 class="sidebarH1">Sort Stories</h1></span>
       <form>
-      <select name="sort">
+      <select name="sort" class="sidebarCardContent">
         <option value="date-desc" selected>Newest First</option>
         <option value="date-asc">Oldest First</option>
         <option value="alph-asc">Alphabetical</option>
