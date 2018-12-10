@@ -124,24 +124,40 @@ p{
   
 }
 
-.tabs img{
+.tabs #logo{
   position: absolute;
   top: 5px;
   left: 0;
   padding-left: 10px;
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+
+.tabs #name{
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  padding-left: 10px;
+  grid-area: 1 / 2 / span 1 / span 1;
+}
+
+.tabs > a {
+  display: flex;
+  align-content: center;
 }
 
 .tabs{ 
+  display: grid;
+  grid-template-columns: 60px 140px auto;
   width: 100%;
 	float: left;
-  padding: 12px;
   background-color: white;
   box-shadow:0px 0px 20px var(--box-shadow-color);
 }
 
 .tabs form {
   float: right;
-  margin-right: 1em;
+  padding: 12px;
+  grid-area: 1 / 3 / span 1 / span 1;
 }
 
 .tabs form input {
@@ -161,8 +177,10 @@ p{
 
 .tabs ul {
 	list-style: none;
-	margin: 0 auto;
-  margin: 0em 2em; 
+	margin: 0;
+  padding: 12px;
+  float: right;
+  grid-area: 1 / 3 / span 1 / span 1;
 }
   
 .tabs li {
@@ -351,6 +369,11 @@ p{
   font-weight: bold;
   text-decoration: none;
   background: var(--washed-out-blue);
+}
+
+#sidebar_subs > a:hover {
+  color:var(--font-hover-color);
+  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
 }
 
  #sidebar_subs ul a {
