@@ -1,9 +1,13 @@
-<?php function draw_sidebar($subbed_channels) {
+<?php function draw_sidebar($subbed_channels, $sort) {
 ?>
   <section id="sidebar" >
     <?php
       draw_sidebar_login();
       draw_sidebar_subs($subbed_channels);
+      if($sort)
+      {
+        draw_sidebar_sort();
+      }
       draw_sidebar_messages();
     ?>
   </section>
@@ -55,6 +59,24 @@
           }
         ?>
       </ul>
+
+    </section>
+<?php 
+} ?>
+
+<?php function draw_sidebar_sort() { ?>
+    <section id="sidebar_sort" class= "blockStyle">
+      <h1>Sort Stories</h1>
+      <form>
+      <select name="sort">
+        <option value="date-desc" selected>Newest First</option>
+        <option value="date-asc">Oldest First</option>
+        <option value="alph-asc">Alphabetical</option>
+        <option value="alph-desc">Reverse Alphabetical</option>
+        <option value="vote">Most Popular</option>
+        <option value="comment">Most Commented</option>
+      </select>
+      </form>
 
     </section>
 <?php 

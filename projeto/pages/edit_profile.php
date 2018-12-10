@@ -13,7 +13,7 @@
 
     draw_header($username);
     $subbed_channels = getSubbedChannels($username);
-    draw_sidebar($subbed_channels);
+    draw_sidebar($subbed_channels, false);
 
     $userdata = getUserData($username);
 
