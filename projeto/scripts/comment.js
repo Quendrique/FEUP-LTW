@@ -30,6 +30,10 @@ function encodeForAjax(data) {
 }
 
 function createComment(data, imgsrc) {
+
+  //[ Y, M, D, h, m, s ]
+  var t = data.datetime.split(/[- :]/);
+
   var html = 
     "<div id ='singleComment'>" +
       "<img  id='userImage'  src="+ imgsrc +" width=35 height=35>" +
@@ -52,7 +56,7 @@ function createComment(data, imgsrc) {
         "<span id = numDownvotes>"+ data.downvotes +"</span>" +
       "</section>" +
       "<span id ='divDot'>&bull;</span>" +
-      //"<span id='date'> <?= date('d/m/Y', $date)?></span>" +
+      "<span id='date'>" + t[2] + "/" + t[1] + "/" + t[0] + "</span>" +
     "</footer>";
     return html;
 }
