@@ -34,19 +34,19 @@ function createComment(data, imgsrc) {
     "<div id ='singleComment'>" +
       "<img  id='userImage'  src="+ imgsrc +" width=35 height=35>" +
       "<div id ='userAndText' class='comment'>" +
-        "<span id='user'>" + data.author + "</span>" +
+        "<span id='user'><a href='../pages/profile.php?user=" + data.author + "'>" + data.author + "</a></span>" +
         "<p>" + data.text + "</p>" +
       "</div>" +
     "</div>" +
     "<footer>" +
       "<section id='upvote' data-commentid=" + data.id + ">" +
-        "<button type='submit' class='voteup_btn' user=" + data.author + " action=1 story=" + data.story_id + " comment=" + data.id + ">" +
+        "<button type='submit' class='voteup_btn' id='commentVoteUp' user=" + data.author + " action=1 story=" + data.story_id + " comment=" + data.id + " style='color: rgb(55,56,67)'>" +
           "<i class='fas fa-caret-up fa-lg'></i>" +
         "</button>" +
         "<span id = numUpvotes>" + data.upvotes + "</span>" +
       "</section>" +
       "<section id='downvote' data-commentid="+ data.id +">" +
-        "<button type='submit' class='votedown_btn' user=" + data.author + " action=0 story=" + data.story_id + " comment="+ data.id +">" +
+        "<button type='submit' class='votedown_btn' id='commentVoteDown' user=" + data.author + " action=0 story=" + data.story_id + " comment="+ data.id +"  style='color: rgb(55,56,67)'>" +
           "<i class='fas fa-caret-down fa-lg'></i>" +
         "</button>" +
         "<span id = numDownvotes>"+ data.downvotes +"</span>" +
