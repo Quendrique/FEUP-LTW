@@ -178,7 +178,7 @@
   }
 
   /**
-   * Check if user has voted on a story
+   * Check if user has voted on a comment
    */
   function hasUserVotedComment($user, $comment) {
     global $db;
