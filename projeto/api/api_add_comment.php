@@ -3,6 +3,7 @@
     include_once('../includes/incl_session.php');
     include_once('../database/db_channels.php');
     include_once('../database/db_stories.php');
+    include_once('../templates/tpl_stories.php');
 
     $user = $_POST['user'];
     $story = $_POST['story'];
@@ -17,5 +18,5 @@
     //}
 
     //RETURN COMMENT!!
-    echo json_encode(getComment($lastInsertId));
+    draw_comment(getComment($lastInsertId));
 ?>

@@ -103,7 +103,7 @@ function draw_stories($stories) {
 
 function draw_comment($comment) {
 /**
- * Draws a single page
+ * Draws a single comment
  */ 
   $date_str = $comment['datetime'];
   $date = strtotime($date_str);
