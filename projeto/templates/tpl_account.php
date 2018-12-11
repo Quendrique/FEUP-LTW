@@ -74,7 +74,7 @@
 } ?>
 
 <?php function draw_sidebar_sort() { ?>
-    <section class= "blockStyle sidebarCard">
+    <section id="sidebar_sort" class= "blockStyle sidebarCard">
     <span class="sidebarCardHeader"><h1 class="sidebarH1">Sort Stories</h1></span>
       <form>
       <select name="sort" class="sidebarCardContent">
