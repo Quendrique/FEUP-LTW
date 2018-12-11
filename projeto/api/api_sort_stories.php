@@ -3,7 +3,7 @@
     include_once('../templates/tpl_stories.php');
     include_once('../database/db_stories.php');
 
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
 
     $criteria = $_POST['criteria'];
 

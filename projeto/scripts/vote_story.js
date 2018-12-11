@@ -2,9 +2,6 @@ let voteStory = document.querySelector('body');
 voteStory.addEventListener('click', voteStoryClicked)
 
 function voteStoryClicked(event) {
-
-  console.log(event.target.closest('article#story button'));
-
   let info = event.target.closest('article#story button');
 
   if (info) {

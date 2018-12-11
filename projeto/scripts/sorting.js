@@ -9,8 +9,9 @@ function changeSortingCriteria(event) {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.addEventListener("load", function () {
     document.querySelector('section#story_list').parentNode.removeChild(document.querySelector('section#story_list'));
-    if (document.querySelector('section#channel_page')) { //in channel page
-      document.querySelector('section#channel_page').insertAdjacentHTML('beforeend', this.responseText);
+    let toUpdate;
+    if (toUpdate = document.querySelector('section#channel_page')) { //in channel page
+      toUpdate.insertAdjacentHTML('beforeend', this.responseText);
     } else { //in main page or sub feed 
       document.querySelector('body').insertAdjacentHTML('beforeend', this.responseText);
       document.querySelector('section#story_list').setAttribute('class', 'page');
