@@ -4,8 +4,10 @@
  * as articles. Uses the draw_list function to draw
  * each list.
  */ ?>
-  <section id="channel_list" class= "blockStyle blockLayout page">
-    <h1>Channels</h1>
+  <section id="channel_list" class= "blockStyle page">
+  <h1 class="mainCardH1 sidebarCardHeader">Channels</h1>
+    <hr class = "invisibleLine">
+    <section class="blockLayout">
     <header>
       <h2>Channel Name</h2>
       <h2>Author</h2>
@@ -15,6 +17,7 @@
     foreach($channels as $channel)
       draw_channel_list($channel);
   ?>
+  </section>
   </section>
 <?php } ?>
 
@@ -66,11 +69,11 @@
  * page.
  */ ?>
 
-  <section id="add_channel" class= "blockStyle blockLayout page">
+  <section id="add_channel" class= "blockStyle page">
 
-    <h1>Create a new channel</h1>
-   
-    <form method="post" action="../actions/action_add_channel.php">
+    <h1 class="mainCardH1 sidebarCardHeader">Create a new channel</h1>
+    <hr class = "invisibleLine">
+    <form method="post" action="../actions/action_add_channel.php" class="blockLayout">
       <input type="text" name="username" value=<?=$username?> hidden>
       <p>Channel name: </p>
       <input class="inputField" type="text" name="channel" >

@@ -16,13 +16,13 @@
     {        
         $subbed_channels = getSubbedChannels($username);
         draw_header($username);
-        draw_sidebar($subbed_channels, false);
+       // draw_sidebar($subbed_channels, false);
         printProfile($userdata[0]);
     }
     else //if user does not exist
     {
         draw_header(null);
-        draw_sidebar(null, true);
+        //draw_sidebar(null, true);
         printProfileError($username);
     }
 

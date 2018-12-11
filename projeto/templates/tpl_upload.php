@@ -3,12 +3,13 @@
 
  <meta charset="utf-8">
     <script src="../audiojs/audio.min.js"></script>
-        <section id="upload" class= "blockStyle blockLayout page">
+        <section id="upload" class= "blockStyle page">
         <script type="text/javascript" src="../scripts/fileScripts.js"></script>
         <script> onAudioChange(); </script>
   
-        <div id="h1upload"><h1>New Story</h1></div>
-        <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data">
+        <h1 class="sidebarCardHeader mainCardH1">New Story</h1>
+        <hr class = "invisibleLine">
+        <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data" class="blockLayout">
         <input id="username" name="username"  type="hidden"  value=<?=$username?>>
 
             <div id=uploadInfo>

@@ -12,12 +12,12 @@
 
 
 <?php function printProfile($userdata) {  ?>
-  <section id="profile" class= "page">
-    <section id="profileInf" class= " blockLayout blockStyle">
+  <section id="profile" class= "page nosidebarblockLayout">
+    <section id="profileInf" class= "blockStyle">
       <span id="username"><h1><?=$userdata['username']?></h1></span>
       <div id ="info">
           <?php $igmsrc = getUserImage($userdata['username']);?>
-          <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200">
+          <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200" class="roundImage">
             <div id ="personalData">
             <?php if($userdata['name'] !== ""){?>
             <span><b>Name: </b></span><span><?=$userdata['name']?></span>
@@ -50,13 +50,14 @@
 function printProfileEdit($userdata) { 
   ?>
     <section id="profile" class= " page">
-      <section id="profileInf" class= "blockStyle blockLayout ">
-        <h1>My profile</h1>
+      <section id="profileInf" class= "blockStyle  ">
+        <h1 class="sidebarCardHeader mainCardH1">Edit Profile</h1>
+        <hr class = "invisibleLine">
         <?php $igmsrc = getUserImage($userdata['username']);?>
-        <div id ="content">
+        <div id ="content" class="blockLayout">
           <form action="../actions/action_edit_profile.php" method="POST" enctype="multipart/form-data">
           <div id = "imageInfo">
-            <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200">
+            <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200" class="roundImage">
             <script type="text/javascript" src="../scripts/fileScripts.js"></script>
             <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
           </div>
@@ -117,7 +118,7 @@ function draw_activity($username) { ?>
     <input type="button" value="Comments" id="Comments"  onclick="loadPostsActivity(event)" />
   </div>
   <section id = "activity">
-    <section id = "posts" style="display:inline;">
+    <section id = "posts" style="display:none;">
       <?php draw_stories(getStoriesByUser($username)) ?>
     </section>
     <section id = "comment_list" style="display:none;">

@@ -22,10 +22,11 @@
     $username = $_SESSION['username'];?>
     <section id="sidebar_login" class="blockStyle sidebarCard">
       <span class="sidebarCardHeader sidebarH1">My Account</span >
+      <hr class = "invisibleLine">
       <section class="sidebarCardContent">
         <div id=userInfo>
           <?php $igmsrc = getUserImage($username);?>
-          <img  id="userImage"  src=<?=$igmsrc?> width=40 height="40">
+          <img  src=<?=$igmsrc?> width=40 height="40" class="roundImage">
           <a href="../pages/profile.php?user=<?= $username ?>" class="sidebarPurpleLink" id="username"><?= $username ?></a>    
         </div> 
         <section id="options">
@@ -39,6 +40,7 @@
   { ?>
     <section id="sidebar_login" class = "blockStyle sidebar_notlogged sidebarCard">
       <h1 class="sidebarCardHeader sidebarH1">Login</h1>
+      <hr class = "invisibleLine">
         <form method="post" action="../actions/action_login.php" class="sidebarCardContent">
           <input type="text" name="username" placeholder="username" class="inputField" required>
           <input type="password" name="password" placeholder="password" class="inputField" required>
@@ -57,6 +59,7 @@
     <?php } else {?>
       <h1 class="sidebarCardHeader sidebarH1">Subscribed Channels</h1>
     <?php } ?>
+    <hr class = "invisibleLine">
       <ul class="sidebarCardContent">
         <?php
           if (isset($_SESSION['username']) && !empty($subbed_channels)) {
@@ -76,6 +79,7 @@
 <?php function draw_sidebar_sort() { ?>
     <section id="sidebar_sort" class= "blockStyle sidebarCard">
     <span class="sidebarCardHeader"><h1 class="sidebarH1">Sort Stories</h1></span>
+    <hr class = "invisibleLine">
       <form>
       <select name="sort" class="sidebarCardContent">
         <option value="date-desc" selected>Newest First</option>

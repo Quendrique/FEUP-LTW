@@ -52,7 +52,7 @@ function draw_stories($stories) {
   <article id="story" class = "blockStyle ">
     <header> 
     <?php $igmsrc = getUserImage($story['author']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=20 height="20">
+      <img  id="userImage"  src=<?=$igmsrc?> width=20 height="20" class="roundImage">
     <a href="../pages/profile.php?user=<?= $story['author'] ?>"><?= $story['author']?></a>
       <span id="date"> <?= date('d M Y',$date)?></span>
     </header>
