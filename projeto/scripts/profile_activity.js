@@ -3,12 +3,12 @@ function loadPostsActivity(event) {
   
   if(button.value=="Posts"){
     let stories = document.getElementById('posts');
-    let comments = document.getElementById('comments');
+    let comments = document.getElementById('comment_list');
     stories.style.display = "inline";
     comments.style.display = "none";
   }else{
     let stories = document.getElementById('posts');
-    let comments = document.getElementById('comments');
+    let comments = document.getElementById('comment_list');
     stories.style.display = "none";
     comments.style.display = "inline";
   }

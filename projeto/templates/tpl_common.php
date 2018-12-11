@@ -33,7 +33,7 @@
             <input type="text" name="search" class="inputField" placeholder="Search..." required>
           </form>
           <a href="../pages/mainpage.php"><img id="logo" src= "../img/logo.png" height="40" width="40"/></a>
-          <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="50" width="80"/></a>
+          <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="50" width="60"/></a>
         </nav>
       </div>
 <?php } 

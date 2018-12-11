@@ -77,7 +77,6 @@ function onTrackSelected(event) {
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
-    onAudioChange(event);
 
 }
 
