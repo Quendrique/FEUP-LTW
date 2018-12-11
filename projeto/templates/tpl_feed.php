@@ -5,7 +5,7 @@ include_once('../database/db_stories.php');
 
 function draw_feed() { ?>
 
-    <section id="stories_list" class="page">
+    <section id="story_list" class="page">
         <script src="../audiojs/audio.min.js"></script>
         <script>
         audiojs.events.ready(function() {
@@ -23,7 +23,7 @@ function draw_feed() { ?>
  
  function draw_sub_feed($username) { ?>
 
-    <section id="stories_list" class="page">
+    <section id="story_list" class="page">
         <script src="../audiojs/audio.min.js"></script>
         <script>
         audiojs.events.ready(function() {
