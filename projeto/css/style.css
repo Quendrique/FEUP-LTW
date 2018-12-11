@@ -1177,9 +1177,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-top: 0;
 }
 
-#comment_list > *:nth-last-child(2) {
-  margin-bottom: 0;
-}
+
 
 #comment {
   padding: 0;
