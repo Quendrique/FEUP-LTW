@@ -1,11 +1,4 @@
-<?php 
-
-function draw_stories($stories) {
-/**
- * Draws a channel's stories
- * page.
- */ ?>
-
+<?php function draw_stories($stories) {  ?>
   <section id="story_list">
     <script src="../audiojs/audio.min.js"></script>
     <script>audiojs.events.ready(function() {
@@ -18,11 +11,7 @@ function draw_stories($stories) {
   </section>
 <?php } ?>
 
-<?php function draw_story_page($story) {
-/**
- * Draws a single story
- * page.
- */ ?>
+<?php function draw_story_page($story) {  ?>
   <section id="story_page" class="page">
   <script src="../audiojs/audio.min.js"></script>
   <script>audiojs.events.ready(function() {

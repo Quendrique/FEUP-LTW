@@ -16,6 +16,8 @@ function changeSortingCriteria(event) {
       document.querySelector('body').insertAdjacentHTML('beforeend', this.responseText);
       document.querySelector('section#story_list').setAttribute('class', 'page');
     }
+    audiojs.createAll();
+
   });
   request.send(encodeForAjax({criteria: selectedCriteria.options[selectedCriteria.selectedIndex].value}));
 };
