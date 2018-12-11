@@ -1117,6 +1117,14 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-left: 0.2em;
 }
 
+#numUpvotes.colored {
+  color: var(--grad-start-color);
+}
+
+#numDownvotes.colored {
+  color: var(--grad-end-color);
+}
+
 #story footer #upvote, #story  footer #downvote {
   display: flex;
   flex-direction: row;
@@ -1276,6 +1284,14 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   border:none;
   color:var(--font-color);
   background-color: transparent;
+}
+
+.voteup_btn.colored{
+  color:var(--grad-start-color);
+}
+
+.votedown_btn.colored{
+  color:var(--grad-end-color);
 }
 
 .voteup_btn:hover{

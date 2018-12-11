@@ -1,4 +1,5 @@
 <?php 
+include_once('../database/db_stories.php');
 
 function draw_stories($stories) {
 /**
@@ -42,6 +43,10 @@ function draw_stories($stories) {
  */ 
   $date_str = $story['datetime'];
   $date = strtotime($date_str);
+  if (isset($_SESSION['username']))
+    $uservote = hasUserVotedStory($_SESSION['username'], $story['id']);
+  else
+    $uservote = null;
   ?>
   <script type="text/javascript" src="../scripts/profile_activity.js"></script>
   <article id="story" class = "blockStyle ">
@@ -69,32 +74,52 @@ function draw_stories($stories) {
     <span id="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
     <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>
       <section id="upvote" data-storyid=<?=$story['id']?>>
-        <?php if (isset($_SESSION['username'])) { ?>
-        <button type="submit" class="voteup_btn" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
+        <?php if (isset($_SESSION['username'])) { 
+          if($uservote != null && $uservote['type'] == 1){?>
+        <button type="submit" class="voteup_btn colored" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
           <i class="fas fa-caret-up fa-2x"></i>
         </button>
-        <?php } else { ?>
+        <?php 
+          }else
+          {?>
+            <button type="submit" class="voteup_btn" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
+            <i class="fas fa-caret-up fa-2x"></i>
+        </button>
+          <?php } } else { ?>
           <form method="GET" action="../actions/action_login.php">
             <button type="submit" class="voteup_btn" id="voteupBtn">
               <i class="fas fa-caret-up fa-2x"></i>
             </button>
           </form>
-        <?php } ?>  
-        <span id=numUpvotes><?= $story['upvotes']?></span>
+        <?php } if($uservote != null && $uservote['type'] == 1) {?>  
+        <span id=numUpvotes class="colored"><?= $story['upvotes']?></span>
+        <?php } else { ?>
+        <span id=numUpvotes><?= $story['upvotes']?></span> 
+        <?php } ?>
       </section>
       <section id="downvote" data-storyid=<?=$story['id']?>>
-        <?php if (isset($_SESSION['username'])) { ?>
-          <button type="submit" class="votedown_btn" id="votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?> >
+      <?php if (isset($_SESSION['username'])) { 
+          if($uservote != null && $uservote['type'] == 0){?>
+        <button type="submit" class="votedown_btn colored" id="votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?>>
+          <i class="fas fa-caret-down fa-2x"></i>
+        </button>
+        <?php 
+          }else
+          {?>
+            <button type="submit" class="votedown_btn" id="votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?>>
             <i class="fas fa-caret-down fa-2x"></i>
-          </button>
-        <?php } else { ?>
+        </button>
+          <?php } } else { ?>
           <form method="GET" action="../actions/action_login.php">
             <button type="submit" class="votedown_btn" id="votedownBtn">
               <i class="fas fa-caret-down fa-2x"></i>
             </button>
           </form>
-        <?php } ?> 
-        <span id=numDownvotes><?= $story['downvotes']?></span>
+        <?php } if($uservote != null && $uservote['type'] == 0) {?>  
+        <span id=numDownvotes class="colored"><?= $story['downvotes']?></span>
+        <?php } else { ?>
+        <span id=numDownvotes><?= $story['downvotes']?></span> 
+        <?php } ?>
     </footer>  
   </article>
 <?php 
@@ -122,6 +147,10 @@ function draw_comment($comment) {
  */ 
   $date_str = $comment['datetime'];
   $date = strtotime($date_str);
+  if (isset($_SESSION['username']))
+    $uservote = hasUserVotedComment($_SESSION['username'], $comment['id']);
+  else
+    $uservote = null;
 ?>
   <article id="comment">
     <div id ="singleComment">
@@ -134,16 +163,36 @@ function draw_comment($comment) {
     </div>
     <footer>
       <section id="upvote" data-commentid=<?=$comment['id']?>>
-        <button type="submit" class="voteup_btn" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
-          <i class="fas fa-caret-up fa-lg"></i>
-        </button>
-        <span id = numUpvotes><?= $comment['upvotes']?></span>
+      <?php
+          if($uservote != null && $uservote['type'] == 1){?>
+            <button type="submit" class="voteup_btn colored" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+              <i class="fas fa-caret-up fa-lg"></i>
+            </button>
+            <span id=numUpvotes class="colored"><?= $comment['upvotes']?></span>
+        <?php 
+          }else
+          {?>
+            <button type="submit" class="voteup_btn" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+              <i class="fas fa-caret-up fa-lg"></i>
+            </button>
+            <span id=numUpvotes><?= $comment['upvotes']?></span> 
+      <?php } ?>
       </section>
       <section id="downvote" data-commentid=<?=$comment['id']?>>
-        <button type="submit" class="votedown_btn" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
-          <i class="fas fa-caret-down fa-lg"></i>
-        </button>
-        <span id = numDownvotes><?= $comment['downvotes']?></span>
+      <?php
+          if($uservote != null && $uservote['type'] == 0){?>
+            <button type="submit" class="votedown_btn colored" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+              <i class="fas fa-caret-down fa-lg"></i>
+            </button>
+            <span id=numDownvotes class="colored"><?= $comment['downvotes']?></span>
+        <?php 
+          }else
+          {?>
+            <button type="submit" class="votedown_btn" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+              <i class="fas fa-caret-down fa-lg"></i>
+            </button>
+            <span id=numDownvotes><?= $comment['downvotes']?></span> 
+      <?php } ?>
       </section>
       <span id ="divDot">&bull;</span>
       <span id="date"> <?= date('d/m/Y', $date)?></span>
