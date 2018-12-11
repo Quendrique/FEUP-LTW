@@ -98,6 +98,7 @@ select{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: fit-content;
 }
 
 .blockStyle{
@@ -295,6 +296,10 @@ p{
   text-decoration: underline;
 }
 
+.sidebarH1:hover{
+  text-decoration: underline;
+}
+
 .sidebarButtonLink{
   justify-self: center;
   font-family: var(--font), sans-serif;
@@ -325,7 +330,7 @@ p{
  }
 
  #sidebar_login #options{
-  padding:1em;
+  padding:1em 1em 0 1em;
   display:flex;
   flex-direction: column;
   align-items: center;
