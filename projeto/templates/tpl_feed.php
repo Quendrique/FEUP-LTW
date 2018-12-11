@@ -33,7 +33,7 @@ function draw_feed() { ?>
 
         <?php
         if ($username !== null) {
-            $all_stories =getAllSubStories($username);
+            $all_stories = getAllSubStoriesOrderDate($username);
             foreach($all_stories as $story){
                 draw_story($story);
             }

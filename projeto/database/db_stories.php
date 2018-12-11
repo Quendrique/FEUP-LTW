@@ -17,11 +17,48 @@
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
-  function getAllSubStories($user) {
+
+  function getAllSubStoriesOrderDate($user) {
     global $db;
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
                           WHERE stories.channel = subscribed.channel AND subscribed.user = ?
                           ORDER BY [datetime] DESC');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllSubStoriesOrderDateRev($user) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
+                          WHERE stories.channel = subscribed.channel AND subscribed.user = ?
+                          ORDER BY [datetime] ASC');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllSubStoriesOrderVote($user) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
+                          WHERE stories.channel = subscribed.channel AND subscribed.user = ?
+                          ORDER BY upvotes DESC');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllSubStoriesOrderAlph($user) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
+                          WHERE stories.channel = subscribed.channel AND subscribed.user = ?
+                          ORDER BY title ASC');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllSubStoriesOrderAlphRev($user) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
+                          WHERE stories.channel = subscribed.channel AND subscribed.user = ?
+                          ORDER BY title DESC');
     $stmt->execute(array($user));
     return $stmt->fetchAll(); 
   }
