@@ -10,7 +10,7 @@
       
       <link rel="stylesheet" href="../css/style.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
-      <link rel="icon" href="../img/logo.ico"/>
+      <link rel="icon" href="../img/logo.png"/>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
       <script src="../scripts/vote_story.js" defer></script>
       <script src="../scripts/vote_comment.js" defer></script>
