@@ -1,4 +1,11 @@
-<?php function draw_stories($stories) {  ?>
+<?php 
+
+function draw_stories($stories) {
+/**
+ * Draws a channel's stories
+ * page.
+ */ ?>
+
   <section id="story_list">
     <script src="../audiojs/audio.min.js"></script>
     <script>audiojs.events.ready(function() {
@@ -11,7 +18,11 @@
   </section>
 <?php } ?>
 
-<?php function draw_story_page($story) {  ?>
+<?php function draw_story_page($story) {
+/**
+ * Draws a single story
+ * page.
+ */ ?>
   <section id="story_page" class="page">
   <script src="../audiojs/audio.min.js"></script>
   <script>audiojs.events.ready(function() {
@@ -58,15 +69,31 @@
     <span id="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
     <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>
       <section id="upvote" data-storyid=<?=$story['id']?>>
+        <?php if (isset($_SESSION['username'])) { ?>
         <button type="submit" class="voteup_btn" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
           <i class="fas fa-caret-up fa-2x"></i>
         </button>
+        <?php } else { ?>
+          <form method="GET" action="../actions/action_login.php">
+            <button type="submit" class="voteup_btn" id="voteupBtn">
+              <i class="fas fa-caret-up fa-2x"></i>
+            </button>
+          </form>
+        <?php } ?>  
         <span id=numUpvotes><?= $story['upvotes']?></span>
       </section>
       <section id="downvote" data-storyid=<?=$story['id']?>>
-        <button type="submit" class="votedown_btn" id="votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?> >
-          <i class="fas fa-caret-down fa-2x"></i>
-        </button>
+        <?php if (isset($_SESSION['username'])) { ?>
+          <button type="submit" class="votedown_btn" id="votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?> >
+            <i class="fas fa-caret-down fa-2x"></i>
+          </button>
+        <?php } else { ?>
+          <form method="GET" action="../actions/action_login.php">
+            <button type="submit" class="votedown_btn" id="votedownBtn">
+              <i class="fas fa-caret-down fa-2x"></i>
+            </button>
+          </form>
+        <?php } ?> 
         <span id=numDownvotes><?= $story['downvotes']?></span>
     </footer>  
   </article>

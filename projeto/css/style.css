@@ -1123,6 +1123,10 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-right:0.3em;
 }
 
+#story footer form {
+  margin-bottom: 0;
+}
+
 #story footer #downvote {
   margin-right: 0;
 }
