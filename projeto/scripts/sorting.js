@@ -4,18 +4,17 @@ sortingCriteria.addEventListener('change', changeSortingCriteria);
 
 function changeSortingCriteria(event) {
   let selectedCriteria = event.target;
-  console.log(selectedCriteria.options[selectedCriteria.selectedIndex].value);
-
   let request = new XMLHttpRequest();
   request.open("POST", "../api/api_sort_stories.php", true);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.addEventListener("load", function () {
-    let channelPageElems = document.querySelectorAll('section#channel_page > :not(#channel_info)');
-    channelPageElems.forEach(function(elem) {
-      elem.parentElement.removeChild(elem);
-    });
-    console.log(this.responseText);
-    document.querySelector('section#channel_page').insertAdjacentHTML('beforeend', this.responseText);
+    document.querySelector('section#story_list').parentNode.removeChild(document.querySelector('section#story_list'));
+    if (document.querySelector('section#channel_page')) { //in channel page
+      document.querySelector('section#channel_page').insertAdjacentHTML('beforeend', this.responseText);
+    } else { //in main page or sub feed 
+      document.querySelector('body').insertAdjacentHTML('beforeend', this.responseText);
+      document.querySelector('section#story_list').setAttribute('class', 'page');
+    }
   });
   request.send(encodeForAjax({criteria: selectedCriteria.options[selectedCriteria.selectedIndex].value}));
 };

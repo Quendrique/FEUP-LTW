@@ -6,16 +6,15 @@ function draw_stories($stories) {
  * page.
  */ ?>
 
-  <script src="../audiojs/audio.min.js"></script>
-  <script>audiojs.events.ready(function() {
+  <section id="story_list">
+    <script src="../audiojs/audio.min.js"></script>
+    <script>audiojs.events.ready(function() {
             audiojs.createAll();
-    });</script>
-
-    <section id="story_list">
-    <?php foreach($stories as $story) { 
-      draw_story($story); /*?>
-      <div id="comments"> <?php draw_comments(getComments($story['id']),$story['id']);?> </div>
-    <?php*/ } ?>
+      });
+    </script>
+  <?php foreach($stories as $story) { 
+    draw_story($story); 
+    } ?>
   </section>
 <?php } ?>
 
@@ -44,7 +43,7 @@ function draw_stories($stories) {
   $date_str = $story['datetime'];
   $date = strtotime($date_str);
   ?>
-  <script type="text/javascript" src="../scripts/profileActivity.js"></script>
+  <script type="text/javascript" src="../scripts/profile_activity.js"></script>
   <article id="story" class = "blockStyle ">
     <header> 
     <?php $igmsrc = getUserImage($story['author']);?>
