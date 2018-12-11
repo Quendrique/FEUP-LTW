@@ -23,6 +23,7 @@ CREATE TABLE stories (
   datetime DATETIME,
   upvotes INTEGER,
   downvotes INTEGER,
+  comments INTEGER,
   channel VARCHAR REFERENCES channels
 );
 
@@ -234,12 +235,18 @@ BEGIN
   );	
 END;
 
+CREATE TRIGGER onComment
+BEFORE INSERT ON comments
+BEGIN
+  UPDATE stories SET comments = comments + 1 WHERE id = NEW.story_id;	
+END;
+
 
 INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", "", 0); -- password in SHA-1 format
 INSERT INTO channels VALUES ("general", "admin", "main channel");
 INSERT INTO subscribed VALUES (NULL, 'admin', 'general');
-INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', date('now'), 0, 0, 'general');
-INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', date('now'), 0, 0, 'general');
+INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', date('now'), 0, 0, 0, 'general');
+INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', date('now'), 0, 0, 0, 'general');
 INSERT INTO vote VALUES (NULL, 1, 'admin', 0, NULL);
 INSERT INTO comments VALUES (0, 0, 'admin', 0, 0,  date('now'), 'sdfknsdlfnsdlf');
 INSERT INTO vote VALUES (NULL, 1, 'admin', NULL, 0);

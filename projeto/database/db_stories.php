@@ -11,9 +11,106 @@
     $stmt->execute(array($story));
     return $stmt->fetch(); 
   }
+  
   function getAllStories() {
     global $db;
     $stmt = $db->prepare('SELECT * FROM stories ORDER BY [datetime] DESC');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllChannelStoriesOrderDate($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
+                          WHERE stories.channel = channels.name AND channels.name = ?
+                          ORDER BY [datetime] DESC');
+    $stmt->execute(array($channel));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllChannelStoriesOrderDateRev($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
+                          WHERE stories.channel = channels.name AND channels.name = ?
+                          ORDER BY [datetime] ASC');
+    $stmt->execute(array($channel));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllChannelStoriesOrderVote($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
+                          WHERE stories.channel = channels.name AND channels.name = ?
+                          ORDER BY upvotes DESC');
+    $stmt->execute(array($channel));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllChannelStoriesOrderAlph($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
+                          WHERE stories.channel = channels.name AND channels.name = ?
+                          ORDER BY title ASC');
+    $stmt->execute(array($channel));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllChannelStoriesOrderAlphRev($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
+                          WHERE stories.channel = channels.name AND channels.name = ?
+                          ORDER BY title DESC');
+    $stmt->execute(array($channel));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllChannelStoriesOrderComments($channel) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
+                          WHERE stories.channel = channels.name AND channels.name = ?
+                          ORDER BY comments DESC');
+    $stmt->execute(array($channel));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllStoriesOrderDate() {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY [datetime] DESC');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllStoriesOrderDateRev() {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY [datetime] ASC');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllStoriesOrderVote() {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY upvotes DESC');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllStoriesOrderAlph() {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY title ASC');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllStoriesOrderAlphRev() {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY title DESC');
+    $stmt->execute(array());
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllStoriesOrderComments() {
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY comments DESC');
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
@@ -59,6 +156,15 @@
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
                           WHERE stories.channel = subscribed.channel AND subscribed.user = ?
                           ORDER BY title DESC');
+    $stmt->execute(array($user));
+    return $stmt->fetchAll(); 
+  }
+
+  function getAllSubStoriesOrderComments($user) {
+    global $db;
+    $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
+                          WHERE stories.channel = subscribed.channel AND subscribed.user = ?
+                          ORDER BY comments DESC');
     $stmt->execute(array($user));
     return $stmt->fetchAll(); 
   }
