@@ -101,6 +101,15 @@ select{
   height: fit-content;
 }
 
+.nosidebarblockLayout{
+  padding: 2em;
+  grid-area: 2 / 1 / span 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+}
+
 .blockStyle{
   box-shadow: 0px 0px 5px var(--box-shadow-color);
   font: var(--font);

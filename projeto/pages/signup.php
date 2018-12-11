@@ -4,7 +4,7 @@
     include_once('../templates/tpl_account.php');
     
     draw_header(null);
-    draw_sidebar(null, false);
-    draw_signup();
+    $message = $_GET['message'];
+    draw_signup($message);
     draw_footer();
 ?>

@@ -43,7 +43,7 @@
           <input type="text" name="username" placeholder="username" class="inputField" required>
           <input type="password" name="password" placeholder="password" class="inputField" required>
           <input type="submit" value="Login" class="sidebarButtonLink hoverButton">
-          <div><a href="../pages/signup.php" class="sidebarButtonLink hoverButton">Signup</a></div>
+          <div><a href="../pages/signup.php?message=" class="sidebarButtonLink hoverButton">Signup</a></div>
         </form>
 
     </section>
@@ -91,13 +91,14 @@
 <?php 
 } ?>
 
-<?php function draw_login() { 
+<?php function draw_login($message) { 
 /**
  * Draws the login section.
  */ ?>
-  <section id="login" class= "blockStyle blockLayout page">
+  <section id="login" class= "blockStyle nosidebarblockLayout page">
 
       <h1>Insert your account credentials.</h1>
+      <h2><?= $message ?></h2>
 
     <form method="post" action="../actions/action_login.php">
       <input type="text" name="username" placeholder="username" class="inputField" required>
@@ -106,19 +107,22 @@
     </form>
 
     <footer>
-      <p>Don't have an account? <a href="signup.php">Signup!</a></p>
+      <p>Don't have an account? <a href="signup.php?message=">Signup!</a></p>
     </footer>
 
   </section>
 <?php } ?>
 
-<?php function draw_signup() { 
+<?php function draw_signup($message) { 
 /**
  * Draws the signup section.
  */ ?>
-  <section id="signup" class= "blockStyle blockLayout page">
+  <section id="signup" class= "blockStyle nosidebarblockLayout page">
 
       <h1>Create an account today!</h1>
+      <?php if($message !== "") {?>
+      <h2><?= $message ?></h2>
+      <?php }?>
 
     <form method="post" action="../actions/action_signup.php">
       <input type="text" name="username" placeholder="username" autocomplete="new-username" class="inputField" required>
@@ -128,7 +132,7 @@
     </form>
 
     <footer>
-      <p>Already have an account? <a href="login.php">Login!</a></p>
+      <p>Already have an account? <a href="login.php?message=">Login!</a></p>
     </footer>
 
   </section>
