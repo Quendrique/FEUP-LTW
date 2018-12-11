@@ -103,8 +103,8 @@ function printProfileEdit($userdata) {
   <?php } ?>
 
 <?php
-include('../templates/tpl_stories.php');
-include('../database/db_stories.php');
+include_once('../templates/tpl_stories.php');
+include_once('../database/db_stories.php');
 function draw_activity($username) { ?>
   <script type="text/javascript" src="../scripts/profile_activity.js"></script>
   <div id="activityDiv">
