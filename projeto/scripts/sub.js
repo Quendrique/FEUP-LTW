@@ -21,6 +21,7 @@ function subClicked(event) {
       let newSub = document.createElement('a');
       let subList = document.querySelector('section#sidebar_subs ul');
       newSub.setAttribute('href', "../pages/channel_page.php?channel=" + channel);
+      newSub.setAttribute('class', 'sidebarPurpleLink');
       listItem.setAttribute('data-channel', channel);
       newSub.innerHTML = channel;
       listItem.appendChild(newSub);

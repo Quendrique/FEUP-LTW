@@ -10,8 +10,12 @@ function changeSortingCriteria(event) {
   request.open("POST", "../api/api_sort_stories.php", true);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.addEventListener("load", function () {
-    console.log(document.querySelector('section#story_list'));
-    document.querySelector('section#story_list').innerHTML = this.responseText;
+    let channelPageElems = document.querySelectorAll('section#channel_page > :not(#channel_info)');
+    channelPageElems.forEach(function(elem) {
+      elem.parentElement.removeChild(elem);
+    });
+    console.log(this.responseText);
+    document.querySelector('section#channel_page').insertAdjacentHTML('beforeend', this.responseText);
   });
   request.send(encodeForAjax({criteria: selectedCriteria.options[selectedCriteria.selectedIndex].value}));
 };
