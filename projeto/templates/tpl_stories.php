@@ -86,7 +86,7 @@ function draw_stories($stories) {
             <i class="fas fa-caret-up fa-2x"></i>
         </button>
           <?php } } else { ?>
-          <form method="GET" action="../actions/action_login.php?message=">
+          <form method="GET" action="../pages/login.php?message=">
             <button type="submit" class="voteup_btn" id="voteupBtn">
               <i class="fas fa-caret-up fa-2x"></i>
             </button>
@@ -110,7 +110,7 @@ function draw_stories($stories) {
             <i class="fas fa-caret-down fa-2x"></i>
         </button>
           <?php } } else { ?>
-          <form method="GET" action="../actions/action_login.php?message=">
+          <form method="GET" action="../pages/login.php?message=">
             <button type="submit" class="votedown_btn" id="votedownBtn">
               <i class="fas fa-caret-down fa-2x"></i>
             </button>

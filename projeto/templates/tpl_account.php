@@ -102,7 +102,9 @@
   <section id="login" class= "blockStyle nosidebarblockLayout page centerCardLayout">
 
       <h1>Insert your account credentials.</h1>
+      <?php if($message !== "") {?>
       <h2><?= $message ?></h2>
+      <?php }?>
 
     <form method="post" action="../actions/action_login.php">
       <input type="text" name="username" placeholder="username" class="inputField" required>
