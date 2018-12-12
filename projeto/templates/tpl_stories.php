@@ -48,7 +48,7 @@ function draw_stories($stories) {
   else
     $uservote = null;
   ?>
-  <script type="text/javascript" src="../scripts/profile_activity.js"></script>
+  <script type="text/javascript" src="../scripts/activity.js"></script>
   <article id="story" class = "blockStyle ">
     <header> 
     <?php $igmsrc = getUserImage($story['author']);?>
@@ -126,15 +126,17 @@ function draw_stories($stories) {
 } ?>
 
 <?php function draw_comments($comments, $story) { ?>
-  <section id="comment_list" class="page blockStyle blockLayout">
+  <section id="comment_list" class="page blockStyle">
     <?php if (isset($_SESSION['username'])) {
     draw_add_comment($story);
-    
+    ?>
+    <section id=comments>
+    <?php
     foreach($comments as $comment) {
       draw_comment($comment);
-    } 
-  }
- ?>
+    } ?>
+    </section>
+  <?php } ?>
   </section>
 <?php 
 } ?>

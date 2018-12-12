@@ -3,12 +3,29 @@
  * Draws search results
  */ ?>
 
-  <section id="search_results" class="page blockStyle blockLayout">
-    <?php 
-      draw_search_stories($search_stories);
-      draw_search_channels($search_channels);
-      draw_search_comments($search_comments);
-    ?>
+  <section id="search_results" class="page ">
+  <script type="text/javascript" src="../scripts/activity.js"></script>
+    <header>
+      <h1>Search Results</h1>
+      <div id="links">
+        <input type="button" value="All" id="All"  onclick="loadSearchResults(event)" />
+        <input type="button" value="Posts" id="Posts" onclick="loadSearchResults(event)" />
+        <input type="button" value="Comments" id="Comments"  onclick="loadSearchResults(event)" />
+        <input type="button" value="Channels" id="Channels"  onclick="loadSearchResults(event)" />
+      </div>
+    </header>
+        <div id="activityStories" class="activityDiv">
+          <hr> <span ><h1 class="activityTitle">Posts</h1></span> <hr> 
+        </div> 
+        <?php draw_search_stories($search_stories); ?>
+        <div id="activityComments" class="activityDiv">
+          <hr> <span ><h1 class="activityTitle">Channels</h1></span> <hr> 
+        </div> 
+        <?php draw_search_channels($search_channels); ?>
+        <div id="activityChannels" class="activityDiv">
+          <hr> <span ><h1 class="activityTitle">Comments</h1></span> <hr> 
+        </div> 
+        <?php draw_search_comments($search_comments);?>
   </section>
 <?php } ?>
 
@@ -16,18 +33,14 @@
 /**
  * Draws story search results
  */ ?>
- 
-  <section id="search_stories" class="page blockStyle blockLayout">
-    <header>
-      <h2>Stories</h2>
-    </header>
-    <?php 
-      foreach($search_stories as $search_story) {
+
+  <section id="search_stories" class="searchCard">
+  <?php  foreach($search_stories as $search_story) {
         draw_search_story($search_story);
       }
     ?>
   </section>
-<?php } ?>
+  <?php } ?>  
 
 <?php function draw_search_story($search_story) {
 /**
@@ -42,10 +55,8 @@
 /**
  * Draws channel search results
  */ ?>
-  <section id="search_channels" class="page blockStyle blockLayout">
-    <header>
-      <h2>Channels</h2>
-    </header>
+  
+  <section id="search_channels" class="searchCard blockStyle" >
     <ul>
     <?php 
       foreach($search_channels as $search_channel) { ?>
@@ -62,10 +73,8 @@
  */ 
   include_once('../templates/tpl_stories.php');
 ?>
-  <section id="search_comments" class="page blockStyle blockLayout">
-    <header>
-      <h2>Comments</h2>
-    </header>
+
+    <section id="search_comments" class="searchCard blockStyle" >
     <ul>
     <?php 
       foreach($search_comments as $search_comment) {
@@ -73,5 +82,5 @@
       }
     ?>
     </ul>
-  </section>
+    </section>
 <?php } ?>

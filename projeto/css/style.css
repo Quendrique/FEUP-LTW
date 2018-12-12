@@ -89,6 +89,7 @@ select{
   font-size: 12px;
   padding-left:12px !important;
   background: none;
+  overflow-x: hidden;
 }
 
 .blockLayout{
@@ -258,6 +259,15 @@ p{
   color: var(--success-color);
 }
 
+.searchCard{
+  /*padding: 0 3em 0 3em;*/
+  grid-area: 2 / 2 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+}
+
  /**
  * Sidebar login
  */
@@ -277,6 +287,7 @@ p{
   flex-direction: column;
   align-items: center;
   width:170px;
+  overflow: hidden;
 }
 
  .sidebarCardHeader {
@@ -540,48 +551,51 @@ p{
 }
 
 
-#profile #activityTitle{
+.activityTitle{
   text-align: center;
   flex: 0 0 auto;
   margin: 0 1em 0 1em;
 }
 
-#profile #activityDiv{
+
+.activityDiv{
   display:flex;
   align-items: center;
-  margin-top:2em;
+  margin: 1em 0 1em 0;
 }
 
-#profile #activityDiv hr{
+
+.activityDiv hr{
   flex: 1 1 0;
   height:3px;
   background: var(--washed-out-blue);
   border:none;
 }
 
-#profile #links{
+#links{
   text-align: center;
 }
 
 
-#profile #links *{
+#links *{
   border: none;
   color:var(--font-color);
   background: none;
   font-size: 16px;
   font: var(--font);
   border-bottom: 3px solid var(--bg-color);
+  font-weight: bold;
 }
 
 #profile #activity{
   margin:2em 0;
 }
 
-#profile #links #Posts:hover{
+#links #Posts:hover,#links #Channels:hover{
   border-bottom: 3px solid var(--grad-end-color);
 }
 
-#profile #links #Comments:hover {
+#links #Comments:hover ,#links #All:hover{
   border-bottom: 3px solid var(--grad-start-color);
 }
 
@@ -883,6 +897,7 @@ input[name="title"]:focus .inputLabel{
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 4em 10em 4em;
   max-width: 60%;
+  margin:auto;
 }
 
 #add_channel input{
@@ -910,7 +925,9 @@ input[name="title"]:focus .inputLabel{
   border: none;
   background-color: Transparent;
   align-self: center;
-  width: 50%;
+  width: 15%;
+  margin: auto;
+  grid-area: 3/1 /span 1/ span 2;
 }
 
 #add_channel #submit:hover{
@@ -1171,9 +1188,12 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #comment_list {
   grid-area: 3 / 2 / span 1 / span 1 !important;
   margin-top: 0;
+  padding:2em 0 2em 0;
 }
 
-
+#comment_list #comments{
+  padding-left:2em;
+} 
 
 #comment {
   padding: 0;
@@ -1261,8 +1281,8 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 #add_comment{
   display: flex;
   flex-direction: row;
-  align-items: right;
   margin-bottom:1em;
+  padding-left:2em;
 }
 
 #add_comment textarea{
@@ -1271,7 +1291,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   font-weight: normal;
   resize: none;
   padding: 6px 12px 6px 12px;
-  width: 90%;
+  width: 85%;
 }
 
 .voteup_btn, .votedown_btn{
@@ -1310,6 +1330,10 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 #search_comments {
   margin: 0;
+}
+
+#search_results > header{
+  margin:1em 0 1em 0;
 }
 
 /**

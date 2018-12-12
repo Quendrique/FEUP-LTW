@@ -107,10 +107,10 @@ function printProfileEdit($userdata) {
 include_once('../templates/tpl_stories.php');
 include_once('../database/db_stories.php');
 function draw_activity($username) { ?>
-  <script type="text/javascript" src="../scripts/profile_activity.js"></script>
-  <div id="activityDiv">
+  <script type="text/javascript" src="../scripts/activity.js"></script>
+  <div id="activityDiv" class="activityDiv">
     <hr>        
-    <span id="activityTitle"><h1>Activity</h1></span>
+    <span id="activityTitle" class="activityTitle"><h1>Activity</h1></span>
     <hr> 
   </div> 
   <div id ="links">
