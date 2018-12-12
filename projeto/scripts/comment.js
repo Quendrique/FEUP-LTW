@@ -1,5 +1,8 @@
 let addComment = document.querySelector('section#add_comment button');
-addComment.addEventListener('click', postComment); 
+
+if (addComment) {
+  addComment.addEventListener('click', postComment); 
+}
 
 function postComment() {
   let info = document.querySelector('section#add_comment');
