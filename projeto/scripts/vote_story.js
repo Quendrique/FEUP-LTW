@@ -39,6 +39,21 @@ function voteStoryClicked(event) {
         info.style.color = "#373843";
         newUpVotes.style.color = "#373843";
       }
+
+      //check if we're in a profile page and update the user's points dynamically
+      let userPoints = document.querySelector('#user_points');
+      let currentProfile = document.querySelector('span#username h1').innerHTML;
+      if (userPoints && updatedStory['author'] == currentProfile) {
+        let requestUser = new XMLHttpRequest();
+        requestUser.open("POST", "../api/api_get_user_points.php", true);
+        requestUser.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        requestUser.addEventListener('load', function() {
+          console.log(this.responseText);
+          userPoints.nextSibling.innerHTML = this.responseText;
+        });
+        requestUser.send(encodeForAjax({user: currentProfile, story: story}));
+      }
+
   
     });
     request.send(encodeForAjax({user: user, story: story, action: action}));

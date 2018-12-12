@@ -17,7 +17,7 @@
 
     $userdata = getUserData($username);
 
-    printProfileEdit($userdata[0]);
+    printProfileEdit($userdata);
 
     draw_footer();
 ?>

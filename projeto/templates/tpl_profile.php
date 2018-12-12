@@ -39,7 +39,7 @@
             <span class="alignRight"><b>Email: </b></span><span><?=$userdata['email']?></span>
             <?php } ?>
             
-            <span class="alignRight"><b>Points: </b></span><span><?=$userdata['points']?></span>
+            <span class="alignRight" id="user_points"><b>Points: </b></span><span><?=$userdata['points']?></span>
 
   </section>
   <?php draw_activity($userdata['username']);?>
