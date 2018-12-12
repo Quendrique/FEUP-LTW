@@ -3,9 +3,9 @@
   include_once('../database/db_account.php');
   include_once('../database/db_channels.php');
 
-  $username = preg_replace ("/[<>]/", '^', $_POST['username']);
-  $password = preg_replace ("/[<>]/", '^', $_POST['password']);
-  $repeat_password = preg_replace ("/[<>]/", '^', $_POST['repeat_password']);
+  $username = htmlentities($_POST['username']);
+  $password = htmlentities($_POST['password']);
+  $repeat_password = htmlentities($_POST['repeat_password']);
 
   if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
     die(header('Location: ../pages/signup.php?message=Username+can+only+contain+letters+and+numbers'));

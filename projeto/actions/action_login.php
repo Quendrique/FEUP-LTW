@@ -2,8 +2,8 @@
   include_once('../database/db_account.php');
   include_once('../includes/incl_session.php');
 
-  $username = preg_replace ("/[<>]/", '^', $_POST['username']);
-  $password = preg_replace ("/[<>]/", '^', $_POST['password']);
+  $username = htmlentities($_POST['username']);
+  $password = htmlentities($_POST['password']);
 
   if (login($username, $password)) 
   {

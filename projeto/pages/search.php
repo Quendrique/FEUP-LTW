@@ -9,7 +9,7 @@
   include_once('../templates/tpl_stories.php');
   include_once('../templates/tpl_search.php');
 
-  $search = preg_replace ("/[<>]/", '^', $_GET['search']);
+  $search = htmlentities($_GET['search']);
   
   try {
     $search_stories = searchStories($search);

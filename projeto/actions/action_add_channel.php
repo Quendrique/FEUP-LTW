@@ -3,9 +3,9 @@
     include_once('../includes/incl_session.php');
     include_once('../database/db_channels.php');
 
-    $username = preg_replace ("/[<>]/", '^', $_POST['username']);
-    $channel = preg_replace ("/[<>]/", '^', $_POST['channel']);
-    $description = preg_replace ("/[<>]/", '^', $_POST['description']);
+    $username = htmlentities($_POST['username']);
+    $channel = htmlentities($_POST['channel']);
+    $description = htmlentities($_POST['description']);
 
     try {
       addChannel($username, $channel, $description);

@@ -2,11 +2,11 @@
   include_once('../includes/incl_session.php');
   include_once('../database/db_upload.php');
 
-  $title = preg_replace ("/[<>]/", '^', $_POST['title']);
-  $description = preg_replace ("/[<>]/", '^', $_POST['description']);
-  $username = preg_replace ("/[<>]/", '^', $_POST['username']);
+  $title = htmlentities($_POST['title']);
+  $description = htmlentities($_POST['description']);
+  $username = htmlentities($_POST['username']);
   $date = date('d-m-Y H:i:s');
-  $channel =  preg_replace ("/[<>]/", '^', $_POST['channels']);
+  $channel =  htmlentities($_POST['channels']);
 
     try {
       upload($username,$title,$description,$date,$channel);

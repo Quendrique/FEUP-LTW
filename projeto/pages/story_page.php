@@ -7,7 +7,7 @@
   include_once('../templates/tpl_channel.php');
   include_once('../templates/tpl_stories.php');
 
-  $story_id = preg_replace ("/[<>]/", '^', $_GET['story_id']);
+  $story_id = htmlentities($_GET['story_id']);
   try {
     $story = getStory($story_id);
   } catch(PDOException $e) {

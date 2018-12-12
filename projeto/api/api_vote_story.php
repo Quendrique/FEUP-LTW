@@ -6,9 +6,9 @@
 
     header('Content-Type: application/json');
 
-    $user = preg_replace ("/[<>]/", '^', $_POST['user']);
-    $action = preg_replace ("/[<>]/", '^', $_POST['action']);
-    $story = preg_replace ("/[<>]/", '^', $_POST['story']);
+    $user = htmlentities($_POST['user']);
+    $action = htmlentities($_POST['action']);
+    $story = htmlentities($_POST['story']);
 
     //try {
       $prev_vote = hasUserVotedStory($user, $story);

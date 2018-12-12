@@ -3,8 +3,8 @@
     include_once('../includes/incl_session.php');
     include_once('../database/db_channels.php');
 
-    $channel = preg_replace ("/[<>]/", '^', $_POST['channel']);
-    $description = preg_replace ("/[<>]/", '^', $_POST['description']);
+    $channel = htmlentities($_POST['channel']);
+    $description = htmlentities($_POST['description']);
 
     try {
       editChannel($channel, $description);

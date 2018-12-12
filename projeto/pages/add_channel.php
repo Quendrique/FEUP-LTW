@@ -5,7 +5,7 @@
     include_once('../templates/tpl_account.php');
     include_once('../templates/tpl_channel.php');
 
-    $username = preg_replace ("/[<>]/", '^', $_GET['username']);
+    $username = htmlentities($_GET['username']);
 
     if (!isset($_SESSION['username']) || $_SESSION['username'] != $username)
       die(header('Location: ../pages/mainpage.php'));
