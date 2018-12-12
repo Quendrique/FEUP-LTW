@@ -155,7 +155,7 @@ function draw_comment($comment) {
   <article id="comment">
     <div id ="singleComment">
       <?php $igmsrc = getUserImage($comment['author']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35">
+      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
       <div id ="userAndText" class="comment">
       <span id="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
         <p><?= $comment['text']?></p>
@@ -208,7 +208,7 @@ function draw_comment($comment) {
 ?>
   <section id="add_comment">
   <?php $igmsrc = getUserImage($_SESSION['username']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35">
+      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
     <form>
       <input type="text" name="story" value=<?=$story?> hidden>
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
