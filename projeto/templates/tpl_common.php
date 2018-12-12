@@ -17,25 +17,30 @@
       <script src="../scripts/comment.js" defer></script>
       <script src="../scripts/sorting.js" defer></script>
     </head>
+<?php } 
+?>
 
-    <body>
-      <div class = "navBar">
-        <nav class="tabs">
-          <ul>
-            <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="../pages/channels_list.php"><i class="fas fa-hashtag"></i> Channels</a></li>
-            <?php if ($username != NULL) { ?>
-              <li><a href="../pages/add_channel.php?username=<?= $username ?>"><i class="fas fa-plus-circle"></i> Add Channel</a></li>
-              <li><a href="../pages/upload.php?username=<?= $username ?>"><i class="fas fa-file-upload"></i> New Story</a></li>
-            <?php } ?> 
-          </ul>
-          <form method="GET" action="../pages/search.php">
-            <input type="text" name="search" class="inputField" placeholder="Search..." required>
-          </form>
-          <a href="../pages/mainpage.php"><img id="logo" src= "../img/logo.png" height="40" width="40"/></a>
-          <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="50" width="60"/></a>
-        </nav>
-      </div>
+
+
+<?php function draw_navBar($username) { ?>
+  <body class="regularBody">
+  <div class = "navBar">
+    <nav class="tabs">
+      <ul>
+        <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/channels_list.php"><i class="fas fa-hashtag"></i> Channels</a></li>
+        <?php if ($username != NULL) { ?>
+          <li><a href="../pages/add_channel.php?username=<?= $username ?>"><i class="fas fa-plus-circle"></i> Add Channel</a></li>
+          <li><a href="../pages/upload.php?username=<?= $username ?>"><i class="fas fa-file-upload"></i> New Story</a></li>
+        <?php } ?> 
+      </ul>
+      <form method="GET" action="../pages/search.php">
+        <input type="text" name="search" class="inputField" placeholder="Search..." required>
+      </form>
+      <a href="../pages/mainpage.php"><img id="logo" src= "../img/logo.png" height="40" width="40"/></a>
+      <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="50" width="60"/></a>
+    </nav>
+  </div>
 <?php } 
 ?>
 

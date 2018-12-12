@@ -12,6 +12,7 @@
       die(header('Location: ../pages/mainpage.php'));
 
     draw_header($username);
+    draw_navBar($_SESSION['username']);
     $subbed_channels = getSubbedChannels($username);
     draw_sidebar($subbed_channels, false);
 

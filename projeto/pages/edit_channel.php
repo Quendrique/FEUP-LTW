@@ -14,6 +14,7 @@
     $channel = getChannel($channel_name);
 
     draw_header($_SESSION['username']);
+    draw_navBar($_SESSION['username']);
     $subbed_channels = getSubbedChannels($_SESSION['username']);
     draw_sidebar($subbed_channels, false);
 

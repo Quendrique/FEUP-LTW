@@ -8,6 +8,7 @@
     $channels = getChannels();
   
     draw_header();
+    draw_navBar(null);
     draw_sidebar_login();
     draw_channels($channels);
     draw_footer();

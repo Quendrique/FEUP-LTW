@@ -99,23 +99,26 @@
 /**
  * Draws the login section.
  */ ?>
-  <section id="login" class= "blockStyle nosidebarblockLayout page centerCardLayout">
+ 
+ <body class="loginBody">
+  <section class="viewport">
+  <section id="login" class= "loginCardStyle nosidebarblockLayout centerCardLayout">
 
-      <h1>Insert your account credentials.</h1>
+      <h1>Log In</h1>
       <?php if($message !== "") {?>
       <h2><?= $message ?></h2>
       <?php }?>
 
     <form method="post" action="../actions/action_login.php">
-      <input type="text" name="username" placeholder="username" class="inputField" required>
-      <input type="password" name="password" placeholder="password" class="inputField" required>
+      <input type="text" name="username" placeholder="username" class="inputField" autocomplete="username" equired>
+      <input type="password" name="password" placeholder="password" class="inputField" autocomplete="current-password" required>
       <input type="submit" value="Login">
     </form>
 
     <footer>
       <p>Don't have an account? <a href="signup.php?message=">Signup!</a></p>
     </footer>
-
+  </section>
   </section>
 <?php } ?>
 
@@ -123,7 +126,9 @@
 /**
  * Draws the signup section.
  */ ?>
-  <section id="signup" class= "blockStyle nosidebarblockLayout page centerCardLayout">
+  <body class="loginBody">
+  <section class="viewport">
+  <section id="signup" class= "loginCardStyle nosidebarblockLayout centerCardLayout">
 
       <h1>Create an account today!</h1>
       <?php if($message !== "") {?>
@@ -140,7 +145,7 @@
     <footer>
       <p>Already have an account? <a href="login.php?message=">Login!</a></p>
     </footer>
-
+    </section>
   </section>
 <?php } ?>
 
