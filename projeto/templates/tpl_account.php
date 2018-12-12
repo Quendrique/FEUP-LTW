@@ -103,10 +103,10 @@
  <body class="loginBody">
   <section class="viewport">
   <section id="login" class= "loginCardStyle nosidebarblockLayout centerCardLayout">
-
-      <h1>Log In</h1>
+      <img id="logo" src= "../img/logo.png" height="90" width="90"/>
+      <h2>Welcome back to Mel-o!</h2>
       <?php if($message !== "") {?>
-      <h2><?= $message ?></h2>
+      <h3><?= $message ?></h3>
       <?php }?>
 
     <form method="post" action="../actions/action_login.php">
@@ -129,10 +129,10 @@
   <body class="loginBody">
   <section class="viewport">
   <section id="signup" class= "loginCardStyle nosidebarblockLayout centerCardLayout">
-
-      <h1>Create an account today!</h1>
+      <img id="logo" src= "../img/logo.png" height="90" width="90"/>
+      <h2>Welcome to Mel-o!</h2>
       <?php if($message !== "") {?>
-      <h2><?= $message ?></h2>
+      <h3><?= $message ?></h3>
       <?php }?>
 
     <form method="post" action="../actions/action_signup.php">
