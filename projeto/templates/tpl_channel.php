@@ -7,12 +7,11 @@
   <section id="channel_list" class= "blockStyle page">
   <h1 class="mainCardH1 sidebarCardHeader">Channels</h1>
     <hr class = "invisibleLine">
-    <section class="blockLayout">
+    <section id="content" class="blockLayout">
     <header>
       <h2>Channel Name</h2>
       <h2>Author</h2>
     </header>
-    </article>
   <?php 
     foreach($channels as $channel)
       draw_channel_list($channel);

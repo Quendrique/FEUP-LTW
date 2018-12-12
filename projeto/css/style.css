@@ -839,9 +839,13 @@ input[name="title"]:focus .inputLabel{
   flex-direction: row; 
 }
 
-#channel_list header > * {
-  margin: 0 1em 0 0; 
+#channel_list #content{
+  align-items:center;
+  display:grid;
+  display: flex;
+  flex-direction: column; 
 }
+
 
 #channel_list header:last-child {
   margin: 0 0 0 0; 
@@ -853,15 +857,16 @@ input[name="title"]:focus .inputLabel{
   font-size: 1em;
   color: var(--font-color);
   width: 7em;
+  text-align: center;
 }
 
 .channel_list_item{
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
+  text-align: center; 
 }
 
 .channel_list_item a{
-  padding: 0 1em 0 0;
   font-family: var(--font), sans-serif;
   color: var(--link-color);
   width: 7em;
