@@ -11,18 +11,25 @@ function postComment() {
   let comment = info.querySelector('textarea[name=comment]').value;
   let imgsrc = info.querySelector('img').getAttribute('src');
 
-  let request = new XMLHttpRequest();
-  request.open("POST", "../api/api_add_comment.php", true);
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  request.addEventListener("load", function () {    
-    let newDisplay = document.createElement('article');
-    newDisplay.setAttribute('id', 'comment');
-    newDisplay.innerHTML = this.responseText
-    let commentList = document.querySelector('section#comment_list');
-    commentList.appendChild(newDisplay);
-    info.querySelector('textarea[name=comment]').value = '';
-  });
-  request.send(encodeForAjax({user: user, story: story, comment: comment}));
+  if(comment != '')
+  {
+      let request = new XMLHttpRequest();
+      request.open("POST", "../api/api_add_comment.php", true);
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      request.addEventListener("load", function () {    
+      let newDisplay = document.createElement('article');
+      newDisplay.setAttribute('id', 'comment');
+      newDisplay.innerHTML = this.responseText
+      let commentList = document.querySelector('section#comment_list');
+      commentList.appendChild(newDisplay);
+      info.querySelector('textarea[name=comment]').value = '';
+      });
+      request.send(encodeForAjax({user: user, story: story, comment: comment}));
+  }
+  else
+  {
+    document.forms["insert_comment"].querySelector('input[type="submit"]').click();
+  }
 }
 
 function encodeForAjax(data) {
