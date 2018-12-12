@@ -7,18 +7,18 @@
   $password = $_POST['password'];
   $repeat_password = $_POST['repeat_password'];
 
-  if($password !== $repeat_password)
-    header('Location: ../pages/signup.php?message=Passwords+do+not+match');
-  else
-  {
-    try 
-    {
+  if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
+    die(header('Location: ../pages/signup.php?message=Username+can+only+contain+letters+and+numbers'));
+  } else if($password !== $repeat_password) {
+    die(header('Location: ../pages/signup.php?message=Passwords+do+not+match'));
+  }
+  else {
+    try {
       signup($username, $password);
       subTo($username,'general');
       $_SESSION['username'] = $username;
       header("Location: ../pages/edit_profile.php?user=$username");
-    } catch (PDOException $e) 
-    {
+    } catch (PDOException $e) {
       header('Location: ../pages/signup.php?message=Username+already+taken');
     }
 }
