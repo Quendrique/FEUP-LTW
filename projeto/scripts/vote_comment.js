@@ -1,5 +1,8 @@
 let voteComment = document.querySelector('section#comment_list');
-voteComment.addEventListener('click', voteCommentClicked);
+
+if (voteComment) {
+  voteComment.addEventListener('click', voteCommentClicked);
+}
 
 function voteCommentClicked(event) {
 

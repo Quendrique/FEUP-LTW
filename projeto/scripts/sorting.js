@@ -1,6 +1,7 @@
 let sortingCriteria = document.querySelector('section#sidebar_sort form select');
-
-sortingCriteria.addEventListener('change', changeSortingCriteria);
+if (sortingCriteria) {
+  sortingCriteria.addEventListener('change', changeSortingCriteria);
+}
 
 function changeSortingCriteria(event) {
   let selectedCriteria = event.target;

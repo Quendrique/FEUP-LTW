@@ -1,8 +1,8 @@
 let sub = document.querySelector('section#channel_info button');
 
-//console.log(document.querySelector('section#channel_info button'));
-
-sub.addEventListener('click', subClicked);
+if (sub) {
+  sub.addEventListener('click', subClicked);
+}
 
 function subClicked(event) {
   let info = event.currentTarget;
