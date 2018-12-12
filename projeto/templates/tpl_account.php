@@ -103,7 +103,7 @@
  <body class="loginBody">
   <section class="viewport">
   <section id="login" class= "loginCardStyle nosidebarblockLayout centerCardLayout">
-      <img id="logo" src= "../img/logo.png" height="90" width="90"/>
+  <a href="../pages/mainpage.php"><img id="logo" src= "../img/logo.png" height="90" width="90"/></a>
       <h2>Welcome back to Mel-o!</h2>
       <?php if($message !== "") {?>
       <h3><?= $message ?></h3>
@@ -129,7 +129,7 @@
   <body class="loginBody">
   <section class="viewport">
   <section id="signup" class= "loginCardStyle nosidebarblockLayout centerCardLayout">
-      <img id="logo" src= "../img/logo.png" height="90" width="90"/>
+      <a href="../pages/mainpage.php"><img id="logo" src= "../img/logo.png" height="90" width="90"/></a>
       <h2>Welcome to Mel-o!</h2>
       <?php if($message !== "") {?>
       <h3><?= $message ?></h3>
