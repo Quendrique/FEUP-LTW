@@ -3,8 +3,8 @@
     include_once('../includes/incl_session.php');
     include_once('../database/db_channels.php');
 
-    $user = $_POST['user'];
-    $channel = $_POST['channel'];
+    $user = preg_replace ("/[<>]/", '^', $_POST['user']);
+    $channel = preg_replace ("/[<>]/", '^', $_POST['channel']);
 
     try {
       unsubFrom($user, $channel);

@@ -5,9 +5,9 @@
 
   header('Content-Type: application/json');
 
-  $user = $_POST['user'];
-  $channel = $_POST['channel'];
-  $action = $_POST['action'];
+  $user = preg_replace ("/[<>]/", '^', $_POST['user']);
+  $channel = preg_replace ("/[<>]/", '^', $_POST['channel']);
+  $action = preg_replace ("/[<>]/", '^', $_POST['action']);
   
   //try {
 

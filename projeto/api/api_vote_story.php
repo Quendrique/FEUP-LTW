@@ -6,9 +6,9 @@
 
     header('Content-Type: application/json');
 
-    $user = $_POST['user'];
-    $action = $_POST['action'];
-    $story = $_POST['story'];
+    $user = preg_replace ("/[<>]/", '^', $_POST['user']);
+    $action = preg_replace ("/[<>]/", '^', $_POST['action']);
+    $story = preg_replace ("/[<>]/", '^', $_POST['story']);
 
     //try {
       $prev_vote = hasUserVotedStory($user, $story);

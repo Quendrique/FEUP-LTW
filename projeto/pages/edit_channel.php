@@ -5,8 +5,8 @@
     include_once('../templates/tpl_channel.php');
     include_once('../database/db_channels.php');
 
-    $username = $_POST['user'];
-    $channel_name = $_POST['channel'];
+    $username = preg_replace ("/[<>]/", '^', $_POST['user']);
+    $channel_name = preg_replace ("/[<>]/", '^', $_POST['channel']);
   
     if (!isset($_SESSION['username']) || $_SESSION['username'] != $username)
         die(header('Location: ../pages/channels.php'));

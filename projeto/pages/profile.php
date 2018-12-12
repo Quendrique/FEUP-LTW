@@ -8,7 +8,7 @@
     include_once('../database/db_account.php');
     include_once('../database/db_channels.php');
 
-    $username = $_GET['user'];
+    $username = preg_replace ("/[<>]/", '^', $_GET['user']);
 
     $userdata = getUserData($username);
 

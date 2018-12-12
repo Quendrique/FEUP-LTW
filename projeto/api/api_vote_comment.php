@@ -6,10 +6,10 @@
 
     header('Content-Type: application/json');
 
-    $user = $_POST['user'];
-    $action = $_POST['action'];
-    $comment = $_POST['comment'];
-    $story = $_POST['story'];
+    $user = preg_replace ("/[<>]/", '^', $_POST['user']);
+    $action = preg_replace ("/[<>]/", '^', $_POST['action']);
+    $comment = preg_replace ("/[<>]/", '^', $_POST['comment']);
+    $story = preg_replace ("/[<>]/", '^', $_POST['story']);
 
     //try {
 

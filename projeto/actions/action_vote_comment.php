@@ -4,10 +4,10 @@
     include_once('../database/db_channels.php');
     include_once('../database/db_stories.php');
 
-    $user = $_POST['user'];
-    $action = $_POST['action'];
-    $comment = $_POST['comment'];
-    $story = $_POST['story'];
+    $user = preg_replace ("/[<>]/", '^', $_POST['user']);
+    $action = preg_replace ("/[<>]/", '^', $_POST['action']);
+    $comment = preg_replace ("/[<>]/", '^', $_POST['comment']);
+    $story = preg_replace ("/[<>]/", '^', $_POST['story']);
 
     if(isset($_SERVER['HTTP_REFERER'])) {
       $prev_page = $_SERVER['HTTP_REFERER'];

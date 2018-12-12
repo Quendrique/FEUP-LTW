@@ -5,8 +5,8 @@
 
     //header('Content-Type: application/json');
 
-    $criteria = $_POST['criteria'];
-    $caller = $_POST['caller'];
+    $criteria = preg_replace ("/[<>]/", '^', $_POST['criteria']);
+    $caller = preg_replace ("/[<>]/", '^', $_POST['caller']);
 
     if (!isset($_SESSION['username'])) {
       die(header('Location: ../pages/mainpage.php'));
@@ -57,7 +57,7 @@
           break;
       }
     } else { //channel page
-      $channel = $_POST['channel'];
+      $channel = preg_replace ("/[<>]/", '^', $_POST['channel']);
       switch($criteria) {
         case 'date-desc':
           $sorted_stories = getAllChannelStoriesOrderDate($channel);

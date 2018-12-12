@@ -5,9 +5,9 @@
     include_once('../database/db_stories.php');
     include_once('../templates/tpl_stories.php');
 
-    $user = $_POST['user'];
-    $story = $_POST['story'];
-    $comment = $_POST['comment'];
+    $user = preg_replace ("/[<>]/", '^', $_POST['user']);
+    $story = preg_replace ("/[<>]/", '^', $_POST['story']);
+    $comment = preg_replace ("/[<>]/", '^', $_POST['comment']);
 
     //try {
       $lastInsertId = addComment($user, $story, $comment);
