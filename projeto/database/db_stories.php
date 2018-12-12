@@ -41,7 +41,7 @@
     global $db;
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
                           WHERE stories.channel = channels.name AND channels.name = ?
-                          ORDER BY upvotes DESC');
+                          ORDER BY (upvotes + downvotes) DESC');
     $stmt->execute(array($channel));
     return $stmt->fetchAll(); 
   }
@@ -89,7 +89,7 @@
 
   function getAllStoriesOrderVote() {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories ORDER BY upvotes DESC');
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY (upvotes + downvotes) DESC');
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
@@ -137,7 +137,7 @@
     global $db;
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
                           WHERE stories.channel = subscribed.channel AND subscribed.user = ?
-                          ORDER BY upvotes DESC');
+                          ORDER BY (upvotes + downvotes) DESC');
     $stmt->execute(array($user));
     return $stmt->fetchAll(); 
   }

@@ -3,7 +3,9 @@
 
   function searchStories($search) {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories WHERE title LIKE :search ORDER BY [datetime] DESC');
+    $stmt = $db->prepare('SELECT * FROM stories WHERE title LIKE :search 
+                          OR [text] LIKE :search 
+                          ORDER BY [datetime] DESC');
     $stmt->execute(array(':search' => '%'.$search.'%'));
     return $stmt->fetchAll();
   }
