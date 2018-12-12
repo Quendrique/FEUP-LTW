@@ -6,9 +6,10 @@
   function login($username, $password) 
   {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM users WHERE username = ? AND [password] = ?');
-    $stmt->execute(array($username, sha1($password)));
-    return $stmt->fetch()?true:false;
+    $stmt = $db->prepare('SELECT * FROM users WHERE username = ?');
+    $stmt->execute(array($username));
+    $user = $stmt->fetch();
+    return $user !== false && password_verify($password, $user['password']);
   }
 
   function getUserData($username) 
@@ -22,9 +23,10 @@
 
   function signup($username, $password) 
   {
+    $options = ['cost' => 12]; 
     global $db;
     $stmt = $db->prepare('INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?, 0)');
-    $stmt->execute(array($username, sha1($password), null ,null, null, null, null));
+    $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT, $options), null ,null, null, null, null));
   }
 
   function updateProfile($username, $name, $birthdate, $email, $gender, $nationality)
