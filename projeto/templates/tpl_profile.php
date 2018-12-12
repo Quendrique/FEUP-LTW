@@ -12,34 +12,34 @@
 
 
 <?php function printProfile($userdata) {  ?>
-  <section id="profile" class= "page nosidebarblockLayout">
+  <section id="profile" class= "page nosidebarblockLayout centerCardLayout">
     <section id="profileInf" class= "blockStyle">
-      <span id="username"><h1><?=$userdata['username']?></h1></span>
+      <span id="username"><h1 class="sidebarCardHeader sidebarH1"><?=$userdata['username']?></h1></span>
       <div id ="info">
           <?php $igmsrc = getUserImage($userdata['username']);?>
           <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200" class="roundImage">
             <div id ="personalData">
             <?php if($userdata['name'] !== ""){?>
-            <span><b>Name: </b></span><span><?=$userdata['name']?></span>
+            <span class="alignRight"><b>Name: </b></span><span><?=$userdata['name']?></span>
             <?php } ?>
             
             <?php if($userdata['birth_day'] !== ""){?>
-            <span><b>Birthday: </b></span><span><?=$userdata['birth_day']?></span>
+            <span class="alignRight"><b>Birthday: </b></span><span><?=$userdata['birth_day']?></span>
             <?php } ?>
 
             <?php if($userdata['gender'] !== ""){?>
-            <span><b>Gender: </b></span><span><?=$userdata['gender']?></span>
+            <span class="alignRight"><b>Gender: </b></span><span><?=$userdata['gender']?></span>
             <?php } ?>
 
             <?php if($userdata['nationality'] !== ""){?>
-            <span><b>Nationality: </b></span><span><?=$userdata['nationality']?></span>
+            <span class="alignRight"><b>Nationality: </b></span><span><?=$userdata['nationality']?></span>
             <?php } ?>
 
             <?php if($userdata['email'] !== ""){?>
-            <span><b>Email: </b></span><span><?=$userdata['email']?></span>
+            <span class="alignRight"><b>Email: </b></span><span><?=$userdata['email']?></span>
             <?php } ?>
             
-            <span><b>Points: </b></span><span><?=$userdata['points']?></span>
+            <span class="alignRight"><b>Points: </b></span><span><?=$userdata['points']?></span>
 
   </section>
   <?php draw_activity($userdata['username']);?>

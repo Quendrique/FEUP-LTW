@@ -99,7 +99,7 @@
 /**
  * Draws the login section.
  */ ?>
-  <section id="login" class= "blockStyle nosidebarblockLayout page">
+  <section id="login" class= "blockStyle nosidebarblockLayout page centerCardLayout">
 
       <h1>Insert your account credentials.</h1>
       <h2><?= $message ?></h2>
@@ -121,7 +121,7 @@
 /**
  * Draws the signup section.
  */ ?>
-  <section id="signup" class= "blockStyle nosidebarblockLayout page">
+  <section id="signup" class= "blockStyle nosidebarblockLayout page centerCardLayout">
 
       <h1>Create an account today!</h1>
       <?php if($message !== "") {?>

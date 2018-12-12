@@ -5,7 +5,6 @@ body{
   margin: 0 0;
 
   display: grid;
-  grid-template-columns: 15em 7fr;
   grid-template-rows: 1fr auto;
 
   /*overflow-x: hidden;*/
@@ -102,12 +101,12 @@ select{
 }
 
 .nosidebarblockLayout{
-  padding: 2em;
   grid-area: 2 / 1 / span 1 / span 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: fit-content;
+  margin:0;
 }
 
 .blockStyle{
@@ -117,11 +116,12 @@ select{
   background: white;
   border-radius: 3px;
   overflow: auto;
+  
 }
 
 .page{
   margin: 2em 2em 0 2em;
-
+  width: 800px;
 }
 
 p{
@@ -266,12 +266,17 @@ p{
   border-radius: 100px;
 }
 
+#sidebar{
+  margin-left: auto;
+}
+
 .sidebarCard{
   margin: 2em 0 0 2em;
   grid-area: 2 / 1 / span 1 / span 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:170px;
 }
 
  .sidebarCardHeader {
@@ -499,11 +504,17 @@ p{
   /**
  * Profile page
  */
-
- #profile{
+ .centerCardLayout{
   display: flex;
   flex-direction: column;
- }
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+ 
+.alignRight{
+  text-align: right;
+}
 
  #profile #imageInfo{
   width: 200px;
@@ -526,14 +537,8 @@ p{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding:2em;
 }
-
-
- #profile #username{
-    font-family: var(--font), sans-serif;
-    color: var(--font-color);
-    font-size: 20px;
- }
 
 
 #profile #activityTitle{
@@ -618,7 +623,7 @@ p{
 
  #profile #textForm, #profile #personalData{
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   max-width: 60%;
 }
