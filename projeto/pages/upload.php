@@ -6,15 +6,13 @@
     include_once('../templates/tpl_upload.php');
     include_once('../database/db_account.php');
 
-    $username = $_SESSION['username'];
+    if (!isset($_SESSION['username']))
+      die(header('Location: ../pages/mainpage.php'));
 
-    //if (!isset($_SESSION['username']) || $_SESSION['username'] != $username)
-      //die(header('Location: ../pages/mainpage.php'));
-    //else {
-        draw_header($username);
-        $subbed_channels = getSubbedChannels($username);
-        draw_sidebar($subbed_channels, false);
-    //}
+    $username = $_SESSION['username'];
+    draw_header($username);
+    $subbed_channels = getSubbedChannels($username);
+    draw_sidebar($subbed_channels, false);
 
     draw_upload($username);
 

@@ -8,11 +8,11 @@
   $date = date('d-m-Y H:i:s');
   $channel =  htmlentities($_POST['channels']);
 
-    try {
+    //try {
       upload($username,$title,$description,$date,$channel);
       header("Location:../pages/channel_page.php?channel=$channel");
-    } catch (PDOException $e) {
-      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Failed to upload to $channel  ");
-      die(header('Location: ../pages/upload.php'));
-    }  
+    //} catch (PDOException $e) {
+      //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Failed to upload to $channel  ");
+      //die(header('Location: ../pages/upload.php'));
+    //}  
 ?>
