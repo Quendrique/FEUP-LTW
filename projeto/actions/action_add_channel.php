@@ -7,6 +7,11 @@
     $channel = htmlentities($_POST['channel']);
     $description = htmlentities($_POST['description']);
 
+    if (!preg_match ("/^[a-zA-Z0-9]+$/", $channel)) {
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Special characters are not allowed in the channel's name");
+      die(header("Location: ../pages/add_channel.php?username=$username"));
+    }
+
     try {
       addChannel($username, $channel, $description);
       $_SESSION['messages'][] = array('type' => 'success', 'content' => "Channel $channel created");
