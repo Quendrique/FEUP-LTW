@@ -242,11 +242,7 @@ BEGIN
 END;
 
 
-INSERT INTO users VALUES ("admin", "d033e22ae348aeb5660fc2140aec35850c4da997", "admin", "", "", "", "", 0); -- password in SHA-1 format
-INSERT INTO channels VALUES ("general", "admin", "main channel");
+INSERT INTO users VALUES ("admin", "$2y$12$BZci9/LKCEtXotem0LHZuOAI3BfHrTZ.id3UFTdWZ/0B0dkIgWwAC", "admin", "", "", "", "", 0); -- password in SHA-1 format
+INSERT INTO channels VALUES ("general", "admin", "Main Channel");
 INSERT INTO subscribed VALUES (NULL, 'admin', 'general');
-INSERT INTO stories VALUES (0, 'test', 'ahhhhhh', 'admin', date('now'), 0, 0, 0, 'general');
-INSERT INTO stories VALUES (NULL, 'test1', 'hhhhhhhh', 'admin', date('now'), 0, 0, 0, 'general');
-INSERT INTO vote VALUES (NULL, 1, 'admin', 0, NULL);
-INSERT INTO comments VALUES (0, 0, 'admin', 0, 0,  date('now'), 'sdfknsdlfnsdlf');
-INSERT INTO vote VALUES (NULL, 1, 'admin', NULL, 0);
+INSERT INTO stories VALUES (0, 'Sample Track', 'Sample Test Track', 'admin', date('now'), 0, 0, 0, 'general');
