@@ -245,4 +245,4 @@ END;
 INSERT INTO users VALUES ("admin", "$2y$12$BZci9/LKCEtXotem0LHZuOAI3BfHrTZ.id3UFTdWZ/0B0dkIgWwAC", "admin", "", "", "", "", 0); -- password in SHA-1 format
 INSERT INTO channels VALUES ("general", "admin", "Main Channel");
 INSERT INTO subscribed VALUES (NULL, 'admin', 'general');
-INSERT INTO stories VALUES (0, 'Sample Track', 'Sample Test Track', 'admin', date('now'), 0, 0, 0, 'general');
+INSERT INTO stories VALUES (0, 'Sample Track', 'Sample Test Track', 'admin', '12-12-2018 02:33:58', 0, 0, 0, 'general');
