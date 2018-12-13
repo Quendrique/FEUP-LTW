@@ -88,7 +88,7 @@ BEGIN
 	UPDATE stories SET upvotes = upvotes + 1 WHERE id = NEW.story_id;		
 	UPDATE stories SET downvotes = downvotes - 1 WHERE id = NEW.story_id;
   UPDATE users
-  SET points = points + 1
+  SET points = points + 2
   WHERE username IN
   (
     SELECT author
@@ -104,7 +104,7 @@ BEGIN
 	UPDATE stories SET downvotes = downvotes + 1 WHERE id = NEW.story_id;	
 	UPDATE stories SET upvotes = upvotes - 1 WHERE id = NEW.story_id;
   UPDATE users
-  SET points = points - 1
+  SET points = points - 2
   WHERE username IN
   (
     SELECT author
@@ -180,7 +180,7 @@ BEGIN
 	UPDATE comments SET upvotes = upvotes + 1 WHERE id = NEW.comment_id;		
 	UPDATE comments SET downvotes = downvotes - 1 WHERE id = NEW.comment_id;
   UPDATE users
-  SET points = points + 1
+  SET points = points + 2
   WHERE username IN
   (
     SELECT author
@@ -196,7 +196,7 @@ BEGIN
 	UPDATE comments SET downvotes = downvotes + 1 WHERE id = NEW.comment_id;	
 	UPDATE comments SET upvotes = upvotes - 1 WHERE id = NEW.comment_id;
   UPDATE users
-  SET points = points - 1
+  SET points = points - 2
   WHERE username IN
   (
     SELECT author
