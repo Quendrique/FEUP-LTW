@@ -63,7 +63,7 @@ function draw_stories($stories) {
       <?php $igmsrc = getTrackImage( $story['id']);?>
       <img  id="trackImage"  src=<?=$igmsrc?> width="200" height="200">
         <div id = "storyTextAndTrack">
-          <p> <?= $story['text']?></p>
+          <p><?=processMentions($story['text'])?></p>
           <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>
         </div>
       </div>
@@ -141,8 +141,38 @@ function draw_stories($stories) {
 <?php 
 } ?>
 
-<?php include_once('../templates/tpl_account.php');
+<?php
 
+include_once('../database/db_account.php');
+
+function processMentions($text) {
+  $user_mention_regex = '/(?<=@)([\w_-]+)/';
+  if (preg_match_all($user_mention_regex, $text, $matches)) {
+    foreach($matches[1] as $match) {
+      if (getUserData($match)) {
+        $match_search = "@$match";
+        $match_replace = '<a href="../pages/profile.php?user='. $match . '" class="mention">@' . $match . '</a>';
+        $text = str_replace($match_search, $match_replace, $text);
+      };
+    }
+  }
+
+  $channel_mention_regex = '/(?<=#)([\w_-]+)/';
+  if (preg_match_all($channel_mention_regex, $text, $matches)) {
+    foreach($matches[1] as $match) {
+      if (getChannel($match)) {
+        $match_search = "#$match";
+        $match_replace = '<a href="../pages/channel_page.php?channel='. $match . '" class="mention">#' . $match . '</a>';
+        $text = str_replace($match_search, $match_replace, $text);
+      };
+    }
+  }
+  
+  return $text;
+}
+?> 
+
+<?php include_once('../templates/tpl_account.php');
 function draw_comment($comment) {
 /**
  * Draws a single comment
