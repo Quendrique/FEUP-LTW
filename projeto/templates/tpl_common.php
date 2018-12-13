@@ -4,6 +4,7 @@
 
     <head>
       <meta charset="utf-8">
+      <meta name="theme-color" content="#aec5e0ba" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <title>Mel-o</title>
@@ -24,11 +25,15 @@
 
 <?php function draw_navBar($username) { ?>
   <script type="text/javascript" src="../scripts/responsive.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <body class="regularBody">
   <div class = "navBar">
     <nav id="tabs" class="tabs">
       <ul> 
-        <a href="javascript:void(0);" class="navIcon" onclick="showHamburher(event)"> <i class="fa fa-bars"></i></a>
+        <button class="navIcon" onclick="showHamburher(event)">
+          <span></span>
+        </button>
         <span id="desktopTabs" class="desktopTabs">
         <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="../pages/channels_list.php"><i class="fas fa-hashtag"></i> Channels</a></li>
