@@ -14,7 +14,6 @@
 
     try {
       addChannel($username, $channel, $description);
-      $_SESSION['messages'][] = array('type' => 'success', 'content' => "Channel $channel created");
       header("Location: ../pages/channel_page.php?channel=$channel");
     } catch (PDOException $e) {
       $_SESSION['messages'][] = array('type' => 'error', 'content' => "Failed to create channel $channel");

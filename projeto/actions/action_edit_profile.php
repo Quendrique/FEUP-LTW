@@ -10,7 +10,12 @@
     $gender = htmlentities($_POST['gender']);
     $nationality = htmlentities($_POST['nationality']);
 
-    updateProfile($username, $name, $birthdate, $email, $gender, $nationality);
-    header("Location: ../pages/profile.php?user=$username");
+    try {
+        updateProfile($username, $name, $birthdate, $email, $gender, $nationality);
+        header("Location: ../pages/profile.php?user=$username");
+    } catch (PDOException $e) {
+        $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to update profile");
+        die(header("Location: ../pages/profile.php?user=$username"));
+    }
 
 ?>
