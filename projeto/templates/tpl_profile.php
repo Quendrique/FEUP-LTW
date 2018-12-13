@@ -19,23 +19,23 @@
           <?php $igmsrc = getUserImage($userdata['username']);?>
           <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200" class="roundImage">
             <div id ="personalData">
-            <?php if($userdata['name'] !== ""){?>
+            <?php if($userdata['name'] != ""){?>
             <span class="alignRight"><b>Name: </b></span><span><?=$userdata['name']?></span>
             <?php } ?>
             
-            <?php if($userdata['birth_day'] !== ""){?>
+            <?php if($userdata['birth_day'] != ""){?>
             <span class="alignRight"><b>Birthday: </b></span><span><?=$userdata['birth_day']?></span>
             <?php } ?>
 
-            <?php if($userdata['gender'] !== ""){?>
+            <?php if($userdata['gender'] != ""){?>
             <span class="alignRight"><b>Gender: </b></span><span><?=$userdata['gender']?></span>
             <?php } ?>
 
-            <?php if($userdata['nationality'] !== ""){?>
+            <?php if($userdata['nationality'] != ""){?>
             <span class="alignRight"><b>Nationality: </b></span><span><?=$userdata['nationality']?></span>
             <?php } ?>
 
-            <?php if($userdata['email'] !== ""){?>
+            <?php if($userdata['email'] != ""){?>
             <span class="alignRight"><b>Email: </b></span><span><?=$userdata['email']?></span>
             <?php } ?>
             
@@ -57,7 +57,7 @@ function printProfileEdit($userdata) {
         <div id ="content" class="blockLayout">
           <form action="../actions/action_edit_profile.php" method="POST" enctype="multipart/form-data">
           <div id = "imageInfo">
-            <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200" class="roundImage">
+            <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200" class="roundImage ">
             <script type="text/javascript" src="../scripts/fileScripts.js"></script>
             <input type="file" name="image" id="image" onchange="onImageSelected(event)"/> 
           </div>

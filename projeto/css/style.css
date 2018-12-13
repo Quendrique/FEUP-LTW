@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
+
 .regularBody{
  
   margin: 0 0;
@@ -7,7 +8,7 @@
   display: grid;
   grid-template-rows: 1fr auto;
 
-  /*overflow-x: hidden;*/
+  overflow-x: hidden;
 
   --bg-color : #efebeb66;
   --font-color: #373843;
@@ -25,6 +26,7 @@
   background: var(--bg-color);
 
   font-family: var(--font), sans-serif;
+  width:100%;
 }
 
 .loginBody{
@@ -64,7 +66,7 @@
   background: #fffffff5;
   border-radius: 3px;
   align-items: center;
-  padding: 2% 4% 4% 4%;
+  padding: 30px;
   display:flex;
   flex-direction: column;
 }
@@ -219,7 +221,6 @@ select{
   color: var(--font-color);
   background: white;
   border-radius: 3px;
-  overflow: auto;
   
 }
 
@@ -234,34 +235,84 @@ p{
   margin-bottom: auto;
 }
 
+
+@media screen and (max-width: 600px) {
+  .page  {width: 90%;}
+}
+
+@media screen and (max-width: 600px) {
+  .desktopTabs {display: none;}
+  .navIcon {
+    float: right;
+    display: block;
+  }
+}
+
+.responsive{
+  display:block !important;
+  float: none;
+  text-align: left;
+}
+
+@media screen and (min-width: 600px) {
+  .navIcon { display: none;}
+}
+
+
 /**
  * Common Header
  */
 
-.navBar{
-  grid-area: 1 / 1 / span 1 / span 2;
+ @media screen and (min-width: 600px) {
+  .tabs #logo{
+    left: 0;
+    padding-left: 10px;
+    grid-area: 1 / 1 / span 1 / span 1;
+  }
+
+  .tabs #name{
+    left: 50px;
+    padding-left: 12px;
+    grid-area: 1 / 2 / span 1 / span 1;
+  }
+ }  
+
+@media screen and (max-width: 600px) {
+
+  #logos{
+    grid-area: 1 / 2 / span 1 / span 1;
+    display:flex;
+    justify-content: center;
+  }
   
+  .tabs #name{
+    position: absolute;
+    margin-left: 50px;
+  }  
 }
 
 .tabs #logo{
   position: absolute;
-  top: 5px;
-  left: 0;
-  padding-left: 10px;
-  grid-area: 1 / 1 / span 1 / span 1;
+  top:5px;
 }
 
 .tabs #name{
   position: absolute;
-  left: 50px;
-  padding-left: 12px;
-  grid-area: 1 / 2 / span 1 / span 1;
 }
+
+.navBar{
+  grid-area: 1 / 1 / span 1 / span 2;
+}
+
+.navIcon{
+  padding: 0.25em 0.25em 0.25em 0!important;
+}
+
 
 
 .tabs{ 
   display: grid;
-  grid-template-columns: 60px 90px auto;
+  grid-template-columns: 60px 110px auto;
   background-color: white;
   box-shadow:0px 0px 20px var(--box-shadow-color);
 }
@@ -528,8 +579,8 @@ p{
   display: flex;
   flex-direction: column;
   align-items: center;
-
  }
+
  #imageInfo img{
  border-radius: 100px;
   margin-bottom: 1em;
@@ -541,9 +592,56 @@ p{
 
  #profile #info{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   padding:2em;
+}
+
+
+@media screen and (min-width: 600px) {
+  #profile #info ,#profile form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #profile #imageInfo{
+    width: 200px;
+    margin-right:4em;
+   }
+
+   #profileInf > #info img{
+    margin-right: 4em;
+  }
+  
+}
+
+
+@media screen and (max-width: 600px) {
+  #profile #info, #profile form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #profile #imageInfo{
+    width: 100px;
+    margin-right:0;
+   }
+
+   #profileInf > #info img{
+    margin-right: 0;
+  } 
+  
+}
+
+#profile form{
+  margin-bottom:2em;
+}
+
+
+#profileInf > #info img{
+  margin-bottom: 1em;
+  width: auto;
+  height: auto;
 }
 
 
@@ -619,28 +717,9 @@ p{
     margin: 0;
  }
 
- #profile form{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom:2em;
-}
-
-#profile form #image{
-  width:75%;
-}
-
  #profile #textForm, #profile #personalData{
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  max-width: 60%;
-}
-
-#profileInf > #info img{
-  margin-right: 4em;
-  border-radius: 100px;
-  margin-bottom: 1em;
 }
 
 #profile #textForm *, #profile #personalData * {
