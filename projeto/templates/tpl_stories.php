@@ -72,32 +72,32 @@ function draw_stories($stories) {
     <hr class = "footerSeparator">
     <footer>
     <span id="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
-    <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>
-      <section id="upvote" data-storyid=<?=$story['id']?>>
-        <?php if (isset($_SESSION['username'])) { 
-          if($uservote != null && $uservote['type'] == 1){?>
-        <button type="submit" class="voteup_btn colored" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
+    <?php if (isset($_SESSION['username'])) { ?>
+      <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>    
+    <?php } else { ?>
+      <a href="../pages/login.php?message="><i class="fas fa-comment"></i></a>   
+    <?php } ?>
+    <section id="upvote" data-storyid=<?=$story['id']?>>
+      <?php if (isset($_SESSION['username'])) { 
+        if($uservote != null && $uservote['type'] == 1){?>
+      <button type="submit" class="voteup_btn colored" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
+        <i class="fas fa-caret-up fa-2x"></i>
+      </button>
+      <?php 
+        }else
+        {?>
+          <button type="submit" class="voteup_btn" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
           <i class="fas fa-caret-up fa-2x"></i>
-        </button>
-        <?php 
-          }else
-          {?>
-            <button type="submit" class="voteup_btn" id="voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
-            <i class="fas fa-caret-up fa-2x"></i>
-        </button>
-          <?php } } else { ?>
-          <form method="GET" action="../pages/login.php?message=">
-            <button type="submit" class="voteup_btn" id="voteupBtn">
-              <i class="fas fa-caret-up fa-2x"></i>
-            </button>
-          </form>
-        <?php } if($uservote != null && $uservote['type'] == 1) {?>  
-        <span id=numUpvotes class="colored"><?= $story['upvotes']?></span>
-        <?php } else { ?>
-        <span id=numUpvotes><?= $story['upvotes']?></span> 
-        <?php } ?>
-      </section>
-      <section id="downvote" data-storyid=<?=$story['id']?>>
+      </button>
+        <?php } } else { ?>
+          <a href="../pages/login.php?message=" class="voteup_btn" id="voteupBtn"><i class="fas fa-caret-up fa-2x"></i></a>   
+      <?php } if($uservote != null && $uservote['type'] == 1) {?>  
+      <span id=numUpvotes class="colored"><?= $story['upvotes']?></span>
+      <?php } else { ?>
+      <span id=numUpvotes><?= $story['upvotes']?></span> 
+      <?php } ?>
+    </section>
+    <section id="downvote" data-storyid=<?=$story['id']?>>
       <?php if (isset($_SESSION['username'])) { 
           if($uservote != null && $uservote['type'] == 0){?>
         <button type="submit" class="votedown_btn colored" id="votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?>>
@@ -110,16 +110,13 @@ function draw_stories($stories) {
             <i class="fas fa-caret-down fa-2x"></i>
         </button>
           <?php } } else { ?>
-          <form method="GET" action="../pages/login.php?message=">
-            <button type="submit" class="votedown_btn" id="votedownBtn">
-              <i class="fas fa-caret-down fa-2x"></i>
-            </button>
-          </form>
+          <a href="../pages/login.php?message=" class="votedown_btn" id="votedownBtn"><i class="fas fa-caret-down fa-2x"></i></a>
         <?php } if($uservote != null && $uservote['type'] == 0) {?>  
         <span id=numDownvotes class="colored"><?= $story['downvotes']?></span>
         <?php } else { ?>
         <span id=numDownvotes><?= $story['downvotes']?></span> 
         <?php } ?>
+      </section> 
     </footer>  
   </article>
 <?php 
