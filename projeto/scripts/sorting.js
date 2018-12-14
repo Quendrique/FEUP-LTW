@@ -24,7 +24,6 @@ function changeSortingCriteria(event) {
   request.addEventListener("load", function () {
     document.querySelector('section#story_list').parentNode.removeChild(document.querySelector('section#story_list'));
     if (origin == 'channel_page') { //in channel page
-      console.log(this.responseText); 
       document.querySelector('section#channel_page').insertAdjacentHTML('beforeend', this.responseText);
     } else { //in main page or sub feed 
       document.querySelector('body').insertAdjacentHTML('beforeend', this.responseText);

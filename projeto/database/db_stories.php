@@ -50,7 +50,7 @@
     global $db;
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
                           WHERE stories.channel = channels.name AND channels.name = ?
-                          ORDER BY title ASC');
+                          ORDER BY title COLLATE NOCASE ASC');
     $stmt->execute(array($channel));
     return $stmt->fetchAll(); 
   }
@@ -59,7 +59,7 @@
     global $db;
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN channels
                           WHERE stories.channel = channels.name AND channels.name = ?
-                          ORDER BY title DESC');
+                          ORDER BY title COLLATE NOCASE DESC');
     $stmt->execute(array($channel));
     return $stmt->fetchAll(); 
   }
@@ -96,14 +96,14 @@
 
   function getAllStoriesOrderAlph() {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories ORDER BY title ASC');
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY title COLLATE NOCASE ASC');
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
 
   function getAllStoriesOrderAlphRev() {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM stories ORDER BY title DESC');
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY title COLLATE NOCASE DESC');
     $stmt->execute(array());
     return $stmt->fetchAll(); 
   }
@@ -146,7 +146,7 @@
     global $db;
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
                           WHERE stories.channel = subscribed.channel AND subscribed.user = ?
-                          ORDER BY title ASC');
+                          ORDER BY title COLLATE NOCASE ASC');
     $stmt->execute(array($user));
     return $stmt->fetchAll(); 
   }
@@ -155,7 +155,7 @@
     global $db;
     $stmt = $db->prepare('SELECT stories.* FROM stories JOIN subscribed
                           WHERE stories.channel = subscribed.channel AND subscribed.user = ?
-                          ORDER BY title DESC');
+                          ORDER BY title COLLATE NOCASE DESC');
     $stmt->execute(array($user));
     return $stmt->fetchAll(); 
   }

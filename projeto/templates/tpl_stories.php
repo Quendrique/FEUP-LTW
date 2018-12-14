@@ -144,6 +144,7 @@ function draw_stories($stories) {
 <?php
 
 include_once('../database/db_account.php');
+include_once('../database/db_channels.php');
 
 function processMentions($text) {
   $user_mention_regex = '/(?<=@)([\w_-]+)/';
