@@ -9,7 +9,7 @@
   $channel = htmlentities($_POST['channel']);
   $action = htmlentities($_POST['action']);
   
-  //try {
+  try {
 
     if ($action) { // 1 - sub
       subTo($user, $channel);
@@ -19,10 +19,8 @@
 
     echo json_encode(getSubCount($channel));
 
-    //$_SESSION['messages'][] = array('type' => 'success', 'content' => "Subscribed to channel $channel");
-    //header("Location: ../pages/channel_page.php?channel=$channel");
-  //} catch (PDOException $e) {
-    //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to subscribe to channel $channel");
-    //die(header("Location: ../pages/channel_page.php?channel=$channel"));
-  //}
+  } catch (PDOException $e) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to subscribe to channel $channel");
+    die(header("Location: ../pages/channel_page.php?channel=$channel"));
+  }
 ?>

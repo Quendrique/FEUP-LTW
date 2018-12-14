@@ -7,16 +7,13 @@
     $username = htmlentities($_POST['user']);
     $story_id = htmlentities($_POST['story']);
 
-    //try {
+    try {
       $user = getUserData($username);
       $story = getStory($story_id);
-      //header("Location: ".$prev_page);
-    //} catch (PDOException $e) {
-      //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to post comment");
-      //die(header("Location: ".$prev_page));
-    //}
-
-    //RETURN COMMENT!!
+    } catch (PDOException $e) {
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to get user points");
+      die(header("Location: ../pages/profile.php?user=$username"));
+    }
 
     if ($story['author'] == $user['username']) { ?>
       <?=$user['points']?>

@@ -3,8 +3,7 @@
   <section id="sidebar" >
     <?php
       draw_sidebar_login();
-      if($subbed_channels)
-        draw_sidebar_subs($subbed_channels);
+      draw_sidebar_subs($subbed_channels);
       if($sort)
       {
         draw_sidebar_sort();
@@ -68,7 +67,9 @@
                 <a href="../pages/channel_page.php?channel=<?= $subbed_channel['channel'] ?>" class="sidebarPurpleLink"><?= $subbed_channel['channel'] ?></a>
               </li>
         <?php }
-          }
+          } else { ?>
+            <p id="sub_list_placeholder">All channels you subscribe to will appear here!</p>
+          <?php }
         ?>
       </ul>
 

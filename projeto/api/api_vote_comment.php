@@ -11,7 +11,7 @@
     $comment = htmlentities($_POST['comment']);
     $story = htmlentities($_POST['story']);
 
-    //try {
+    try {
 
       $prev_vote = hasUserVotedComment($user, $comment);
 
@@ -22,13 +22,13 @@
       } else {
         changeVoteComment($user, $comment);
       }
-      //$_SESSION['messages'][] = array('type' => 'success', 'content' => "Voted");
-      //header("Location: ".$prev_page);
-    //} catch (PDOException $e) {
-      //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to vote");
-      //die(header("Location: ".$prev_page));
-    //}
 
-    $updatedComment = getComment($comment);
-    echo json_encode($updatedComment);
+      $updatedComment = getComment($comment);
+      echo json_encode($updatedComment);
+      
+    } catch (PDOException $e) {
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to vote");
+      die(header("Location: ../pages/story_page.php?story_id=$story"));
+    }
+
 ?>

@@ -9,14 +9,12 @@
     $story = htmlentities($_POST['story']);
     $comment = htmlentities($_POST['comment']);
 
-    //try {
+    try {
       $lastInsertId = addComment($user, $story, $comment);
-      //header("Location: ".$prev_page);
-    //} catch (PDOException $e) {
-      //$_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to post comment");
-      //die(header("Location: ".$prev_page));
-    //}
+    } catch (PDOException $e) {
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => "Unable to post comment");
+      die(header("Location: ../pages/story_page.php?story_id=$story"));
+    }
 
-    //RETURN COMMENT!!
     draw_comment(getComment($lastInsertId));
 ?>
