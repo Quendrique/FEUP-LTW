@@ -34,7 +34,7 @@
  * Draws story search results
  */ ?>
 
-  <section id="search_stories" class="searchCard">
+  <section id="search_stories" class="searchCard" style="display: inline;">
   <?php  foreach($search_stories as $search_story) {
         draw_search_story($search_story);
       }
@@ -56,7 +56,7 @@
  * Draws channel search results
  */ ?>
   
-  <section id="search_channels" class="searchCard blockStyle" >
+  <section id="search_channels" class="searchCard blockStyle" style="display: inline;">
     <ul>
     <?php 
       foreach($search_channels as $search_channel) { ?>
@@ -74,7 +74,7 @@
   include_once('../templates/tpl_stories.php');
 ?>
 
-    <section id="search_comments" class="searchCard blockStyle" >
+    <section id="search_comments" class="searchCard blockStyle" style="display: inline;">
     <ul>
     <?php 
       foreach($search_comments as $search_comment) {
