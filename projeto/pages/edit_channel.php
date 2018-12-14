@@ -9,7 +9,7 @@
     $channel_name = htmlentities($_POST['channel']);
   
     if (!isset($_SESSION['username']) || $_SESSION['username'] != $username)
-        die(header('Location: ../pages/channels.php'));
+        die(header('Location: ../pages/channels_list.php'));
     
     $channel = getChannel($channel_name);
 
