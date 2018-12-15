@@ -30,11 +30,13 @@
   <body class="regularBody">
   <div class = "navBar">
     <nav id="tabs" class="tabs">
-      <ul> 
+      <?php $igmsrc = getUserImage($username);?>
+      <img  src=<?=$igmsrc?> width=40 height="40" class="roundImage" onclick="showDropDown(event)"> 
+      <ul class="hamburgerMenu" > 
         <button class="navIcon" onclick="showHamburher(event)">
           <span></span>
         </button>
-        <span id="desktopTabs" class="desktopTabs">
+        <span id="desktopTabs" class="desktopTabs responsive">
         <li><a href="../pages/mainpage.php"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="../pages/channels_list.php"><i class="fas fa-hashtag"></i> Channels</a></li>
         <?php if ($username != NULL) { ?>
@@ -51,7 +53,12 @@
       <a href="../pages/mainpage.php"><img id="name" src= "../img/name.png" height="50" width="60"/></a>
       </div>
     </nav>
+    <ul id="dropDown" class="dropDown">
+        <li><a href="../pages/profile.php?user=<?= $username ?>"> My Profile</a></li>
+        <li><a href="../actions/action_logout.php"> Logout</a></li>
+      </ul>
   </div>
+  
 <?php } 
 ?>
 
