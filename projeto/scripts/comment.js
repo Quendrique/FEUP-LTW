@@ -20,7 +20,8 @@ function postComment() {
       let newDisplay = document.createElement('article');
       newDisplay.setAttribute('id', 'comment');
       newDisplay.innerHTML = this.responseText
-      let commentList = document.querySelector('section#comment_list');
+      let commentList = document.querySelector('section#comments');
+      console.log(commentList);
       commentList.appendChild(newDisplay);
       info.querySelector('textarea[name=comment]').value = '';
       });

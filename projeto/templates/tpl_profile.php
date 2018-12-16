@@ -13,8 +13,10 @@
 
 <?php function printProfile($userdata) {  ?>
   <section id="profile" class= "page nosidebarblockLayout centerCardLayout">
+  <a href="../pages/edit_profile.php?user=<?=$userdata['username']?>" id="editProfile" class="gradientButton" type="button" >Edit</a>
     <section id="profileInf" class= "blockStyle">
-      <span id="username"><h1 class="sidebarCardHeader sidebarH1"><?=$userdata['username']?></h1></span>
+      <span id="username"><h1 class="sidebarCardHeader sidebarH1 mainCardH1"><?=$userdata['username']?></h1></span>
+      <hr class = "invisibleLine">
       <div id ="info">
           <?php $igmsrc = getUserImage($userdata['username']);?>
           <img  id="uploadedImage"  src=<?=$igmsrc?> width=200 height="200" class="roundImage">
@@ -49,7 +51,7 @@
 
 function printProfileEdit($userdata) { 
   ?>
-    <section id="profile" class= " page">
+    <section id="profile" class= "page nosidebarblockLayout centerCardLayout">
       <section id="profileInf" class= "blockStyle  ">
         <h1 class="sidebarCardHeader mainCardH1">Edit Profile</h1>
         <hr class = "invisibleLine">
