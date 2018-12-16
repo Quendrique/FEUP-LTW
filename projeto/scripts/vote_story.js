@@ -27,11 +27,11 @@ function voteStoryClicked(event) {
   
       //update styles
       if(updatedStory.upvotes>oldUpVotes){
-        let downButton =  document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] #votedownBtn');
+        let downButton =  document.querySelector('article#story section#downvote[data-storyid=' + CSS.escape(story) + '] .votedownBtn');
         styleButtons(info,newUpVotes,newDownVotes,downButton,"rgb(131, 193, 233)"); 
   
       }else if(updatedStory.downvotes>oldDownVotes){
-        let upButton = document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] #voteupBtn')
+        let upButton = document.querySelector('article#story section#upvote[data-storyid=' + CSS.escape(story) + '] .voteupBtn')
         styleButtons(info,newDownVotes,newUpVotes,upButton,"#A46BE5"); 
   
       }else{
@@ -42,8 +42,8 @@ function voteStoryClicked(event) {
 
       //check if we're in a profile page and update the user's points dynamically
       let userPoints = document.querySelector('#user_points');
-      let currentProfile = document.querySelector('span#username h1').innerHTML;
       if (userPoints && updatedStory['author'] == currentProfile) {
+        let currentProfile = document.querySelector('span#username h1').innerHTML;
         let requestUser = new XMLHttpRequest();
         requestUser.open("POST", "../api/api_get_user_points.php", true);
         requestUser.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
