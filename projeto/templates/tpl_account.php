@@ -41,8 +41,8 @@
       <h1 class="sidebarCardHeader sidebarH1">Login</h1>
       <hr class = "invisibleLine">
         <form method="post" action="../actions/action_login.php" class="sidebarCardContent">
-          <input type="text" name="username" placeholder="username" class="inputField" required>
-          <input type="password" name="password" placeholder="password" class="inputField" required>
+          <input type="text" name="username" placeholder="username" class="inputField" maxlength="15" required>
+          <input type="password" name="password" placeholder="password" class="inputField" maxlength="15" required>
           <input type="submit" value="Login" class="sidebarButtonLink hoverButton">
           <div><a href="../pages/signup.php?message=" class="sidebarButtonLink hoverButton">Signup</a></div>
         </form>
@@ -111,8 +111,8 @@
       <?php }?>
 
     <form method="post" action="../actions/action_login.php">
-      <input type="text" name="username" placeholder="username" class="inputField" autocomplete="username" equired>
-      <input type="password" name="password" placeholder="password" class="inputField" autocomplete="current-password" required>
+      <input type="text" name="username" placeholder="username" class="inputField" autocomplete="username" maxlength="15" required>
+      <input type="password" name="password" placeholder="password" class="inputField" autocomplete="current-password" maxlength="15" required>
       <input type="submit" value="Login">
     </form>
 
@@ -137,9 +137,9 @@
       <?php }?>
 
     <form method="post" action="../actions/action_signup.php">
-      <input type="text" name="username" placeholder="username" autocomplete="new-username" class="inputField" required>
-      <input type="password" name="password" placeholder="password" autocomplete="new-password" class="inputField"  required>
-      <input type="password" name="repeat_password" placeholder="repeat password" autocomplete="new-repeat_password" class="inputField" required>
+      <input type="text" name="username" placeholder="username" autocomplete="new-username" class="inputField"  maxlength="15" required>
+      <input type="password" name="password" placeholder="password" autocomplete="new-password" class="inputField"  maxlength="15" required>
+      <input type="password" name="repeat_password" placeholder="repeat password" autocomplete="new-repeat_password" class="inputField" maxlength="15" required>
       <input type="submit" value="Signup">
     </form>
 
