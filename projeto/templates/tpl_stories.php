@@ -195,14 +195,14 @@ function draw_comment($comment) {
       <section id="upvote" data-commentid=<?=$comment['id']?>>
       <?php
           if($uservote != null && $uservote['type'] == 1){?>
-            <button type="submit" class="voteup_btn colored" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="voteup_btn colored commentVoteUp"  user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-up fa-lg"></i>
             </button>
             <span id=numUpvotes class="colored"><?= $comment['upvotes']?></span>
         <?php 
           }else
           {?>
-            <button type="submit" class="voteup_btn" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="voteup_btn commentVoteUp"  user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-up fa-lg"></i>
             </button>
             <span id=numUpvotes><?= $comment['upvotes']?></span> 
@@ -211,14 +211,14 @@ function draw_comment($comment) {
       <section id="downvote" data-commentid=<?=$comment['id']?>>
       <?php
           if($uservote != null && $uservote['type'] == 0){?>
-            <button type="submit" class="votedown_btn colored" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="votedown_btn colored commentVoteDown"  user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-down fa-lg"></i>
             </button>
             <span id=numDownvotes class="colored"><?= $comment['downvotes']?></span>
         <?php 
           }else
           {?>
-            <button type="submit" class="votedown_btn" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="votedown_btn commentVoteDown"  user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-down fa-lg"></i>
             </button>
             <span id=numDownvotes><?= $comment['downvotes']?></span> 
