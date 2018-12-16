@@ -9,7 +9,7 @@
   
         <h1 class="sidebarCardHeader mainCardH1">New Story</h1>
         <hr class = "invisibleLine">
-        <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data" class="blockLayout"  onsubmit="return Validate(this);">
+        <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data" class="blockLayout">
         <input id="username" name="username"  type="hidden"  value=<?=$username?>>
 
             <div id=uploadInfo>
@@ -46,7 +46,7 @@
                 <div id="audiojs">
                     <audio id="uploadedTrack" preload="auto"></audio>
                 </div>
-                <input type="file" name="track" id="track" onchange="onTrackSelected(event)"/> 
+                <input type="file" name="track" id="track" onchange="onTrackSelected(event)" required/> 
                
 
             </div> 
