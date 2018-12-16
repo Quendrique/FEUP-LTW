@@ -54,8 +54,7 @@
       </div>
     </nav>
     <ul id="dropDown" class="dropDown">
-        <li><a href="../pages/profile.php?user=<?= $username ?>"> My Profile</a></li>
-        <li><a href="../actions/action_logout.php"> Logout</a></li>
+    <?php draw_dropDown(); ?>
       </ul>
   </div>
   
@@ -66,3 +65,23 @@
   </body>
 </html>
 <?php } ?>
+
+
+<?php 
+  include_once('../database/db_channels.php');
+function draw_dropDown() { 
+  if (isset($_SESSION['username']))
+  { 
+    $username = $_SESSION['username'];?>
+    <li><a href="../pages/profile.php?user=<?= $username ?>"> My Profile</a></li>
+    <li  onclick="showSubbedChannels(event)"> My Channels</li>
+    <div id="subbedChannels">
+      <?php $channels =getSubbedChannels($username); 
+        foreach($channels as $channel){ ?>  
+          <a class="subbedChannel" href="../pages/channel_page.php?channel=<?= $channel['channel'] ?>"> <?= $channel['channel'] ?></a>
+      <?php } ?>  
+      </div>    
+    <li><a href="../actions/action_logout.php"> Logout</a></li>
+  <?php } else {?>  
+    <li><a href="../pages/login.php"> Log In</a></li>
+<?php } }?>  

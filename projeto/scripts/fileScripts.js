@@ -26,7 +26,7 @@ function onImageSelected(event) {
              
             if (!blnValid) {
                 alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
-                oInput.value = "";
+                input.value = "";
                 return false;
             }
         }
@@ -64,7 +64,7 @@ function onTrackSelected(event) {
              
             if (!blnValid) {
                 alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
-                oInput.value = "";
+                input.value = "";
                 return false;
             }
         }

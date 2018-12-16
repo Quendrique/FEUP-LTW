@@ -152,7 +152,7 @@
 
 <?php
 function getUserImage($username){
-  if(file_exists("../img/users/originals/$username.png")){
+  if($username!=null & file_exists("../img/users/originals/$username.png")){
    $img = "../img/users/originals/$username.png";
   }else  $img = "../img/unknownuser.png";   
   return $img;

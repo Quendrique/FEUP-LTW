@@ -23,3 +23,19 @@ function showDropDown(event) {
       x.style.fontSize = "20px";
     }
 }
+
+function showSubbedChannels(event) {
+  var x = document.getElementsByClassName("subbedChannel");
+
+  for(let i=0;i<x.length;i++) {
+    if (x[i].style.height=="auto") {
+      x[i].style.height = "0";
+      x[i].style.fontSize = "0";
+    } else {
+      x[i].style.height = "auto";
+      x[i].style.fontSize = "16px";
+    }
+  }
+   
+    
+}

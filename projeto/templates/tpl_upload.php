@@ -9,7 +9,7 @@
   
         <h1 class="sidebarCardHeader mainCardH1">New Story</h1>
         <hr class = "invisibleLine">
-        <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data" class="blockLayout">
+        <form action="../actions/action_upload_story.php" method="POST" enctype="multipart/form-data" class="blockLayout"  onsubmit="return Validate(this);">
         <input id="username" name="username"  type="hidden"  value=<?=$username?>>
 
             <div id=uploadInfo>

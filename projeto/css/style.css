@@ -99,6 +99,17 @@
   align-items: center;
   margin-top:1.5em;
  }
+
+ .gradientButton{
+  font-family: var(--font), sans-serif;
+  font-weight: bold;
+  border: none;
+  padding:2px 12px;
+  color:var(--font-hover-color);
+  border-radius:50px;
+  background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
+
+ }
  
  .loginCardStyle input[type='text'], .loginCardStyle input[type='password']{
    width: 16em;
@@ -146,6 +157,11 @@
   background: none;
 }
 
+.tabs form input:focus{
+  width:180px;
+  transition:0.3s;
+}
+
 .uploadButton{
   color:var(--font-color);
   background-color: var(--washed-out-blue);
@@ -169,7 +185,6 @@
   background-color: #00000005;
   height: 3px;
   width: 90%;
-  margin:3em auto 3em auto;
 }
 
 .invisibleLine {
@@ -233,14 +248,14 @@ p{
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) {
   .page  {
     width: 90vw;
     margin: 1em auto 0 auto;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) {
   .desktopTabs {display: none;}
 
   .desktopTabs li{text-align:right; margin-bottom:1.5em;}
@@ -260,7 +275,7 @@ p{
     right: 0;
     position: absolute;
     font-size:25px;
-    background: #aec5e0e8;
+    background: #e1eaf3e6;
     width:0;
     height:100vh;
     padding:0;
@@ -274,7 +289,7 @@ p{
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 802px) {
   .navIcon { display: none;}
 
   .regularBody{
@@ -289,7 +304,7 @@ p{
  * Common Header
  */
 
- @media screen and (min-width: 600px) {
+ @media screen and (min-width: 802px) {
   .tabs #logo{
     left: 0;
     padding-left: 10px;
@@ -309,9 +324,10 @@ p{
 
   .tabs{ grid-template-columns: 150px auto auto;}
   
+  .tabs > img{ display:none;}
  }  
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) {
 
   #logos{
     grid-area: 1 / 2 / span 1 / span 1;
@@ -335,7 +351,7 @@ p{
     margin-right: 0.5em;
   }
 
-  .tabs{  grid-template-columns: 120px 150px auto; }
+  .tabs{    grid-template-columns: 110px auto 110px;}
 
   .tabs > img{ 
     margin:0.7em 0 0 0.7em;
@@ -420,13 +436,18 @@ p{
 
 .tabs form input {
   height: 20px;
-  width:120px;
+  width:60px;
   background-image: url('../img/searchiscon.png');
   background-repeat: no-repeat;
   background-position: 8px 5px;
   background-size: 10px 10px;
   padding-left:25px !important;
   margin-left:auto;
+}
+
+.tabs form input:focus{
+  width:180px;
+  transition:0.3s;
 }
 
 .tabs form label {
@@ -437,7 +458,6 @@ p{
 	list-style: none;
 	margin: 0;
   padding: 0;
-  float: right;
   grid-area: 1 / 3 / span 1 / span 1;
 }
 
@@ -447,7 +467,27 @@ p{
   padding: 0;
   top:3.5em;
 }
+
+.navBar .dropDown li {
+  padding: 0.5em 1em 0 1em;
+  font-weight: bold;
+    color: var(--font-color);
+}
   
+.navBar #subbedChannels a{
+  text-decoration: none;
+  color:var(--font-color);
+  font-size: 14px;
+  padding-left: 0.5em; 
+}
+
+#subbedChannels{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: var(--box-shadow-color);
+}
+
 .tabs li {
   float: right; 
 }
@@ -522,7 +562,7 @@ p{
   border-radius: 100px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) {
   #sidebar{display:none;}
 }
 
@@ -665,6 +705,11 @@ p{
   margin-left: auto;
   margin-right: auto;
 }
+
+#profile{
+  display:flex;
+  flex-direction: column;
+}
  
 .alignRight{
   text-align: right;
@@ -676,6 +721,10 @@ p{
   display: flex;
   flex-direction: column;
   align-items: center;
+ }
+
+ #profile #editProfile{
+  margin: 0 0 1em auto;
  }
 
  #imageInfo img{
@@ -693,7 +742,7 @@ p{
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 802px) {
   #profile #info ,#profile form {
     display: flex;
     flex-direction: row;
@@ -719,7 +768,7 @@ p{
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) {
   #profile #info, #profile form {
     display: flex;
     flex-direction: column;
@@ -736,21 +785,24 @@ p{
   } 
   
   .navBar .dropDown {
-    background: #aec5e0e8;
+    background: #e1eaf3e6;
     display: flex;
     position: absolute;
     height: 0;
     font-size: 0;
     flex-direction: column;
-    padding:1em;
+    padding: 0.5em 0 1em 0;
     top: 70px;
     left:10px;
     z-index: 1;
-    -webkit-transition: all .25s ease;
-       -moz-transition: all .25s ease;
-        -ms-transition: all .25s ease;
-         -o-transition: all .25s ease;
-            transition: all .25s ease;
+    transition: all .25s ease;
+  }
+
+
+  .navBar #subbedChannels a {
+    font-size: 0;
+    padding:0.2em;
+    transition: all .25s ease;
   }
 }
 
@@ -849,7 +901,7 @@ p{
 }
 
 #profile #submit{
-  grid-area: 6 / 2 / span 1 / span 1;
+  grid-area: 6 / 1 / span 1 / span 2;
   margin: 0.5em  auto auto auto;
   padding: 0.5em;
   font-family: var(--font), sans-serif;
@@ -871,11 +923,35 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 /**
 * Upload
 */
-#uploadInfo{
+
+@media screen and (max-width: 801px) {
+  #uploadInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #uploadFile{
+    margin-bottom:2em;
+  }
+
+  .line{margin:1em auto 1em auto;}
+
+}
+
+@media screen and (min-width: 802px) {
+  #uploadInfo{
   display: flex;
   flex-direction: row;
   margin-top: 3em;
   justify-content: center;
+  }
+
+  #uploadFile{
+    margin:0 100px 30px 0;
+  }
+
+  .line{margin:3em auto 3em auto;}
 }
 
 #uploadInfo2{
@@ -916,10 +992,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   border-radius:10px !important;
   padding: 12px;
   width:255px;
-}
-
-#uploadFile{
-  margin:0 100px 30px 0;
 }
 
 #uploadFile  {
@@ -1143,9 +1215,20 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 /**
 * Channel page
 */
+@media screen and (max-width: 801px) {
+  #channel_info {
+    padding: 2em 2em 1em 2em;
+  }
+
+}
+
+@media screen and (min-width: 802px) {
+  #channel_info {
+    padding: 2em 4em 1em 4em;
+  }
+}
 
 #channel_info {
-  padding: 2em 4em 1em 4em;
   background: var(--washed-out-blue);
   display: flex;
   flex-direction: column;
@@ -1238,7 +1321,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 /**
 * Stories
 */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) {
   .audiojs{width: 70vw;}
 
   #story #storyContent {
@@ -1262,7 +1345,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 802px) {
   #story #storyContent {
     display: flex;
     flex-direction: row;
@@ -1413,11 +1496,11 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 * Comments
 */
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 802px) {
   #add_comment textarea{ width: 85%; }
 } 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 801px) {
   #add_comment textarea{ width: 40vw; }
 } 
 
