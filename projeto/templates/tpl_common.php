@@ -17,8 +17,8 @@
       <script src="../scripts/sub.js" defer></script>
       <script src="../scripts/comment.js" defer></script>
       <script src="../scripts/sorting.js" defer></script>
-      <script type="text/javascript" src="../scripts/responsive.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="../scripts/responsive.js" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
     </head>
 <?php } 
 ?>
