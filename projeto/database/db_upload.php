@@ -11,7 +11,7 @@
     
     $id = $db->lastInsertId();
 
-    imageHandler($id,"../img/stories/");
+    if(isset($_FILES['uploadedImage']['tmp_name'])) imageHandler($id,"../img/stories/");
     trackHandler($id);
   }
 ?>

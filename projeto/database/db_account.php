@@ -35,6 +35,6 @@
                           SET [name] = ?, birth_day = ?, email = ?, gender = ?, nationality = ?
                           WHERE username = ?');
     $stmt->execute(array($name, $birthdate, $email, $gender, $nationality, $username));
-    imageHandler($username ,"../img/users/");
+    if(isset($_FILES['uploadedImage']['tmp_name'])) imageHandler($username ,"../img/users/");
   }
 ?>
