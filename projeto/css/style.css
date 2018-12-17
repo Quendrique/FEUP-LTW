@@ -1514,7 +1514,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   padding-left:2em;
 } 
 
-#comment {
+.comment {
   padding: 0;
   margin-top: 0.2em;
 }
@@ -1525,12 +1525,12 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   text-decoration: none;
 }
 
-#comment > header {
+.comment > header {
   display: flex;
   flex-direction: row;
 }
 
-#comment > footer {
+.comment > footer {
   margin: 0 auto 0 45px;
   display: flex;
   flex-direction: row;
@@ -1539,23 +1539,23 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   align-items: center;
 }
 
-#comment > h2 > a {
+.comment > h2 > a {
   color: var(--link-color);
   text-decoration: none;
 }
 
-#comment #numUpvotes, #comment #numDownvotes {
+.comment #numUpvotes, .comment #numDownvotes {
   display: grid;
   align-content: center;
 }
 
-#comment > footer #upvote, #comment > footer #downvote {
+.comment > footer #upvote, .comment > footer #downvote {
   display: flex;
   flex-direction: row;
 }
 
 
-#comment > footer #downvote {
+.comment > footer #downvote {
   margin-right: 0;
 }
 
@@ -1565,23 +1565,23 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   color:#949494;
 }
 
-#comment #user a{
+.comment #user a{
   margin-right:0.5em;
   font-weight: bold;
   color:var(--link-color);
 }
 
-#comment > header > * {
+.comment > header > * {
   display: grid;
   margin: 0;
   align-content: center;
 }
 
-#comment > header:nth-child(2) {
+.comment > header:nth-child(2) {
   margin-left: auto;
 }
 
-.comment{
+div .comment{
   display: flex;
   flex-direction: row;
   padding: 0.5em 12px 0.5em 12px;

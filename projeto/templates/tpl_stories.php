@@ -182,7 +182,7 @@ function draw_comment($comment) {
   else
     $uservote = null;
 ?>
-  <article id="comment">
+  <article class="comment">
     <div id ="singleComment">
       <?php $igmsrc = getUserImage($comment['author']);?>
       <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
