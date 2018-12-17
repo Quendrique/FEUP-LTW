@@ -86,10 +86,12 @@ function draw_stories($stories) {
         }else
         {?>
           <button type="submit" class="voteup_btn voteupBtn" user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
-          <i class="fas fa-caret-up fa-2x"></i>
-      </button>
+            <i class="fas fa-caret-up fa-2x"></i>
+          </button>
         <?php } } else { ?>
-          <a href="../pages/login.php?message=" class="voteup_btn voteupBtn" ><i class="fas fa-caret-up fa-2x"></i></a>   
+          <button type="submit" class="voteup_btn voteupBtn">
+            <a href="../pages/login.php?message="><i class="fas fa-caret-up fa-2x"></i></a>   
+          </button>
       <?php } if($uservote != null && $uservote['type'] == 1) {?>  
       <span class="colored numUpvotes"><?= $story['upvotes']?></span>
       <?php } else { ?>
@@ -109,7 +111,9 @@ function draw_stories($stories) {
             <i class="fas fa-caret-down fa-2x"></i>
         </button>
           <?php } } else { ?>
-          <a href="../pages/login.php?message=" class="votedown_btn votedownBtn"><i class="fas fa-caret-down fa-2x"></i></a>
+            <button type="submit" class="votedown_btn votedownBtn">
+              <a href="../pages/login.php?message="><i class="fas fa-caret-down fa-2x"></i></a>   
+            </button>
         <?php } if($uservote != null && $uservote['type'] == 0) {?>  
         <span class="colored numDownvotes"><?= $story['downvotes']?></span>
         <?php } else { ?>
