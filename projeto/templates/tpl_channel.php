@@ -1,9 +1,5 @@
 <?php function draw_channels_list($channels) {
-/**
- * Draws a section (#lists) containing several lists
- * as articles. Uses the draw_list function to draw
- * each list.
- */ ?>
+?>
   <section id="channel_list" class= "blockStyle page">
   <h1 class="mainCardH1 sidebarCardHeader">Channels</h1>
     <hr class = "invisibleLine">
@@ -21,10 +17,7 @@
 <?php } ?>
 
 <?php function draw_channel_list($channel) {
-/**
- * Draws a 'minified' channel description for the channels' list
- * page.
- */ ?>
+?>
   <article class="channel_list_item">
     <a href="../pages/channel_page.php?channel=<?= $channel['name'] ?>"><?= $channel['name']?></a>
     <a href="../pages/profile.php?user=<?= $channel['author'] ?>"><?= $channel['author']?></a>
@@ -32,10 +25,7 @@
 <?php } ?>
 
 <?php function draw_channel_page($channel, $subCount) {
-/**
- * Draws a channel's page
- * page.
- */ ?>
+?>
   <section id="channel_info" channel=<?= $channel['name']?> class="blockStyle">
     <header>
       <h1>#<?= $channel['name']?></h1>
@@ -63,10 +53,7 @@
 <?php } ?>
 
 <?php function add_new_channel($username) {
-/**
- * Draws a channel's page
- * page.
- */ ?>
+?>
 
   <section id="add_channel" class= "blockStyle page">
 
@@ -85,10 +72,7 @@
 <?php } ?>
 
 <?php function draw_edit_channel($channel) {
-/**
- * Draws a channel's page
- * page.
- */ ?>
+?>
 
   <section id="add_channel" class="page blockStyle blockLayout">
 

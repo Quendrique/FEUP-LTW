@@ -45,8 +45,6 @@ function onTrackSelected(event) {
 
   var _validFileExtensions = [".mp3"];    
 
-    /*event.stopPropagation();*/
-
     var input = event.target;
 
     if (input.type == "file") {

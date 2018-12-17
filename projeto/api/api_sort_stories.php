@@ -3,8 +3,6 @@
     include_once('../templates/tpl_stories.php');
     include_once('../database/db_stories.php');
 
-    //header('Content-Type: application/json');
-
     $criteria = htmlentities($_POST['criteria']);
     $caller = htmlentities($_POST['caller']);
 

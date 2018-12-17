@@ -255,7 +255,7 @@
   }
 
   /**
-   * Vote on a story (0 - downvote; 1 - upvote)
+   * Vote on a comment (0 - downvote; 1 - upvote)
    */
   function voteComment($user, $comment, $action) {
     global $db;
@@ -264,7 +264,7 @@
   }
 
   /**
-   * Changes a vote on a particular story
+   * Changes a vote on a particular comment
    */
   function changeVoteComment($user, $comment) {
     global $db;
@@ -274,7 +274,7 @@
   }
 
   /**
-   * Remove a vote from a story
+   * Remove a vote from a comment
    */
   function removeVoteComment($user, $comment) {
     global $db;
