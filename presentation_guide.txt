@@ -1,0 +1,11 @@
+	•	Register a new account - SignUp
+	•	Edit profile
+	•	Show profile and activity
+	•	Add a new story
+	•	View feed
+	•	View story: like and comment
+	•	point out References
+	•	Sort feed
+	•	Show all channels/subscribed channels
+	•	Show a channel page
+	•	Search
