@@ -1324,39 +1324,39 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 @media screen and (max-width: 801px) {
   .audiojs{width: 70vw;}
 
-  #story #storyContent {
+  .story .storyContent {
     display: flex;
     flex-direction: column;
     margin: 0 0 1em 0;
     align-items: center;
   }
 
-  #story #body {
+  .story .body {
     padding: 0 2em 1em 2em 
   }
 
-  #story #storyTextAndTrack {
+  .story .storyTextAndTrack {
     margin-top: 1em;
   }
 
-  #storyContent img {
+  .storyContent img {
     width:70vw;
     height:auto;
   }
 }
 
 @media screen and (min-width: 802px) {
-  #story #storyContent {
+  .story .storyContent {
     display: flex;
     flex-direction: row;
     margin: 1em 0 2em 0;
   }
 
-  #story #body {
+  .story .body {
     padding: 1em 4em 0 4em 
   }
 
-  #story #storyTextAndTrack {
+  .story .storyTextAndTrack {
     display: flex;
     flex-direction: column;
     margin: 0 0 0 2em;
@@ -1368,7 +1368,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   flex-direction: column;
 }
 
-#story {
+.story {
   padding: 0 0 0.5em 0!important;
   margin-bottom: 2em;
   overflow: hidden;
@@ -1382,7 +1382,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   height: 3px;
 }
 
-#story header {
+.story header {
   display: flex;
   flex-direction: row;
   background: var(--washed-out-blue);
@@ -1393,22 +1393,22 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 }
 
-#story .userImage {
+.story .userImage {
   margin-right: 0.5em;
 }
 
-#story  footer {
+.story  footer {
   display: flex;
   flex-direction: row;
   align-items: center; 
   padding: 0em 2em 0em 2em;
 }
 
-#story  footer #channel {
+.story  footer .channel {
   margin-right: auto;
 }
 
-#story .mention {
+.story .mention {
   font-family: var(--font), sans-serif;
   font-weight: bold;
   text-decoration: none;
@@ -1416,7 +1416,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin: 0;
 }
 
-#story  footer #channel a{
+.story  footer .channel a{
   color:var(--font-hover-color);
   font-weight: bold;
   margin-right: auto;
@@ -1428,31 +1428,31 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-color) 100%);
 }
 
-#story >header a{
+.story >header a{
   margin-right: auto !important;
   color:var(--font-color);
 }
 
-#story > footer a:hover{
+.story > footer a:hover{
   color:var(--grad-start-color);
 }
 
-#story > footer a {
+.story > footer a {
   color: var(--font-color);
   text-decoration: none;
   margin-right: 1.5em;
 }
 
-#story h2 > a {
+.story h2 > a {
   color: var(--font-color);
   text-decoration: none;
 }
 
-#story h2 > a:hover {
+.story h2 > a:hover {
   color: var(--grad-end-color);
 }
 
-#story .numUpvotes, #story .numDownvotes {
+.story .numUpvotes, .story .numDownvotes {
   display: grid;
   align-content: center;
   margin-left: 0.2em;
@@ -1466,31 +1466,36 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   color: var(--grad-end-color);
 }
 
-#story footer .upvote, #story  footer .downvote {
+.story footer .upvote, .story  footer .downvote {
   display: flex;
   flex-direction: row;
   margin-right:0.3em;
 }
 
-#story footer form {
+.story footer form {
   margin-bottom: 0;
 }
 
-#story footer .downvote {
+.story footer .downvote {
   margin-right: 0;
 }
 
-#story header > * {
+.story header > * {
   display: grid;
   padding: 0.1em;
   margin: 0;
   align-content: center;
 }
 
-#story header:nth-child(2) {
+.story header:nth-child(2) {
   margin-left: auto;
 }
 
+.story a{
+  margin-right: 1.5em;
+  color:var(--font-color);
+  text-decoration: none;
+}
 
 /**
 * Comments
@@ -1519,11 +1524,6 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-top: 0.2em;
 }
 
-#story a{
-  margin-right: 1.5em;
-  color:var(--font-color);
-  text-decoration: none;
-}
 
 .comment > header {
   display: flex;

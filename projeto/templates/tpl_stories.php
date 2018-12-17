@@ -49,20 +49,20 @@ function draw_stories($stories) {
     $uservote = null;
   ?>
   <script type="text/javascript" src="../scripts/activity.js"></script>
-  <article id="story" class = "blockStyle ">
+  <article class = "blockStyle story">
     <header> 
     <?php $igmsrc = getUserImage($story['author']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=20 height="20" class="roundImage">
+      <img src=<?=$igmsrc?> width=20 height="20" class="roundImage userImage">
     <a href="../pages/profile.php?user=<?= $story['author'] ?>"><?= $story['author']?></a>
-      <span id="date"> <?= date('d M Y',$date)?></span>
+      <span class="date"> <?= date('d M Y',$date)?></span>
     </header>
     <hr class = "invisibleLine">
-    <section id="body" class = "blockLayout">
+    <section class = "blockLayout body">
       <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
-      <div id = "storyContent">
+      <div class = "storyContent">
       <?php $igmsrc = getTrackImage( $story['id']);?>
-      <img  id="trackImage"  src=<?=$igmsrc?> width="200" height="200">
-        <div id = "storyTextAndTrack">
+      <img class="trackImage"  src=<?=$igmsrc?> width="200" height="200">
+        <div class="storyTextAndTrack">
           <p><?=processMentions($story['text'])?></p>
           <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>
         </div>
@@ -71,7 +71,7 @@ function draw_stories($stories) {
     </section>
     <hr class = "footerSeparator">
     <footer>
-    <span id="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
+    <span class="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
     <?php if (isset($_SESSION['username'])) { ?>
       <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>    
     <?php } else { ?>
