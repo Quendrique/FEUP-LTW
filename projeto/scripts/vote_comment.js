@@ -44,8 +44,8 @@ function voteCommentClicked(event) {
 
     //check if we're in a profile page and update the user's points dynamically
     let userPoints = document.querySelector('#user_points');
-    let currentProfile = document.querySelector('span#username h1').innerHTML;
     if (userPoints) {
+      let currentProfile = document.querySelector('span#username h1').innerHTML;
       let requestUser = new XMLHttpRequest();
       requestUser.open("POST", "../api/api_get_user_points.php", true);
       requestUser.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

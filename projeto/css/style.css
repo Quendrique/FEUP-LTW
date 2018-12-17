@@ -1581,7 +1581,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-left: auto;
 }
 
-div .comment{
+div.comment{
   display: flex;
   flex-direction: row;
   padding: 0.5em 12px 0.5em 12px;
@@ -1592,7 +1592,7 @@ div .comment{
   margin-left: 1em;
 }
 
-#singleComment{
+.singleComment{
   display: flex;
   flex-direction: row;
 }
