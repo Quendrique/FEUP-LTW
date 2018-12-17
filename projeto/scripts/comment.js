@@ -17,12 +17,7 @@ function postComment() {
       request.open("POST", "../api/api_add_comment.php", true);
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       request.addEventListener("load", function () {    
-      let newDisplay = document.createElement('article');
-      newDisplay.setAttribute('id', 'comment');
-      newDisplay.innerHTML = this.responseText
-      let commentList = document.querySelector('section#comments');
-      console.log(commentList);
-      commentList.appendChild(newDisplay);
+      document.querySelector('section#comments').insertAdjacentHTML('beforeend', this.responseText);
       info.querySelector('textarea[name=comment]').value = '';
       });
       request.send(encodeForAjax({user: user, story: story, comment: comment}));
