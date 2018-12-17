@@ -653,7 +653,6 @@ p{
  }
 
  #sidebar_login #options{
-  padding:1em 1em 0 1em;
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -661,7 +660,6 @@ p{
 
  #sidebar_login #username{
    font-size:20px !important;
-   margin-left:0.5em;
  }
 
  #sidebar_login input:nth-of-type(1),#sidebar_login input:nth-of-type(2){
@@ -679,8 +677,8 @@ p{
 
  #sidebar_login div{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
  }
 
 
