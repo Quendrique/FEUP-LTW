@@ -186,8 +186,8 @@ function draw_comment($comment) {
       <?php $igmsrc = getUserImage($comment['author']);?>
       <img alt="User image" src=<?=$igmsrc?> width=35 height="35" class="roundImage userImage">
       <div class="comment">
-      <span class="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
-        <p><?= $comment['text']?></p>
+        <span class="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
+        <p><?=processMentions($comment['text'])?></p>
       </div>
     </div>
     <footer>
