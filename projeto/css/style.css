@@ -283,7 +283,7 @@ p{
     overflow: hidden;
   }
 
-  .tabs #userImage{
+  .tabs .userImage{
     margin:0.8em 0 0 0.8em;
   }
 }
@@ -1393,7 +1393,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
 
 }
 
-#story #userImage {
+#story .userImage {
   margin-right: 0.5em;
 }
 
@@ -1452,21 +1452,21 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   color: var(--grad-end-color);
 }
 
-#story #numUpvotes, #story #numDownvotes {
+#story .numUpvotes, #story .numDownvotes {
   display: grid;
   align-content: center;
   margin-left: 0.2em;
 }
 
-#numUpvotes.colored {
+.numUpvotes.colored {
   color: var(--grad-start-color);
 }
 
-#numDownvotes.colored {
+.numDownvotes.colored {
   color: var(--grad-end-color);
 }
 
-#story footer #upvote, #story  footer #downvote {
+#story footer .upvote, #story  footer .downvote {
   display: flex;
   flex-direction: row;
   margin-right:0.3em;
@@ -1476,7 +1476,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   margin-bottom: 0;
 }
 
-#story footer #downvote {
+#story footer .downvote {
   margin-right: 0;
 }
 
@@ -1544,18 +1544,18 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   text-decoration: none;
 }
 
-.comment #numUpvotes, .comment #numDownvotes {
+.comment .numUpvotes, .comment .numDownvotes {
   display: grid;
   align-content: center;
 }
 
-.comment > footer #upvote, .comment > footer #downvote {
+.comment > footer .upvote, .comment > footer .downvote {
   display: flex;
   flex-direction: row;
 }
 
 
-.comment > footer #downvote {
+.comment > footer .downvote {
   margin-right: 0;
 }
 
@@ -1565,7 +1565,7 @@ background: linear-gradient(45deg, var(--grad-start-color) 0%,var(--grad-end-col
   color:#949494;
 }
 
-.comment #user a{
+.comment .user a{
   margin-right:0.5em;
   font-weight: bold;
   color:var(--link-color);
