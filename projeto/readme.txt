@@ -10,6 +10,17 @@ Credenciais de Acesso
 username: admin
 password: admin
 
+Creadencias adicionais para o exemplo em https://paginas.fe.up.pt/~up201503730
+
+username: beatrizMendes
+password: 1234
+
+username: luisdiogo98
+password: lll.DDD.
+
+username: Mariana
+password: test
+
 
 Bibliotecas Utliziadas
 
