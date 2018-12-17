@@ -135,7 +135,7 @@ function draw_activity($username) { ?>
           <?php draw_comment($comment);?>
         </div>
       <?php }?>
-    <section>
+    </section>
   </section>
   <?php
 } ?>

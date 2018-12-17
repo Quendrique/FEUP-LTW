@@ -52,7 +52,7 @@ function draw_stories($stories) {
   <article class = "blockStyle story">
     <header> 
     <?php $igmsrc = getUserImage($story['author']);?>
-      <img src=<?=$igmsrc?> width=20 height="20" class="roundImage userImage">
+      <img alt="User image" src=<?=$igmsrc?> width=20 height="20" class="roundImage userImage">
     <a href="../pages/profile.php?user=<?= $story['author'] ?>"><?= $story['author']?></a>
       <span class="date"> <?= date('d M Y',$date)?></span>
     </header>
@@ -61,13 +61,12 @@ function draw_stories($stories) {
       <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
       <div class = "storyContent">
       <?php $igmsrc = getTrackImage( $story['id']);?>
-      <img class="trackImage"  src=<?=$igmsrc?> width="200" height="200">
+      <img alt="Story cover" class="trackImage"  src=<?=$igmsrc?> width="200" height="200">
         <div class="storyTextAndTrack">
           <p><?=processMentions($story['text'])?></p>
           <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>
         </div>
       </div>
-    </div>
     </section>
     <hr class = "footerSeparator">
     <footer>
@@ -185,7 +184,7 @@ function draw_comment($comment) {
   <article class="comment">
     <div class ="singleComment">
       <?php $igmsrc = getUserImage($comment['author']);?>
-      <img  src=<?=$igmsrc?> width=35 height="35" class="roundImage userImage">
+      <img alt="User image" src=<?=$igmsrc?> width=35 height="35" class="roundImage userImage">
       <div class="comment">
       <span class="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
         <p><?= $comment['text']?></p>
@@ -238,7 +237,7 @@ function draw_comment($comment) {
 ?>
   <section id="add_comment">
   <?php $igmsrc = getUserImage($_SESSION['username']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
+      <img alt="User image" id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
     <form id="insert_comment" method="POST" action="../pages/mainpage.php">
       <input type="text" name="story" value=<?=$story?> hidden>
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
