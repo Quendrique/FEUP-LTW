@@ -49,35 +49,34 @@ function draw_stories($stories) {
     $uservote = null;
   ?>
   <script type="text/javascript" src="../scripts/activity.js"></script>
-  <article id="story" class = "blockStyle ">
+  <article class = "blockStyle story">
     <header> 
     <?php $igmsrc = getUserImage($story['author']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=20 height="20" class="roundImage">
+      <img alt="User image" src=<?=$igmsrc?> width=20 height="20" class="roundImage userImage">
     <a href="../pages/profile.php?user=<?= $story['author'] ?>"><?= $story['author']?></a>
-      <span id="date"> <?= date('d M Y',$date)?></span>
+      <span class="date"> <?= date('d M Y',$date)?></span>
     </header>
     <hr class = "invisibleLine">
-    <section id="body" class = "blockLayout">
+    <section class = "blockLayout body">
       <h2><a href="../pages/story_page.php?story_id=<?=$story['id']?>"><?= $story['title']?></a></h2>
-      <div id = "storyContent">
+      <div class = "storyContent">
       <?php $igmsrc = getTrackImage( $story['id']);?>
-      <img  id="trackImage"  src=<?=$igmsrc?> width="200" height="200">
-        <div id = "storyTextAndTrack">
+      <img alt="Story cover" class="trackImage"  src=<?=$igmsrc?> width="200" height="200">
+        <div class="storyTextAndTrack">
           <p><?=processMentions($story['text'])?></p>
           <audio src= "../tracks/<?=$story['id']?>.mp3" preload="auto"></audio>
         </div>
       </div>
-    </div>
     </section>
     <hr class = "footerSeparator">
     <footer>
-    <span id="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
+    <span class="channel"><a href="../pages/channel_page.php?channel=<?= $story['channel'] ?>">#<?= $story['channel']?></a></span>
     <?php if (isset($_SESSION['username'])) { ?>
       <a href="../pages/story_page.php?story_id=<?=$story['id']?>"><i class="fas fa-comment"></i></a>    
     <?php } else { ?>
       <a href="../pages/login.php?message="><i class="fas fa-comment"></i></a>   
     <?php } ?>
-    <section id="upvote" data-storyid=<?=$story['id']?>>
+    <section class="upvote" data-storyid=<?=$story['id']?>>
       <?php if (isset($_SESSION['username'])) { 
         if($uservote != null && $uservote['type'] == 1){?>
       <button type="submit" class="voteup_btn colored voteupBtn"  user=<?=$_SESSION['username']?> action=1 story=<?=$story['id']?>>
@@ -92,12 +91,12 @@ function draw_stories($stories) {
         <?php } } else { ?>
           <a href="../pages/login.php?message=" class="voteup_btn voteupBtn" ><i class="fas fa-caret-up fa-2x"></i></a>   
       <?php } if($uservote != null && $uservote['type'] == 1) {?>  
-      <span id=numUpvotes class="colored"><?= $story['upvotes']?></span>
+      <span class="colored numUpvotes"><?= $story['upvotes']?></span>
       <?php } else { ?>
-      <span id=numUpvotes><?= $story['upvotes']?></span> 
+      <span class="numUpvotes"><?= $story['upvotes']?></span> 
       <?php } ?>
     </section>
-    <section id="downvote" data-storyid=<?=$story['id']?>>
+    <section class="downvote" data-storyid=<?=$story['id']?>>
       <?php if (isset($_SESSION['username'])) { 
           if($uservote != null && $uservote['type'] == 0){?>
         <button type="submit" class="votedown_btn colored votedownBtn" user=<?=$_SESSION['username']?> action=0 story=<?=$story['id']?>>
@@ -112,9 +111,9 @@ function draw_stories($stories) {
           <?php } } else { ?>
           <a href="../pages/login.php?message=" class="votedown_btn votedownBtn"><i class="fas fa-caret-down fa-2x"></i></a>
         <?php } if($uservote != null && $uservote['type'] == 0) {?>  
-        <span id=numDownvotes class="colored"><?= $story['downvotes']?></span>
+        <span class="colored numDownvotes"><?= $story['downvotes']?></span>
         <?php } else { ?>
-        <span id=numDownvotes><?= $story['downvotes']?></span> 
+        <span class="numDownvotes"><?= $story['downvotes']?></span> 
         <?php } ?>
       </section> 
     </footer>  
@@ -182,46 +181,46 @@ function draw_comment($comment) {
   else
     $uservote = null;
 ?>
-  <article id="comment">
-    <div id ="singleComment">
+  <article class="comment">
+    <div class ="singleComment">
       <?php $igmsrc = getUserImage($comment['author']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
-      <div id ="userAndText" class="comment">
-      <span id="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
-        <p><?= $comment['text']?></p>
+      <img alt="User image" src=<?=$igmsrc?> width=35 height="35" class="roundImage userImage">
+      <div class="comment">
+        <span class="user"><a href="../pages/profile.php?user=<?= $comment['author'] ?>"><?= $comment['author']?></a></span>
+        <p><?=processMentions($comment['text'])?></p>
       </div>
     </div>
     <footer>
-      <section id="upvote" data-commentid=<?=$comment['id']?>>
+      <section class="upvote" data-commentid=<?=$comment['id']?>>
       <?php
           if($uservote != null && $uservote['type'] == 1){?>
-            <button type="submit" class="voteup_btn colored" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="voteup_btn colored commentVoteUp"  user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-up fa-lg"></i>
             </button>
-            <span id=numUpvotes class="colored"><?= $comment['upvotes']?></span>
+            <span class="colored numUpvotes"><?= $comment['upvotes']?></span>
         <?php 
           }else
           {?>
-            <button type="submit" class="voteup_btn" id="commentVoteUp" user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="voteup_btn commentVoteUp"  user=<?=$_SESSION['username']?> action=1 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-up fa-lg"></i>
             </button>
-            <span id=numUpvotes><?= $comment['upvotes']?></span> 
+            <span class="numUpvotes"><?= $comment['upvotes']?></span> 
       <?php } ?>
       </section>
-      <section id="downvote" data-commentid=<?=$comment['id']?>>
+      <section class="downvote" data-commentid=<?=$comment['id']?>>
       <?php
           if($uservote != null && $uservote['type'] == 0){?>
-            <button type="submit" class="votedown_btn colored" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="votedown_btn colored commentVoteDown"  user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-down fa-lg"></i>
             </button>
-            <span id=numDownvotes class="colored"><?= $comment['downvotes']?></span>
+            <span class="colored numDownvotes"><?= $comment['downvotes']?></span>
         <?php 
           }else
           {?>
-            <button type="submit" class="votedown_btn" id="commentVoteDown" user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
+            <button type="submit" class="votedown_btn commentVoteDown"  user=<?=$_SESSION['username']?> action=0 story=<?=$comment['story_id']?> comment=<?=$comment['id']?>>
               <i class="fas fa-caret-down fa-lg"></i>
             </button>
-            <span id=numDownvotes><?= $comment['downvotes']?></span> 
+            <span class="numDownvotes"><?= $comment['downvotes']?></span> 
       <?php } ?>
       </section>
       <span id ="divDot">&bull;</span>
@@ -238,7 +237,7 @@ function draw_comment($comment) {
 ?>
   <section id="add_comment">
   <?php $igmsrc = getUserImage($_SESSION['username']);?>
-      <img  id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
+      <img alt="User image" id="userImage"  src=<?=$igmsrc?> width=35 height="35" class="roundImage">
     <form id="insert_comment" method="POST" action="../pages/mainpage.php">
       <input type="text" name="story" value=<?=$story?> hidden>
       <input type="text" name="user" value=<?=$_SESSION['username']?> hidden>
